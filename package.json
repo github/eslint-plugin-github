@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/github/eslint-plugin-github.git"
@@ -14,5 +13,11 @@
   "bugs": {
     "url": "https://github.com/github/eslint-plugin-github/issues"
   },
-  "homepage": "https://github.com/github/eslint-plugin-github#readme"
+  "homepage": "https://github.com/github/eslint-plugin-github#readme",
+  "peerDependencies": {
+    "eslint": ">=2.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^2.5.3"
+  }
 }
