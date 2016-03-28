@@ -2,8 +2,10 @@
   "name": "eslint-plugin-github",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {},
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha tests/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/github/eslint-plugin-github.git"
@@ -18,6 +20,7 @@
     "eslint": ">=2.5.0"
   },
   "devDependencies": {
-    "eslint": "^2.5.3"
+    "eslint": "^2.5.3",
+    "mocha": "^2.4.5"
   }
 }
