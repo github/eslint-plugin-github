@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "",
   "main": "lib/index.js",
+  "bin": {
+    "eslint-ignore-errors": "bin/eslint-ignore-errors.js"
+  },
   "scripts": {
     "test": "eslint . && mocha tests/"
   },
