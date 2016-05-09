@@ -3,8 +3,9 @@ var RuleTester = require('eslint').RuleTester
 
 var ruleTester = new RuleTester({
   rules: {
-    quotes: ["error", "single"],
-    semi: ["error", "always"]
+    'quotes': ['error', 'single'],
+    'semi': ['error', 'always'],
+    'no-multi-spaces': 'error'
   }
 });
 
@@ -34,6 +35,10 @@ ruleTester.run("no-unused-disabled-rules", rule, {
     { code: "foo(\"foo\"); // eslint-disable-line quotes" },
     { code: "// eslint-disable-next-line quotes\nfoo(\"foo\");" },
     { code: "/* eslint-disable quotes */\nfoo(\"foo\");" },
+
+    { code: "var foo   =   42; // eslint-disable-line " },
+    { code: "// eslint-disable-next-line no-multi-spaces\nvar foo   =   42;" },
+    { code: "/* eslint-disable no-multi-spaces */\nvar foo   =   42;" },
 
     { code: "foo(\"foo\") // eslint-disable-line quotes, semi" },
     { code: "// eslint-disable-next-line quotes, semi\nfoo(\"foo\")" },
@@ -89,6 +94,15 @@ ruleTester.run("no-unused-disabled-rules", rule, {
         },
         {
           message: "Disabled 'semi' rule, but didn't report anything.",
+          type: "Line"
+        }
+      ]
+    },
+    {
+      code: "var foo = 42; // eslint-disable-line no-multi-spaces",
+      errors: [
+        {
+          message: "Disabled 'no-multi-spaces' rule, but didn't report anything.",
           type: "Line"
         }
       ]
