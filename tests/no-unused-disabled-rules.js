@@ -13,6 +13,8 @@ ruleTester.run("no-unused-disabled-rules", rule, {
     { code: "foo();" },
     { code: "foo('foo');" },
 
+    { code: "/* eslint quotes:0 */\nfoo();" },
+
     { code: "foo() // eslint-disable-line" },
     { code: "// eslint-disable-next-line\nfoo()" },
     { code: "/* eslint-disable */\nfoo()" },
