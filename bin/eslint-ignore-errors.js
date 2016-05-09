@@ -18,7 +18,7 @@ execFile('eslint', ['--format', 'json', process.argv[2]], (error, stdout) => {
     result.messages.forEach(message => ruleIds.add(message.ruleId))
 
     const js = fs.readFileSync(filename, 'utf8')
-    const comments = Array.from(ruleIds).map(ruleId => `/* eslint ${ruleId}:0 */`).join("\n")
+    const comments = Array.from(ruleIds).map(ruleId => `/* eslint-disable ${ruleId} */`).join("\n")
     fs.writeFileSync(filename, `${comments}\n${js}`, 'utf8')
   })
 })
