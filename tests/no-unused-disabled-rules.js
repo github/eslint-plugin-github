@@ -7,7 +7,7 @@ var ruleTester = new RuleTester({
     'semi': ['error', 'always'],
     'no-multi-spaces': 'error'
   }
-});
+})
 
 ruleTester.run("no-unused-disabled-rules", rule, {
   valid: [
@@ -108,4 +108,4 @@ ruleTester.run("no-unused-disabled-rules", rule, {
       ]
     }
   ]
-});
+})

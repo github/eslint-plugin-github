@@ -1,7 +1,7 @@
 var rule = require('../lib/rules/no-sprockets-directives')
 var RuleTester = require('eslint').RuleTester
 
-var ruleTester = new RuleTester();
+var ruleTester = new RuleTester()
 
 ruleTester.run("sprockets-directives", rule, {
   valid: [
@@ -95,4 +95,4 @@ ruleTester.run("sprockets-directives", rule, {
       ]
     }
   ]
-});
+})
