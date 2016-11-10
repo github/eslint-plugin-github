@@ -19,3 +19,4 @@ Additional criteria for packages that are used at runtime rather than at build t
 * MUST only declares `package.json` `"dependencies"` that are used at runtime in a browser. Nonessential build packages are declared under `"devDependencies"`.
 * MUST not depend on [jQuery](https://jquery.com).
 * MUST not set or leak any global variables.
+* SHOULD provide [Flow](https://flowtype.org) type definitions.
