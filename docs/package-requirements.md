@@ -17,5 +17,7 @@ Additional criteria for packages that are used at runtime rather than at build t
 * `"main"` and `"jsnext"` source files MUST not `require()` node specific dependencies.
 * MUST only declares `package.json` `"dependencies"` that are used at runtime in a browser. Nonessential build packages are declared under `"devDependencies"`.
 * MUST not depend on [jQuery](https://jquery.com).
-* MUST not set or leak any global variables.
+* MUST not declare specific polyfills in `package.json` `"dependencies"`. However, they MAY implicitly depend on polyfills already present in the environment. 
+* MUST not set or leak any global variables or monkey patch other object prototypes (with the exception of polyfills).
+* Polyfill libraries MUST have an associated [Working Draft](https://www.w3.org/2004/02/Process-20040205/tr.html#first-wd) specification published by a standards body. Polyfills based on Editor's Draft are too early to implement and depend on.
 * SHOULD provide [Flow](https://flowtype.org) type definitions.
