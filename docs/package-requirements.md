@@ -6,7 +6,6 @@ A set of criteria used to evaluate packages used by [GitHub](https://github.com)
 * SHOULD be also available on [GitHub](https://github.com) with tagged releases.
 * MUST provide an [OSI](https://opensource.org/licenses) license file and declare in `package.json` `"license"` field.
 * SHOULD be available under an MIT license.
-* MUST follow [SemVer](http://semver.org) versioning.
 * MUST be installable via [npm](https://www.npmjs.com/package/npm) or [yarn](https://www.npmjs.com/package/yarn) toolchain.
 
 ## Browser specific requirements
