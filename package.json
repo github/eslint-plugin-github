@@ -4,7 +4,8 @@
   "description": "",
   "main": "lib/index.js",
   "bin": {
-    "eslint-ignore-errors": "bin/eslint-ignore-errors.js"
+    "eslint-ignore-errors": "bin/eslint-ignore-errors.js",
+    "npm-check-github-package-requirements": "bin/npm-check-github-package-requirements.js"
   },
   "scripts": {
     "test": "eslint . && mocha tests/"
