@@ -12,7 +12,7 @@ Requests initiated by JavaScript using XHR or Fetch still need to include a CSRF
 const csrfToken = this.closest('form').elements['authenticity_token'].value
 ```
 
-Unless the JavaScript's request is for the same method/action as the form from which it takes the CSRF token, this CSRF token will *not*  be accepted by the Rails application.
+Unless the JavaScript's request is for the same method/action as the form from which it takes the CSRF token, this CSRF token will *not* be accepted by the Rails application.
 
 The preferred way to make an HTTP request with JavaScript is to use the [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) API to serialize the input elements of a form:
 
