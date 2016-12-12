@@ -8,7 +8,7 @@ An attacker who is able to steal a user's CSRF token can perform a CSRF attack a
 
 Requests initiated by JavaScript using XHR or Fetch still need to include a CSRF token. Prior to our use of per-form tokens, a common pattern for getting a valid CSRF token to include in a request was
 
-```JavaScript
+``` js
 const csrfToken = this.closest('form').elements['authenticity_token'].value
 ```
 
@@ -16,14 +16,14 @@ Unless the JavaScript's request is for the same method/action as the form from w
 
 The preferred way to make an HTTP request with JavaScript is to use the [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) API to serialize the input elements of a form:
 
-```rhtml
+``` erb
 <%= form_tag "/my/endpoint" do %>
   <input type="hidden" name="my_field" value="my value">
   <button class="js-my-button">Click Me!</button>
 <% end %>
 ```
 
-```JavaScript
+``` js
 on('click', '.js-my-button', function(e) {
   const form = this.closest('form')
 
@@ -40,7 +40,7 @@ on('click', '.js-my-button', function(e) {
 
 An alternate, but less preferred approach is to include the CSRF token in a data-attribute:
 
-```rhtml
+``` erb
 <%
   path = some_action_path(some_params)
   token = authenticity_token_for(path, method: :put)
@@ -48,7 +48,7 @@ An alternate, but less preferred approach is to include the CSRF token in a data
 <button class='js-my-button' data-url="<%= path %>" data-authenticity-token="<%= token %>">Click Me!</button>
 ```
 
-```JavaScript
+``` js
 on('click', '.js-my-button', function(e) {
   const data = new FormData()
   data.append('authenticity_token', this.getAttribute('data-authenticity-token'))
