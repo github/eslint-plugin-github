@@ -3,12 +3,12 @@
 Prefer `for...of` statement instead of `Array.forEach`.
 
 ``` js
-# bad
+// bad
 els.forEach(el => {
   el
 })
 
-# good
+// good
 for (const el of els) {
   el
 }
