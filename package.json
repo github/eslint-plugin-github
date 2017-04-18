@@ -21,10 +21,10 @@
   },
   "homepage": "https://github.com/github/eslint-plugin-github#readme",
   "peerDependencies": {
-    "eslint": ">=3.8.0"
+    "eslint": ">=3.19.0"
   },
   "devDependencies": {
-    "eslint": "^3.8.1",
+    "eslint": "^3.19.0",
     "mocha": "^2.4.5"
   }
 }
