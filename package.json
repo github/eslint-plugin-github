@@ -8,6 +8,7 @@
     "npm-check-github-package-requirements": "bin/npm-check-github-package-requirements.js"
   },
   "scripts": {
+    "pretest": "mkdir -p node_modules/ && ln -fs $(pwd) node_modules/",
     "test": "eslint . && mocha tests/"
   },
   "repository": {
