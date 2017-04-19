@@ -6,6 +6,8 @@ var ruleTester = new RuleTester()
 ruleTester.run("no-dataset", rule, {
   valid: [
     { code: "el.getAttribute('data-cool-thing')" },
+    { code: "var dataset = 'this is cool'" },
+    { code: "function dataset() { }" },
   ],
   invalid: [
     {
