@@ -14,7 +14,7 @@ ruleTester.run("no-dataset", rule, {
       code: "el.dataset.coolThing",
       errors: [
         {
-          message: "Due to camel-case transformations, using dataset is not easily greppable. Instead, use el.getAttribute('data-what-ever').",
+          message: "Use getAttribute('data-your-attribute') instead of dataset.",
         }
       ]
     },
@@ -22,7 +22,7 @@ ruleTester.run("no-dataset", rule, {
       code: "el.dataset['cool-thing']",
       errors: [
         {
-          message: "Due to camel-case transformations, using dataset is not easily greppable. Instead, use el.getAttribute('data-what-ever').",
+          message: "Use getAttribute('data-your-attribute') instead of dataset.",
         }
       ]
     },
