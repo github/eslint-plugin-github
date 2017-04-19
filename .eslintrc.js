@@ -3,7 +3,6 @@ module.exports = {
     "ecmaVersion": 6
   },
   "rules": {
-    "github/no-dataset": 0,
     "github/no-flow-weak": 0,
     "github/no-flowfixme": 0,
     "github/no-implicit-buggy-globals": 0,
