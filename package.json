@@ -23,7 +23,8 @@
   "homepage": "https://github.com/github/eslint-plugin-github#readme",
   "peerDependencies": {
     "eslint": ">=3.19.0",
-    "eslint-plugin-import": ">=2.2.0"
+    "eslint-plugin-import": ">=2.2.0",
+    "eslint-rule-documentation": ">=1.0.11"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
