@@ -5,7 +5,7 @@ var ruleTester = new RuleTester()
 
 ruleTester.run("no-flowfixme", rule, {
   valid: [
-    { code: "// OK\nvar x = 123;" }
+    {code: "// OK\nvar x = 123;"}
   ],
   invalid: [
     {

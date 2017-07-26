@@ -10,29 +10,29 @@ ruleTester.run("no-implicit-buggy-globals", rule, {
     },
     {
       code: "(function() { let foo = 1; })();",
-      parserOptions: { ecmaVersion: 6 }
+      parserOptions: {ecmaVersion: 6}
     },
     {
       code: "(function() { const foo = 1; })();",
-      parserOptions: { ecmaVersion: 6 }
+      parserOptions: {ecmaVersion: 6}
     },
     {
       code: "var foo = 1;",
-      parserOptions: { sourceType: "module" }
+      parserOptions: {sourceType: "module"}
     },
     {
       code: "let foo = 1;",
-      parserOptions: { sourceType: "module" }
+      parserOptions: {sourceType: "module"}
     },
     {
       code: "const foo = 1;",
-      parserOptions: { sourceType: "module" }
+      parserOptions: {sourceType: "module"}
     }
   ],
   invalid: [
     {
       code: "const foo = 1;",
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: {ecmaVersion: 6},
       errors: [
         {
           message: "Implicit global variable, assign as global property instead.",
@@ -42,7 +42,7 @@ ruleTester.run("no-implicit-buggy-globals", rule, {
     },
     {
       code: "let foo = 1;",
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: {ecmaVersion: 6},
       errors: [
         {
           message: "Implicit global variable, assign as global property instead.",
@@ -52,7 +52,7 @@ ruleTester.run("no-implicit-buggy-globals", rule, {
     },
     {
       code: "let foo = function() {};",
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: {ecmaVersion: 6},
       errors: [
         {
           message: "Implicit global variable, assign as global property instead.",
@@ -62,7 +62,7 @@ ruleTester.run("no-implicit-buggy-globals", rule, {
     },
     {
       code: "const foo = function() {};",
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: {ecmaVersion: 6},
       errors: [
         {
           message: "Implicit global variable, assign as global property instead.",
@@ -72,7 +72,7 @@ ruleTester.run("no-implicit-buggy-globals", rule, {
     },
     {
       code: "class Foo {}",
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: {ecmaVersion: 6},
       errors: [
         {
           message: "Implicit global variable, assign as global property instead.",

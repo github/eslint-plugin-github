@@ -15,7 +15,7 @@ ruleTester.run("async-preventdefault", rule, {
   invalid: [
     {
       code: "document.addEventListener(async function(event) { event.preventDefault() })",
-      parserOptions: { ecmaVersion: 2017 },
+      parserOptions: {ecmaVersion: 2017},
       errors: [
         {
           message: "event.preventDefault() inside an async function is error prone",

@@ -5,18 +5,18 @@ var ruleTester = new RuleTester()
 
 ruleTester.run("js-class-name", rule, {
   valid: [
-    { code: "document.querySelector('body')" },
-    { code: "document.querySelector('#js-foo')" },
-    { code: "document.querySelector('.js-foo')" },
-    { code: "document.querySelector('.js-foo > .js-bar')" },
-    { code: "document.querySelector(\".js-foo\")" },
-    { code: "document.querySelector('.js-foo ' + ' > .js-bar')" },
-    { code: "document.querySelector('.js-foo ' + ' > ' + '.js-bar')" },
+    {code: "document.querySelector('body')"},
+    {code: "document.querySelector('#js-foo')"},
+    {code: "document.querySelector('.js-foo')"},
+    {code: "document.querySelector('.js-foo > .js-bar')"},
+    {code: "document.querySelector(\".js-foo\")"},
+    {code: "document.querySelector('.js-foo ' + ' > .js-bar')"},
+    {code: "document.querySelector('.js-foo ' + ' > ' + '.js-bar')"},
     {
       code: "document.querySelector(`.js-foo`)",
-      parserOptions: { ecmaVersion: 6 }
+      parserOptions: {ecmaVersion: 6}
     },
-    { code: "'random textjs-XXX'" }
+    {code: "'random textjs-XXX'"}
   ],
   invalid: [
     {
@@ -83,7 +83,7 @@ ruleTester.run("js-class-name", rule, {
     },
     {
       code: "document.querySelector(`.js-${foo}`)",
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: {ecmaVersion: 6},
       errors: [
         {
           message: "js- class names should be lowercase and only contain dashes.",
@@ -97,7 +97,7 @@ ruleTester.run("js-class-name", rule, {
     },
     {
       code: "document.querySelector(`.js-foo-${foo}`)",
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: {ecmaVersion: 6},
       errors: [
         {
           message: "js- class names should be lowercase and only contain dashes.",
@@ -111,7 +111,7 @@ ruleTester.run("js-class-name", rule, {
     },
     {
       code: "document.querySelector(`.js-foo${idx}`)",
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: {ecmaVersion: 6},
       errors: [
         {
           message: "js- class names should be statically defined.",

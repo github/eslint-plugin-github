@@ -5,7 +5,7 @@ var ruleTester = new RuleTester()
 
 ruleTester.run("no-noflow", rule, {
   valid: [
-    { code: "/* @flow */" }
+    {code: "/* @flow */"}
   ],
   invalid: [
     {

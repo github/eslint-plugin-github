@@ -5,12 +5,12 @@ var ruleTester = new RuleTester()
 
 ruleTester.run("sprockets-directives", rule, {
   valid: [
-    { code: "// foo" },
-    { code: "/* foo */" },
-    { code: "// foo\n// bar" },
-    { code: "/* foo\n bar */" },
-    { code: "// require foo" },
-    { code: "// require foo" }
+    {code: "// foo"},
+    {code: "/* foo */"},
+    {code: "// foo\n// bar"},
+    {code: "/* foo\n bar */"},
+    {code: "// require foo"},
+    {code: "// require foo"}
   ],
   invalid: [
     {
