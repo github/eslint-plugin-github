@@ -20,7 +20,7 @@ execFile('eslint', ['--format', 'json', process.argv[2]], (error, stdout) => {
     const js = fs.readFileSync(filename, 'utf8')
     const comments = Array.from(ruleIds).map(ruleId => `/* eslint-disable ${ruleId} */`)
     if (comments.length) {
-      fs.writeFileSync(filename, `${comments.join("\n")}\n${js}`, 'utf8')
+      fs.writeFileSync(filename, `${comments.join('\n')}\n${js}`, 'utf8')
     }
   })
 })

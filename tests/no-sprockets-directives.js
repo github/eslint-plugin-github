@@ -3,94 +3,94 @@ var RuleTester = require('eslint').RuleTester
 
 var ruleTester = new RuleTester()
 
-ruleTester.run("sprockets-directives", rule, {
+ruleTester.run('sprockets-directives', rule, {
   valid: [
-    {code: "// foo"},
-    {code: "/* foo */"},
-    {code: "// foo\n// bar"},
-    {code: "/* foo\n bar */"},
-    {code: "// require foo"},
-    {code: "// require foo"}
+    {code: '// foo'},
+    {code: '/* foo */'},
+    {code: '// foo\n// bar'},
+    {code: '/* foo\n bar */'},
+    {code: '// require foo'},
+    {code: '// require foo'}
   ],
   invalid: [
     {
-      code: "//= require foo",
+      code: '//= require foo',
       errors: [
         {
-          message: "Sprockets directive found, use ES import instead.",
-          type: "Line"
+          message: 'Sprockets directive found, use ES import instead.',
+          type: 'Line'
         }
       ]
     },
     {
-      code: "/*\n *= require foo\n */",
+      code: '/*\n *= require foo\n */',
       errors: [
         {
-          message: "Sprockets directive found, use ES import instead.",
-          type: "Block"
+          message: 'Sprockets directive found, use ES import instead.',
+          type: 'Block'
         }
       ]
     },
     {
-      code: "// Foo\n//= require foo",
+      code: '// Foo\n//= require foo',
       errors: [
         {
-          message: "Sprockets directive found, use ES import instead.",
-          type: "Line"
+          message: 'Sprockets directive found, use ES import instead.',
+          type: 'Line'
         }
       ]
     },
     {
-      code: "// =require foo",
+      code: '// =require foo',
       errors: [
         {
-          message: "Sprockets directive found, use ES import instead.",
-          type: "Line"
+          message: 'Sprockets directive found, use ES import instead.',
+          type: 'Line'
         }
       ]
     },
     {
-      code: "//=require foo",
+      code: '//=require foo',
       errors: [
         {
-          message: "Sprockets directive found, use ES import instead.",
-          type: "Line"
+          message: 'Sprockets directive found, use ES import instead.',
+          type: 'Line'
         }
       ]
     },
     {
-      code: "//= require_tree foo",
+      code: '//= require_tree foo',
       errors: [
         {
-          message: "Sprockets directive found, use ES import instead.",
-          type: "Line"
+          message: 'Sprockets directive found, use ES import instead.',
+          type: 'Line'
         }
       ]
     },
     {
-      code: "//= require_directory foo",
+      code: '//= require_directory foo',
       errors: [
         {
-          message: "Sprockets directive found, use ES import instead.",
-          type: "Line"
+          message: 'Sprockets directive found, use ES import instead.',
+          type: 'Line'
         }
       ]
     },
     {
-      code: "//= require_self",
+      code: '//= require_self',
       errors: [
         {
-          message: "Sprockets directive found, use ES import instead.",
-          type: "Line"
+          message: 'Sprockets directive found, use ES import instead.',
+          type: 'Line'
         }
       ]
     },
     {
-      code: "//= stub foo",
+      code: '//= stub foo',
       errors: [
         {
-          message: "Sprockets directive found, use ES import instead.",
-          type: "Line"
+          message: 'Sprockets directive found, use ES import instead.',
+          type: 'Line'
         }
       ]
     }

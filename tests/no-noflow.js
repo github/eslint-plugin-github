@@ -3,17 +3,17 @@ var RuleTester = require('eslint').RuleTester
 
 var ruleTester = new RuleTester()
 
-ruleTester.run("no-noflow", rule, {
+ruleTester.run('no-noflow', rule, {
   valid: [
-    {code: "/* @flow */"}
+    {code: '/* @flow */'}
   ],
   invalid: [
     {
-      code: "/* @noflow */",
+      code: '/* @noflow */',
       errors: [
         {
-          message: "Do not disable Flow type checker, use @flow instead.",
-          type: "Block"
+          message: 'Do not disable Flow type checker, use @flow instead.',
+          type: 'Block'
         }
       ]
     }
