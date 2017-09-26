@@ -6,10 +6,10 @@ var ruleTester = new RuleTester()
 ruleTester.run('async-preventdefault', rule, {
   valid: [
     {
-      code: 'document.addEventListener(function(event) { event.preventDefault() })',
+      code: 'document.addEventListener(function(event) { event.preventDefault() })'
     },
     {
-      code: 'document.addEventListener(function(event) { event.target })',
+      code: 'document.addEventListener(function(event) { event.target })'
     }
   ],
   invalid: [
