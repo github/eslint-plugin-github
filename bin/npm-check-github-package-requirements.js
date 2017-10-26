@@ -5,20 +5,22 @@ const path = require('path')
 
 const checks = []
 function check(name, callback) {
-  checks.push([checks.length+1, name, callback])
+  checks.push([checks.length + 1, name, callback])
 }
 
 function run() {
   process.stdout.write(`1..${checks.length}\n`)
   checks.forEach(([count, name, callback]) => {
-    Promise.resolve().then(callback).then(() => {
-      process.stdout.write(`ok ${count} - ${name}\n`)
-    }).catch(error => {
-      process.stdout.write(`not ok ${count} - ${name}\n  ${error}\n`)
-    })
+    Promise.resolve()
+      .then(callback)
+      .then(() => {
+        process.stdout.write(`ok ${count} - ${name}\n`)
+      })
+      .catch(error => {
+        process.stdout.write(`not ok ${count} - ${name}\n  ${error}\n`)
+      })
   })
 }
-
 
 const packageRoot = process.argv[2]
 

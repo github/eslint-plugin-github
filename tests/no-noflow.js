@@ -4,9 +4,7 @@ var RuleTester = require('eslint').RuleTester
 var ruleTester = new RuleTester()
 
 ruleTester.run('no-noflow', rule, {
-  valid: [
-    {code: '/* @flow */'}
-  ],
+  valid: [{code: '/* @flow */'}],
   invalid: [
     {
       code: '/* @noflow */',
