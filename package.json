@@ -10,7 +10,7 @@
   "scripts": {
     "pretest": "mkdir -p node_modules/ && ln -fs $(pwd) node_modules/",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-    "test": "npm run eslint-check && eslint . && mocha tests/"
+    "test": "npm run eslint-check && eslint --report-unused-disable-directives . && mocha tests/"
   },
   "repository": {
     "type": "git",
