@@ -5,8 +5,8 @@ var ruleTester = new RuleTester()
 
 ruleTester.run('no-dataset', rule, {
   valid: [
-    {code: 'el.getAttribute(\'data-cool-thing\')'},
-    {code: 'var dataset = \'this is cool\''},
+    {code: "el.getAttribute('data-cool-thing')"},
+    {code: "var dataset = 'this is cool'"},
     {code: 'function dataset() { }'}
   ],
   invalid: [
@@ -14,15 +14,15 @@ ruleTester.run('no-dataset', rule, {
       code: 'el.dataset.coolThing',
       errors: [
         {
-          message: 'Use getAttribute(\'data-your-attribute\') instead of dataset.'
+          message: "Use getAttribute('data-your-attribute') instead of dataset."
         }
       ]
     },
     {
-      code: 'el.dataset[\'cool-thing\']',
+      code: "el.dataset['cool-thing']",
       errors: [
         {
-          message: 'Use getAttribute(\'data-your-attribute\') instead of dataset.'
+          message: "Use getAttribute('data-your-attribute') instead of dataset."
         }
       ]
     }

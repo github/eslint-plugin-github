@@ -9,7 +9,8 @@
   },
   "scripts": {
     "pretest": "mkdir -p node_modules/ && ln -fs $(pwd) node_modules/",
-    "test": "eslint . && mocha tests/"
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "test": "npm run eslint-check && eslint . && mocha tests/"
   },
   "repository": {
     "type": "git",
@@ -23,10 +24,13 @@
   "homepage": "https://github.com/github/eslint-plugin-github#readme",
   "dependencies": {
     "babel-eslint": ">=8.0.0",
+    "eslint-config-prettier": "^2.6.0",
     "eslint-plugin-flowtype": ">=2.36.0",
     "eslint-plugin-import": ">=2.7.0",
+    "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": ">=7.4.0",
-    "eslint-rule-documentation": ">=1.0.0"
+    "eslint-rule-documentation": ">=1.0.0",
+    "prettier": "^1.7.4"
   },
   "peerDependencies": {
     "eslint": ">=4.7.0"

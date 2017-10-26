@@ -3,8 +3,8 @@ var RuleTester = require('eslint').RuleTester
 
 var ruleTester = new RuleTester({
   rules: {
-    'quotes': ['error', 'single'],
-    'semi': ['error', 'always'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'always'],
     'no-multi-spaces': 'error'
   }
 })
@@ -12,7 +12,7 @@ var ruleTester = new RuleTester({
 ruleTester.run('no-unused-disabled-rules', rule, {
   valid: [
     {code: 'foo();'},
-    {code: 'foo(\'foo\');'},
+    {code: "foo('foo');"},
 
     {code: '/* eslint quotes:0 */\nfoo();'},
 
@@ -53,7 +53,7 @@ ruleTester.run('no-unused-disabled-rules', rule, {
       code: 'foo(); // eslint-disable-line semi',
       errors: [
         {
-          message: 'Disabled \'semi\' rule, but didn\'t report anything.',
+          message: "Disabled 'semi' rule, but didn't report anything.",
           type: 'Line'
         }
       ]
@@ -62,38 +62,38 @@ ruleTester.run('no-unused-disabled-rules', rule, {
       code: '// eslint-disable-next-line semi\nfoo();',
       errors: [
         {
-          message: 'Disabled \'semi\' rule, but didn\'t report anything.',
+          message: "Disabled 'semi' rule, but didn't report anything.",
           type: 'Line'
         }
       ]
     },
     {
-      code: 'foo(\'bar\'); // eslint-disable-line quotes',
+      code: "foo('bar'); // eslint-disable-line quotes",
       errors: [
         {
-          message: 'Disabled \'quotes\' rule, but didn\'t report anything.',
+          message: "Disabled 'quotes' rule, but didn't report anything.",
           type: 'Line'
         }
       ]
     },
     {
-      code: 'foo(\'bar\'); // eslint-disable-line semi',
+      code: "foo('bar'); // eslint-disable-line semi",
       errors: [
         {
-          message: 'Disabled \'semi\' rule, but didn\'t report anything.',
+          message: "Disabled 'semi' rule, but didn't report anything.",
           type: 'Line'
         }
       ]
     },
     {
-      code: 'foo(\'bar\'); // eslint-disable-line quotes, semi',
+      code: "foo('bar'); // eslint-disable-line quotes, semi",
       errors: [
         {
-          message: 'Disabled \'quotes\' rule, but didn\'t report anything.',
+          message: "Disabled 'quotes' rule, but didn't report anything.",
           type: 'Line'
         },
         {
-          message: 'Disabled \'semi\' rule, but didn\'t report anything.',
+          message: "Disabled 'semi' rule, but didn't report anything.",
           type: 'Line'
         }
       ]
@@ -102,7 +102,7 @@ ruleTester.run('no-unused-disabled-rules', rule, {
       code: 'var foo = 42; // eslint-disable-line no-multi-spaces',
       errors: [
         {
-          message: 'Disabled \'no-multi-spaces\' rule, but didn\'t report anything.',
+          message: "Disabled 'no-multi-spaces' rule, but didn't report anything.",
           type: 'Line'
         }
       ]
