@@ -9,13 +9,8 @@ $ npm install --save-dev eslint
 $ npm install --save-dev eslint-plugin-github
 ```
 
-``` js
-// .eslintrc.json
-{
-  "extends": [
-    "plugin:github/recommended",
-    "plugin:github/browser",
-    "plugin:github/es6"
-  ]
-}
+Run initialization wizard.
+
+``` sh
+$ node_modules/.bin/eslint-github-init
 ```
