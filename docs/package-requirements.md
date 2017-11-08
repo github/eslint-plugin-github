@@ -2,7 +2,7 @@
 
 A set of criteria used to evaluate packages used by [GitHub](https://github.com).
 
-* MUST be published on [npm registery](https://www.npmjs.com).
+* MUST be published on [npm registry](https://www.npmjs.com).
 * SHOULD be also available on [GitHub](https://github.com) with tagged releases.
 * MUST provide an [OSI](https://opensource.org/licenses) license file and declare in `package.json` `"license"` field.
 * SHOULD be available under an approved license: MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, CC0-1.0, Unlicensed
