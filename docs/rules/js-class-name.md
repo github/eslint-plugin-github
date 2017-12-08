@@ -16,7 +16,7 @@ In order to trust this system, all `js-` class names MUST be statically written 
 
 Typically dynamically constructed `js-` classes are often mixing static symbols and user data together. Like `"js-org-#{org.login}"`. In this case, separating into a `data-` attribute would be a better solution.
 
-``` html
+```html
 <div class="js-org-update" data-org-name="<%= org.login %>">
 ```
 

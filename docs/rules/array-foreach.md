@@ -2,7 +2,7 @@
 
 Prefer `for...of` statement instead of `Array.forEach`.
 
-``` js
+```js
 // bad
 els.forEach(el => {
   el

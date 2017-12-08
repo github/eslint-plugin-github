@@ -2,7 +2,7 @@
 
 Yes, you should use promises, but prefer `async`/`await` syntax instead of `Promise.then()` callback chaining.
 
-``` js
+```js
 // bad
 function getProcessedData(url) {
   return downloadData(url)
@@ -19,7 +19,7 @@ async function getProcessedData(url) {
   let v
   try {
     v = await downloadData(url)
-  } catch(e) {
+  } catch (e) {
     v = await downloadFallbackData(url)
   }
   return processDataInWorker(v)
