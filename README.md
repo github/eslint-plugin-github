@@ -1,16 +1,14 @@
 # eslint-plugin-github
 
-* [Package Requirements](/docs/package-requirements.md)
-
 ## Installation
 
-``` sh
+```sh
 $ npm install --save-dev eslint
 $ npm install --save-dev eslint-plugin-github
 ```
 
 Run initialization wizard.
 
-``` sh
+```sh
 $ node_modules/.bin/eslint-github-init
 ```
