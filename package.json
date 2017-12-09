@@ -6,12 +6,13 @@
   "bin": {
     "eslint-github-init": "bin/eslint-github-init.js",
     "eslint-ignore-errors": "bin/eslint-ignore-errors.js",
+    "github-lint": "bin/github-lint.js",
     "npm-check-github-package-requirements": "bin/npm-check-github-package-requirements.js"
   },
   "scripts": {
     "pretest": "mkdir -p node_modules/ && ln -fs $(pwd) node_modules/",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-    "test": "npm run eslint-check && eslint --report-unused-disable-directives . && mocha tests/"
+    "test": "npm run eslint-check && bin/github-lint.js && mocha tests/"
   },
   "repository": {
     "type": "git",
