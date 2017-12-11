@@ -6,6 +6,7 @@
   "bin": {
     "eslint-github-init": "bin/eslint-github-init.js",
     "eslint-ignore-errors": "bin/eslint-ignore-errors.js",
+    "flow-coverage": "bin/flow-coverage.js",
     "github-lint": "bin/github-lint.js",
     "npm-check-github-package-requirements": "bin/npm-check-github-package-requirements.js"
   },
