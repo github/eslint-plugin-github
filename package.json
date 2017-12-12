@@ -25,6 +25,7 @@
     "url": "https://github.com/github/eslint-plugin-github/issues"
   },
   "homepage": "https://github.com/github/eslint-plugin-github#readme",
+  "engines": {"node": ">=8.9.3"},
   "dependencies": {
     "babel-eslint": ">=8.0.0",
     "eslint-config-prettier": ">=2.6.0",
