@@ -25,7 +25,9 @@
     "url": "https://github.com/github/eslint-plugin-github/issues"
   },
   "homepage": "https://github.com/github/eslint-plugin-github#readme",
-  "engines": {"node": ">=8.9.3"},
+  "engines": {
+    "node": ">=8.9.3"
+  },
   "dependencies": {
     "babel-eslint": ">=8.0.0",
     "eslint-config-prettier": ">=2.6.0",
@@ -37,6 +39,7 @@
     "eslint-plugin-react": ">=7.4.0",
     "eslint-plugin-relay": ">=0.0.19",
     "eslint-rule-documentation": ">=1.0.0",
+    "flow-bin": ">=0.61.0",
     "inquirer": "^3.3.0",
     "prettier": ">=1.7.0"
   },
