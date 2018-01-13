@@ -1,10 +1,12 @@
 #!/usr/bin/env node
-// usage: flow-coverage 95
+// usage: flow-coverage
 //
 // Run flow coverage on project.
 
 const childProcess = require('child_process')
 const flow = require('flow-bin')
+const fs = require('fs')
+const path = require('path')
 
 const execFile = (file, args) =>
   new Promise((resolve, reject) => {
@@ -69,7 +71,13 @@ async function grepFlowFiles() {
 }
 
 ;(async function() {
-  const threshold = parseInt(process.argv[2])
+  let threshold = 0
+
+  const packageJsonPath = path.join(process.cwd(), 'package.json')
+  if (fs.existsSync(packageJsonPath)) {
+    const packageJson = require(packageJsonPath)
+    threshold = (packageJson.flow && packageJson.flow.coverageThreshold) || 0
+  }
 
   await startFlow()
 
