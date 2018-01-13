@@ -29,7 +29,7 @@ function execFile(command, args) {
   }
 
   if (packageJson && packageJson.flow && packageJson.flow.coverageThreshold) {
-    commands.push(['flow-coverage'])
+    commands.push(['flow-coverage', []])
   }
 
   for (const [command, args] of commands) {
