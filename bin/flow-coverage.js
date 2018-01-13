@@ -28,8 +28,12 @@ const execFile = (file, args) =>
 
 async function execFileJSON(file, args) {
   args.push('--json')
-  const {stdout} = await execFile(file, args)
-  return JSON.parse(stdout)
+  const {stdout, stderr} = await execFile(file, args)
+  if (stderr) {
+    return JSON.parse(stderr)
+  } else {
+    return JSON.parse(stdout)
+  }
 }
 
 function computeCoverage(covered, uncovered) {
@@ -43,10 +47,14 @@ function computeCoverage(covered, uncovered) {
 
 async function getCoverage(path) {
   const json = await execFileJSON(flow, ['coverage', path])
-  const uncoveredCount = json.expressions['uncovered_count']
-  const coveredCount = json.expressions['covered_count']
-  const covered = computeCoverage(coveredCount, uncoveredCount)
-  return {path, uncoveredCount, coveredCount, covered}
+  if (json && json.expressions) {
+    const uncoveredCount = json.expressions['uncovered_count']
+    const coveredCount = json.expressions['covered_count']
+    const covered = computeCoverage(coveredCount, uncoveredCount)
+    return {path, uncoveredCount, coveredCount, covered}
+  } else {
+    return {path, uncoveredCount: 0, coveredCount: 0, covered: 0}
+  }
 }
 
 async function startFlow() {
