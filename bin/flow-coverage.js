@@ -33,7 +33,12 @@ async function execFileJSON(file, args) {
 }
 
 function computeCoverage(covered, uncovered) {
-  return 100 * (covered / (covered + uncovered))
+  const total = covered + uncovered
+  if (total) {
+    return 100 * (covered / total)
+  } else {
+    return 100
+  }
 }
 
 async function getCoverage(path) {
