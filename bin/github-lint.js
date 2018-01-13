@@ -3,8 +3,9 @@
 //
 // Run ESLint and Flow on project.
 
-const fs = require('fs')
 const childProcess = require('child_process')
+const fs = require('fs')
+const path = require('path')
 
 function execFile(command, args) {
   return new Promise(resolve => {
@@ -19,10 +20,16 @@ function execFile(command, args) {
   const codes = []
   const commands = []
 
+  const packageJson = fs.existsSync('package.json') ? require(path.join(process.cwd(), 'package.json')) : {}
+
   commands.push(['eslint', ['--report-unused-disable-directives', '.']])
 
   if (fs.existsSync('.flowconfig')) {
     commands.push(['flow', ['check']])
+  }
+
+  if (packageJson && packageJson.flow && packageJson.flow.coverageThreshold) {
+    commands.push(['flow-coverage'])
   }
 
   for (const [command, args] of commands) {
