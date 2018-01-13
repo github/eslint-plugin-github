@@ -54,14 +54,14 @@ async function startFlow() {
   }
 }
 
-const ignore = [/\.flowconfig$/, /\.json$/, /\.test\.js$/, /\/__generated__\//, /\/flow-typed\//, /\/node_modules\//]
-
-async function flowList() {
-  execFile('git', ['grep', '--name-only', '--', '@flow'])
-
-  const paths = await execFileJSON(flow, ['ls'])
-  return paths.filter(path => !ignore.some(re => re.test(path)))
-}
+// const ignore = [/\.flowconfig$/, /\.json$/, /\.test\.js$/, /\/__generated__\//, /\/flow-typed\//, /\/node_modules\//]
+//
+// async function flowList() {
+//   execFile('git', ['grep', '--name-only', '--', '@flow'])
+//
+//   const paths = await execFileJSON(flow, ['ls'])
+//   return paths.filter(path => !ignore.some(re => re.test(path)))
+// }
 
 async function grepFlowFiles() {
   const {stdout} = await execFile('git', ['grep', '--null', '--name-only', '--', '@flow'])
