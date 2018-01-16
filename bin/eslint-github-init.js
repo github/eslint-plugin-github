@@ -7,7 +7,8 @@ const path = require('path')
 const defaults = {
   env: 'browser',
   flow: true,
-  react: true
+  react: true,
+  relay: true
 }
 
 const packagePath = path.resolve(process.cwd(), 'package.json')
@@ -15,6 +16,7 @@ if (fs.existsSync(packagePath)) {
   const packageJSON = fs.readFileSync(packagePath, 'utf8')
   defaults.flow = /flow/.test(packageJSON)
   defaults.react = /react/.test(packageJSON)
+  defaults.relay = /relay/.test(packageJSON)
 }
 
 const questions = [
@@ -33,6 +35,12 @@ const questions = [
   },
   {
     type: 'confirm',
+    name: 'relay',
+    message: 'Are you using Relay?',
+    default: defaults.relay
+  },
+  {
+    type: 'confirm',
     name: 'react',
     message: 'Are you using React?',
     default: defaults.react,
@@ -45,6 +53,7 @@ inquirer.prompt(questions).then(answers => {
   if (answers.env === 'browser') eslintrc.extends.push('plugin:github/browser')
   if (answers.flow) eslintrc.extends.push('plugin:github/flow')
   if (answers.react) eslintrc.extends.push('plugin:github/react')
+  if (answers.relay) eslintrc.extends.push('plugin:github/relay')
 
   fs.writeFileSync(path.resolve(process.cwd(), '.eslintrc.json'), JSON.stringify(eslintrc, null, '  '), 'utf8')
 
