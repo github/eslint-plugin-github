@@ -3,6 +3,7 @@
   "version": "0.23.0",
   "description": "",
   "main": "lib/index.js",
+  "entries": ["lib/formatters/stylish-fixes.js"],
   "bin": {
     "eslint-github-init": "bin/eslint-github-init.js",
     "eslint-ignore-errors": "bin/eslint-ignore-errors.js",
