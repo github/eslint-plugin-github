@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-github",
-  "version": "0.24.0",
+  "version": "0.24.1",
   "description": "",
   "main": "lib/index.js",
   "entries": ["lib/formatters/stylish-fixes.js"],
