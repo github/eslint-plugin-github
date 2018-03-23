@@ -22,3 +22,7 @@ const report = cli.executeOnFiles(process.argv.slice(2))
 const formatter = cli.getFormatter()
 
 process.stdout.write(formatter(report.results))
+
+if (report.errorCount > 0) {
+  process.exit(1)
+}
