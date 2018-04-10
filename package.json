@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-github",
   "version": "0.24.1",
-  "description": "",
+  "description": "An opinionated collection of ESLint shared configs and rules used by GitHub.",
   "main": "lib/index.js",
   "entries": ["lib/formatters/stylish-fixes.js"],
   "bin": {
