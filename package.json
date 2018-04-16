@@ -43,7 +43,7 @@
     "eslint-plugin-relay": ">=0.0.19",
     "eslint-rule-documentation": ">=1.0.0",
     "flow-bin": ">=0.61.0",
-    "inquirer": "^3.3.0",
+    "inquirer": "^5.2.0",
     "prettier": ">=1.7.0",
     "read-pkg-up": "^3.0.0"
   },
