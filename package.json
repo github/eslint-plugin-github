@@ -53,6 +53,6 @@
   "devDependencies": {
     "eslint": "^4.8.0",
     "graphql": "^0.13.0",
-    "mocha": "^4.0.1"
+    "mocha": "^5.1.0"
   }
 }
