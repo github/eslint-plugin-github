@@ -38,23 +38,16 @@ on('click', '.js-my-button', function(e) {
 })
 ```
 
-An alternate, but less preferred approach is to include the CSRF token in a data-attribute:
+An alternate, but less preferred approach is to include the a signed CSRF url in a data-attribute:
 
 ```erb
-<%
-  path = some_action_path(some_params)
-  token = authenticity_token_for(path, method: :put)
-%>
-<button class='js-my-button' data-url="<%= path %>" data-authenticity-token="<%= token %>">Click Me!</button>
+<button class="js-my-button" data-url="<%= encode_authenticity_token_path(path) %>">Click Me!</button>
 ```
 
 ```js
 on('click', '.js-my-button', function(e) {
-  const data = new FormData()
-  data.append('authenticity_token', this.getAttribute('data-authenticity-token'))
-
-  fetch(this.getAttribute('data-url'), {
-    method: 'put',
+  csrfRequest(this.getAttribute('data-url'), {
+    method: 'PUT',
     body: data
   }).then(function() {
     alert('Success!')
