@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/github/eslint-plugin-github#readme",
   "engines": {
-    "node": ">=8.9.3"
+    "node": ">=8.11.1"
   },
   "dependencies": {
     "babel-eslint": ">=8.2.0",
