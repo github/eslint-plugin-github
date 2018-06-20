@@ -46,7 +46,7 @@
     "eslint-rule-documentation": ">=1.0.0",
     "inquirer": "^6.0.0",
     "prettier": ">=1.12.0",
-    "read-pkg-up": "^3.0.0"
+    "read-pkg-up": "^4.0.0"
   },
   "peerDependencies": {
     "eslint": ">=4.19.0",
