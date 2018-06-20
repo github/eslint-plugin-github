@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "eslint": "^4.8.0",
-    "flow-bin": ">=0.70.0",
+    "flow-bin": "^0.74.0",
     "graphql": "^0.13.0",
     "mocha": "^5.1.0"
   }
