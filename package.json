@@ -35,7 +35,7 @@
   "dependencies": {
     "babel-eslint": ">=8.2.0",
     "eslint-config-prettier": ">=2.9.0",
-    "eslint-plugin-flowtype": ">=2.46.0",
+    "eslint-plugin-flowtype": "^2.49.3",
     "eslint-plugin-graphql": ">=2.1.0",
     "eslint-plugin-import": ">=2.11.0",
     "eslint-plugin-jest": ">=21.15.0",
