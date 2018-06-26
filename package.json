@@ -52,6 +52,10 @@
     "eslint": ">=4.19.0",
     "flow-bin": ">=0.70.0"
   },
+  "files": [
+    "bin/*",
+    "lib/*"
+  ],
   "devDependencies": {
     "eslint": "^4.8.0",
     "flow-bin": "^0.74.0",
