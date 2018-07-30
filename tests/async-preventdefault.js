@@ -10,11 +10,15 @@ ruleTester.run('async-preventdefault', rule, {
     },
     {
       code: 'document.addEventListener(function(event) { event.target })'
+    },
+    {
+      code: 'document.addEventListener(async function(event) { event.preventDefault() })',
+      parserOptions: {ecmaVersion: 2017}
     }
   ],
   invalid: [
     {
-      code: 'document.addEventListener(async function(event) { event.preventDefault() })',
+      code: 'document.addEventListener(async function(event) { await delay(); event.preventDefault() })',
       parserOptions: {ecmaVersion: 2017},
       errors: [
         {

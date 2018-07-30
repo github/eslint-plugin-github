@@ -7,6 +7,10 @@ ruleTester.run('async-currenttarget', rule, {
   valid: [
     {
       code: 'document.addEventListener(function(event) { event.currentTarget })'
+    },
+    {
+      code: 'document.addEventListener(async function(event) { event.currentTarget; await delay() })',
+      parserOptions: {ecmaVersion: 2017}
     }
   ],
   invalid: [
