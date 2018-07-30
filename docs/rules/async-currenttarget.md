@@ -41,3 +41,19 @@ document.addEventListener('click', function(event) {
   })()
 })
 ```
+
+Alternatively, extract a function to create an element reference.
+
+```js
+// good
+document.addEventListener('click', function(event) {
+  fetchData(event.currentTarget)
+})
+
+async function fetchData(el) {
+  const url = el.getAttribute('data-url')
+  const data = await fetch(url)
+  const text = el.getAttribute('data-text')
+  // ...
+}
+```
