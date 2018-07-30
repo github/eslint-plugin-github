@@ -12,11 +12,11 @@ document.addEventListener('click', async function(event) {
 })
 ```
 
-1. A `click` event is dispatched
-2. This handler is scheduled but not ran immediately because its marked async.
-3. The event dispatch completes and nothing has called `preventDefault()` _yet_ and the default click behavior occurs.
-4. The async function is scheduled and runs.
-5. Calling `preventDefault()` is now a no-op as the synchronous event dispatch has already completed.
+1.  A `click` event is dispatched
+2.  This handler is scheduled but not ran immediately because its marked async.
+3.  The event dispatch completes and nothing has called `preventDefault()` _yet_ and the default click behavior occurs.
+4.  The async function is scheduled and runs.
+5.  Calling `preventDefault()` is now a no-op as the synchronous event dispatch has already completed.
 
 ## Solutions
 
@@ -44,12 +44,12 @@ This could also be done with an async IIFE.
 // good
 document.addEventListener('click', function(event) {
   // preventDefault in a regular function
-  event.preventDefault()(
-    // call async IIFE
-    async function() {
-      const data = await fetch()
-      // ...
-    }
-  )()
+  event.preventDefault()
+
+  // call async IIFE
+  ;(async function() {
+    const data = await fetch()
+    // ...
+  })()
 })
 ```
