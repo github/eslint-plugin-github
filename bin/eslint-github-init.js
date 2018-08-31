@@ -64,6 +64,8 @@ inquirer.prompt(questions).then(answers => {
     eslintrc.extends.push('plugin:github/app')
   } else if (answers.env === 'browser') {
     eslintrc.extends.push('plugin:github/browser')
+  } else if (answers.env === 'node') {
+    eslintrc.env = {node: true} 
   }
 
   if (answers.flow) eslintrc.extends.push('plugin:github/flow')
