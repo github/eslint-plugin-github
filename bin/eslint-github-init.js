@@ -60,7 +60,9 @@ const questions = [
 inquirer.prompt(questions).then(answers => {
   const eslintrc = {extends: ['plugin:github/es6']}
 
-  if (answers.project === 'app') {
+  if (answers.env === 'node') {
+    eslintrc.extends.push('plugin:github/node')
+  } else if (answers.project === 'app') {
     eslintrc.extends.push('plugin:github/app')
   } else if (answers.env === 'browser') {
     eslintrc.extends.push('plugin:github/browser')
