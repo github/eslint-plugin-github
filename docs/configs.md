@@ -41,3 +41,7 @@ Recommended rules for projects using [Relay](http://facebook.github.io/relay/) (
 ### `plugin:github/app`
 
 Recommended rules when writing a browser application.
+
+### `plugin:github/node`
+
+Recommended rules when writing a node application.
