@@ -12,7 +12,8 @@ ruleTester.run('get-attribute', rule, {
     {code: "el.getAttribute('data-foo')"},
     {code: "el.hasAttribute('data-foo')"},
     {code: "el.setAttribute('data-foo', 'bar')"},
-    {code: "el.removeAttribute('data-foo')"}
+    {code: "el.removeAttribute('data-foo')"},
+    {code: "el.getAttribute('data-foo1')"}
   ],
   invalid: [
     {
