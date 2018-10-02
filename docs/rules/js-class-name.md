@@ -28,4 +28,4 @@ Allows you to select elements by `js-org-update` and still filter by the `data-o
 
 ## See Also
 
-[@defunkt's original proposal from 2010](http://ozmm.org/posts/slightly_obtrusive_javascript.html).
+[@defunkt's original proposal from 2010](https://web.archive.org/web/20180902223055/http://ozmm.org/posts/slightly_obtrusive_javascript.html).
