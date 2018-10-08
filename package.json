@@ -46,7 +46,8 @@
     "eslint-rule-documentation": ">=1.0.0",
     "inquirer": "^6.0.0",
     "prettier": ">=1.12.0",
-    "read-pkg-up": "^4.0.0"
+    "read-pkg-up": "^4.0.0",
+    "svg-element-attributes": "^1.2.1"
   },
   "peerDependencies": {
     "eslint": ">=4.19.0",
