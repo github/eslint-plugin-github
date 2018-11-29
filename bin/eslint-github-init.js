@@ -76,6 +76,18 @@ inquirer.prompt(questions).then(answers => {
     eslintrc.extends.push('plugin:github/typescript')
    
     // TODO: Check if tsconfig.json exists, generate it if it doesn't.
+    const tsconfigPath = path.resolve(process.cwd(), 'tsconfig.json')
+    if (!fs.existsSync(tsconfig)) {
+      const tsconfigDefaults = {
+        "compilerOptions": {
+          "target": "es5",
+          "module": "commonjs",
+          "strict": true,
+          "esModuleInterop": true
+        }
+      }
+      fs.writeFileSync(tsconfig, JSON.stringify(tsconfigDefaults, null, '  '), 'utf8')
+    }
     
     const tslintPath = path.resolve(process.cwd(), 'tslint.json')
     const tslintrc = fs.existsSync(tslintPath) ? JSON.parse(fs.readFileSync(tslintPath, 'utf8')) : {
