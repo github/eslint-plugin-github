@@ -81,10 +81,17 @@ inquirer.prompt(questions).then(answers => {
       extends: [
         "tslint-config-prettier"
       ],
-      jsRules: {},
-      rules: {},
-      rulesDirectory: []
+      rulesDirectory: [
+        "tslint-plugin-prettier"
+      ],
+      jsRules: {
+        prettier: true
+      },
+      rules: {
+        prettier: true
+      }
     }
+
     fs.writeFileSync(path.resolve(process.cwd(), 'tslint.json'), JSON.stringify(tslintrc, null, '  '), 'utf8')
   }
   if (answers.react) eslintrc.extends.push('plugin:github/react')
