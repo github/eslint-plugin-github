@@ -88,7 +88,7 @@ inquirer.prompt(questions).then(answers => {
       rulesDirectory: []
     }
     if (tslintrc.extends[tslintrc.extends.length - 1] !== 'tslint-config-prettier') {
-      tslint.extends.push('tslint-config-prettier')
+      tslintrc.extends.push('tslint-config-prettier')
     }
     fs.writeFileSync(path.resolve(process.cwd(), 'tslint.json'), JSON.stringify(tslintrc, null, '  '), 'utf8')
   }
