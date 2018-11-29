@@ -77,7 +77,7 @@ inquirer.prompt(questions).then(answers => {
    
     // TODO: Check if tsconfig.json exists, generate it if it doesn't.
     const tsconfigPath = path.resolve(process.cwd(), 'tsconfig.json')
-    if (!fs.existsSync(tsconfig)) {
+    if (!fs.existsSync(tsconfigPath)) {
       const tsconfigDefaults = {
         "compilerOptions": {
           "target": "es5",
@@ -86,7 +86,7 @@ inquirer.prompt(questions).then(answers => {
           "esModuleInterop": true
         }
       }
-      fs.writeFileSync(tsconfig, JSON.stringify(tsconfigDefaults, null, '  '), 'utf8')
+      fs.writeFileSync(tsconfigPath, JSON.stringify(tsconfigDefaults, null, '  '), 'utf8')
     }
     
     const tslintPath = path.resolve(process.cwd(), 'tslint.json')
