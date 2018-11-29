@@ -78,7 +78,7 @@ inquirer.prompt(questions).then(answers => {
     // TODO: Check if tsconfig.json exists, generate it if it doesn't.
     
     const tslintPath = path.resolve(process.cwd(), 'tslint.json')
-    const tslintrc = fs.existsSync(tslintPath) ? fs.readFileSync(tslintPath, 'utf8') : {
+    const tslintrc = fs.existsSync(tslintPath) ? JSON.parse(fs.readFileSync(tslintPath, 'utf8')) : {
       defaultSeverity: "error",
       extends: [
         "tslint-config-prettier"
