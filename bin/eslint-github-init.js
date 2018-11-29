@@ -74,9 +74,11 @@ inquirer.prompt(questions).then(answers => {
   if (answers.typeSystem === 'flow') eslintrc.extends.push('plugin:github/flow')
   if (answers.typeSystem === 'typescript') {
     eslintrc.extends.push('plugin:github/typescript')
+   
+    // TODO: Check if tsconfig.json exists, generate it if it doesn't.
     
-    // TODO: Check if tslint exists, read it if exists and make sure `tslint-config-prettier` is the last string.
-    const tslintrc = {
+    const tslintPath = path.resolve(process.cwd(), 'tslint.json')
+    const tslintrc = fs.existsSync(tslintPath) ? fs.readFileSync(tslintPath, 'utf8') : {
       defaultSeverity: "error",
       extends: [
         "tslint-config-prettier"
@@ -84,6 +86,9 @@ inquirer.prompt(questions).then(answers => {
       jsRules: {},
       rules: {},
       rulesDirectory: []
+    }
+    if (tslintrc.extends[tslintrc.extends.length - 1] !== 'tslint-config-prettier') {
+      tslint.extends.push('tslint-config-prettier')
     }
     fs.writeFileSync(path.resolve(process.cwd(), 'tslint.json'), JSON.stringify(tslintrc, null, '  '), 'utf8')
   }
