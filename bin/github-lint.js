@@ -29,6 +29,10 @@ function execFile(command, args) {
   }
 
   commands.push(['eslint', eslintOptions])
+  
+  if (fs.existsSync('tsconfig.json')) {
+    commands.push(['tsc', ['--noEmit']])
+  }
 
   if (fs.existsSync('.flowconfig')) {
     commands.push(['flow', ['check']])

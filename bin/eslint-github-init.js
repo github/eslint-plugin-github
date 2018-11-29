@@ -74,8 +74,9 @@ inquirer.prompt(questions).then(answers => {
   if (answers.typeSystem === 'flow') eslintrc.extends.push('plugin:github/flow')
   if (answers.typeSystem === 'typescript') {
     eslintrc.extends.push('plugin:github/typescript')
+
+    // TODO: Keep tsconfig.json and tslint.json as files in the lib and copy it over, rather then keeping it here inline.
    
-    // TODO: Check if tsconfig.json exists, generate it if it doesn't.
     const tsconfigPath = path.resolve(process.cwd(), 'tsconfig.json')
     if (!fs.existsSync(tsconfigPath)) {
       const tsconfigDefaults = {
