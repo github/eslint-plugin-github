@@ -72,7 +72,21 @@ inquirer.prompt(questions).then(answers => {
   }
 
   if (answers.typeSystem === 'flow') eslintrc.extends.push('plugin:github/flow')
-  if (answers.typeSystem === 'typescript') eslintrc.extends.push('plugin:github/typescript')
+  if (answers.typeSystem === 'typescript') {
+    eslintrc.extends.push('plugin:github/typescript')
+    
+    // TODO: Check if tslint exists, read it if exists and make sure `tslint-config-prettier` is the last string.
+    const tslintrc = {
+      defaultSeverity: "error",
+      extends: [
+        "tslint-config-prettier"
+      ],
+      jsRules: {},
+      rules: {},
+      rulesDirectory: []
+    }
+    fs.writeFileSync(path.resolve(process.cwd(), 'tslint.json'), JSON.stringify(tslintrc, null, '  '), 'utf8')
+  }
   if (answers.react) eslintrc.extends.push('plugin:github/react')
   if (answers.relay) eslintrc.extends.push('plugin:github/relay')
 
