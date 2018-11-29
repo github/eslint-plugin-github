@@ -7,16 +7,18 @@ const path = require('path')
 const defaults = {
   project: 'lib',
   env: 'browser',
-  flow: true,
+  typeSystem: 'flow',
   react: true,
-  relay: true
+  relay: true,
 }
 
 const packagePath = path.resolve(process.cwd(), 'package.json')
 if (fs.existsSync(packagePath)) {
   const packageJSON = fs.readFileSync(packagePath, 'utf8')
   defaults.project = /private/.test(packageJSON) ? 'app' : 'lib'
-  defaults.flow = /flow/.test(packageJSON)
+  if (/typescript/.test(packageJSON)) {
+    defaults.typeSystem = 'typescript'
+  }
   defaults.react = /react/.test(packageJSON)
   defaults.relay = /relay/.test(packageJSON)
 }
@@ -37,10 +39,11 @@ const questions = [
     default: defaults.env
   },
   {
-    type: 'confirm',
-    name: 'flow',
-    message: 'Are you using Flow?',
-    default: defaults.flow
+    type: 'list',
+    name: 'typeSystem',
+    message: 'What type system are you using?',
+    choices: ['flow', 'typescript'],
+    default: defaults.typeSystem
   },
   {
     type: 'confirm',
@@ -68,14 +71,17 @@ inquirer.prompt(questions).then(answers => {
     eslintrc.extends.push('plugin:github/browser')
   }
 
-  if (answers.flow) eslintrc.extends.push('plugin:github/flow')
+  if (answers.typeSystem === 'flow') eslintrc.extends.push('plugin:github/flow')
+  if (answers.typeSystem === 'typescript') eslintrc.extends.push('plugin:github/typescript')
   if (answers.react) eslintrc.extends.push('plugin:github/react')
   if (answers.relay) eslintrc.extends.push('plugin:github/relay')
 
   fs.writeFileSync(path.resolve(process.cwd(), '.eslintrc.json'), JSON.stringify(eslintrc, null, '  '), 'utf8')
 
   const prettierConfig = []
-  if (answers.flow) prettierConfig.push('/* @flow */')
+  if (answers.typeSystem === 'flow') prettierConfig.push('/* @flow */')
+
+  // TODO: Set arrow parens to true if typescript
   prettierConfig.push("module.exports = require('eslint-plugin-github/prettier.config')")
   prettierConfig.push('')
 
