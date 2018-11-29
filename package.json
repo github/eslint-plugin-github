@@ -51,7 +51,6 @@
     "read-pkg-up": "^4.0.0",
     "svg-element-attributes": "^1.2.1",
     "tslint-config-prettier": "^1.17.0",
-    "tslint-plugin-prettier": "^2.0.1",
     "typescript-eslint-parser": "^21.0.1"
   },
   "peerDependencies": {
