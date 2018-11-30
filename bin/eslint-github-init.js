@@ -98,9 +98,9 @@ inquirer.prompt(questions).then(answers => {
       rules: {},
       rulesDirectory: []
     }
-    
+
     const tslintPath = path.resolve(process.cwd(), 'tslint.json')
-    const jsonSpacing = '  '
+    let jsonSpacing = '  '
     if (fs.existsSync(tslintPath)) {
       const tslintrcContents = fs.readFileSync(tslintPath, 'utf8')
       const {indent} = detectIndent(tslintrcContents)
