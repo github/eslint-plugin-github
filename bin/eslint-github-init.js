@@ -75,8 +75,7 @@ inquirer.prompt(questions).then(answers => {
   if (answers.typeSystem === 'typescript') {
     eslintrc.extends.push('plugin:github/typescript')
 
-    // TODO: Keep tsconfig.json and tslint.json as files in the lib and copy it over, rather then keeping it here inline.
-
+    // Create a `tsconfig.json` if one doesn't exits. Equivalent to running `tsc --init`.
     const tsconfigPath = path.resolve(process.cwd(), 'tsconfig.json')
     if (!fs.existsSync(tsconfigPath)) {
       const tsconfigDefaults = {
@@ -90,6 +89,7 @@ inquirer.prompt(questions).then(answers => {
       fs.writeFileSync(tsconfigPath, JSON.stringify(tsconfigDefaults, null, '  '), 'utf8')
     }
 
+    // Create a `tslint.json` if one doesn't exist. Equivalent to running `tslint --init`.
     const tslintPath = path.resolve(process.cwd(), 'tslint.json')
     const tslintrc = fs.existsSync(tslintPath)
       ? JSON.parse(fs.readFileSync(tslintPath, 'utf8'))
@@ -100,11 +100,14 @@ inquirer.prompt(questions).then(answers => {
           rules: {},
           rulesDirectory: []
         }
+
+    // If `tslint-config-prettier` isn't the last string in the `extends` array.
     if (tslintrc.extends[tslintrc.extends.length - 1] !== 'tslint-config-prettier') {
       tslintrc.extends.push('tslint-config-prettier')
     }
     fs.writeFileSync(path.resolve(process.cwd(), 'tslint.json'), JSON.stringify(tslintrc, null, '  '), 'utf8')
   }
+
   if (answers.react) eslintrc.extends.push('plugin:github/react')
   if (answers.relay) eslintrc.extends.push('plugin:github/relay')
 
@@ -113,7 +116,6 @@ inquirer.prompt(questions).then(answers => {
   const prettierConfig = []
   if (answers.typeSystem === 'flow') prettierConfig.push('/* @flow */')
 
-  // TODO: Set arrow parens to true if typescript
   prettierConfig.push("module.exports = require('eslint-plugin-github/prettier.config')")
   prettierConfig.push('')
 
