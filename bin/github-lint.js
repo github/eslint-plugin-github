@@ -23,13 +23,13 @@ function execFile(command, args) {
   const packageJson = fs.existsSync('package.json') ? require(path.join(process.cwd(), 'package.json')) : {}
 
   let eslintOptions = ['--report-unused-disable-directives', '.']
-  
+
   if (fs.existsSync('tsconfig.json')) {
     eslintOptions = eslintOptions.concat(['--ext', '.ts'])
   }
 
   commands.push(['eslint', eslintOptions])
-  
+
   if (fs.existsSync('tsconfig.json')) {
     commands.push(['tsc', ['--noEmit']])
   }

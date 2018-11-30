@@ -9,7 +9,7 @@ const defaults = {
   env: 'browser',
   typeSystem: 'flow',
   react: true,
-  relay: true,
+  relay: true
 }
 
 const packagePath = path.resolve(process.cwd(), 'package.json')
@@ -76,30 +76,30 @@ inquirer.prompt(questions).then(answers => {
     eslintrc.extends.push('plugin:github/typescript')
 
     // TODO: Keep tsconfig.json and tslint.json as files in the lib and copy it over, rather then keeping it here inline.
-   
+
     const tsconfigPath = path.resolve(process.cwd(), 'tsconfig.json')
     if (!fs.existsSync(tsconfigPath)) {
       const tsconfigDefaults = {
-        "compilerOptions": {
-          "target": "es5",
-          "module": "commonjs",
-          "strict": true,
-          "esModuleInterop": true
+        compilerOptions: {
+          target: 'es5',
+          module: 'commonjs',
+          strict: true,
+          esModuleInterop: true
         }
       }
       fs.writeFileSync(tsconfigPath, JSON.stringify(tsconfigDefaults, null, '  '), 'utf8')
     }
-    
+
     const tslintPath = path.resolve(process.cwd(), 'tslint.json')
-    const tslintrc = fs.existsSync(tslintPath) ? JSON.parse(fs.readFileSync(tslintPath, 'utf8')) : {
-      defaultSeverity: "error",
-      extends: [
-        "tslint-config-prettier"
-      ],
-      jsRules: {},
-      rules: {},
-      rulesDirectory: []
-    }
+    const tslintrc = fs.existsSync(tslintPath)
+      ? JSON.parse(fs.readFileSync(tslintPath, 'utf8'))
+      : {
+          defaultSeverity: 'error',
+          extends: ['tslint-config-prettier'],
+          jsRules: {},
+          rules: {},
+          rulesDirectory: []
+        }
     if (tslintrc.extends[tslintrc.extends.length - 1] !== 'tslint-config-prettier') {
       tslintrc.extends.push('tslint-config-prettier')
     }
