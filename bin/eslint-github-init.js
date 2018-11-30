@@ -3,6 +3,7 @@
 const inquirer = require('inquirer')
 const fs = require('fs')
 const path = require('path')
+const detectIndent = require('detect-indent')
 
 const defaults = {
   project: 'lib',
@@ -90,22 +91,30 @@ inquirer.prompt(questions).then(answers => {
     }
 
     // Create a `tslint.json` if one doesn't exist. Equivalent to running `tslint --init`.
+    let tslintrc = {
+      defaultSeverity: 'error',
+      extends: ['tslint-config-prettier'],
+      jsRules: {},
+      rules: {},
+      rulesDirectory: []
+    }
+    
     const tslintPath = path.resolve(process.cwd(), 'tslint.json')
-    const tslintrc = fs.existsSync(tslintPath)
-      ? JSON.parse(fs.readFileSync(tslintPath, 'utf8'))
-      : {
-          defaultSeverity: 'error',
-          extends: ['tslint-config-prettier'],
-          jsRules: {},
-          rules: {},
-          rulesDirectory: []
-        }
+    const jsonSpacing = '  '
+    if (fs.existsSync(tslintPath)) {
+      const tslintrcContents = fs.readFileSync(tslintPath, 'utf8')
+      const {indent} = detectIndent(tslintrcContents)
+      if (indent) {
+        jsonSpacing = indent
+      }
+      tslintrc = JSON.parse(tslintrcContents)
+    }
 
     // If `tslint-config-prettier` isn't the last string in the `extends` array.
     if (tslintrc.extends[tslintrc.extends.length - 1] !== 'tslint-config-prettier') {
       tslintrc.extends.push('tslint-config-prettier')
     }
-    fs.writeFileSync(path.resolve(process.cwd(), 'tslint.json'), JSON.stringify(tslintrc, null, '  '), 'utf8')
+    fs.writeFileSync(path.resolve(process.cwd(), 'tslint.json'), JSON.stringify(tslintrc, null, jsonSpacing), 'utf8')
   }
 
   if (answers.react) eslintrc.extends.push('plugin:github/react')
