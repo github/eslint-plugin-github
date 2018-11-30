@@ -80,7 +80,7 @@ inquirer.prompt(questions).then(answers => {
     if (!fs.existsSync(tsconfigPath)) {
       const tsconfigDefaults = {
         compilerOptions: {
-          target: 'es5',
+          target: 'ES2015',
           module: 'commonjs',
           strict: true,
           esModuleInterop: true
