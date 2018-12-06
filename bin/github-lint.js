@@ -25,7 +25,7 @@ function execFile(command, args) {
   let eslintOptions = ['--report-unused-disable-directives', '.']
 
   if (fs.existsSync('tsconfig.json')) {
-    eslintOptions = eslintOptions.concat(['--ext', '.ts'])
+    eslintOptions = eslintOptions.concat(['--ext', '.ts,.tsx'])
   }
 
   commands.push(['eslint', eslintOptions])
