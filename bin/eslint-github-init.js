@@ -93,13 +93,11 @@ inquirer.prompt(questions).then(answers => {
     if (!fs.existsSync(tsconfigPath)) {
       const tsconfigDefaults = {
         compilerOptions: {
-          compilerOptions: {
-            target: 'es2015',
-            module: 'esnext',
-            lib: ['esnext', 'dom'],
-            allowSyntheticDefaultImports: true,
-            moduleResolution: 'node'
-          }
+          target: 'es2015',
+          module: 'esnext',
+          lib: ['esnext', 'dom'],
+          allowSyntheticDefaultImports: true,
+          moduleResolution: 'node'
         }
       }
       if (answers.react) {
