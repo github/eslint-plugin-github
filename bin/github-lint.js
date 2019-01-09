@@ -24,13 +24,15 @@ function execFile(command, args) {
 
   let eslintOptions = ['--report-unused-disable-directives', '.']
 
-  if (fs.existsSync('tsconfig.json')) {
+  const isTypeScriptProject = fs.existsSync('tsconfig.json')
+
+  if (isTypeScriptProject) {
     eslintOptions = eslintOptions.concat(['--ext', '.ts,.tsx'])
   }
 
   commands.push(['eslint', eslintOptions])
 
-  if (fs.existsSync('tsconfig.json')) {
+  if (isTypeScriptProject) {
     commands.push(['tsc', ['--noEmit']])
   }
 
