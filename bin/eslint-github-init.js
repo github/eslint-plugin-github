@@ -14,11 +14,11 @@ const defaults = {
 
 const packagePath = path.resolve(process.cwd(), 'package.json')
 if (fs.existsSync(packagePath)) {
-  const packageJSON = fs.readFileSync(packagePath, 'utf8')
-  defaults.project = /private/.test(packageJSON) ? 'app' : 'lib'
-  defaults.flow = /flow/.test(packageJSON)
-  defaults.react = /react/.test(packageJSON)
-  defaults.relay = /relay/.test(packageJSON)
+  const packageJSON = JSON.parse(fs.readFileSync(packagePath, 'utf8'))
+  defaults.project = packageJSON.private ? 'app' : 'lib'
+  defaults.flow = packageJSON.dependencies.includes('flow-bin') || packageJSON.devDependencies.includes('flow-bin')
+  defaults.react = packageJSON.dependencies.includes('react') || packageJSON.devDependencies.includes('react')
+  defaults.relay = packageJSON.dependencies.includes('relay') || packageJSON.devDependencies.includes('relay')
 }
 
 const questions = [
