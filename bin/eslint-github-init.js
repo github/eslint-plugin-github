@@ -82,7 +82,7 @@ inquirer.prompt(questions).then(answers => {
       const tsconfigDefaults = {
         compilerOptions: {
           target: 'ES2015',
-          module: 'commonjs',
+          module: 'esnext',
           strict: true,
           esModuleInterop: true
         }
