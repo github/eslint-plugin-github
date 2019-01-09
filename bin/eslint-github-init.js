@@ -74,16 +74,16 @@ inquirer.prompt(questions).then(answers => {
   if (answers.typeSystem === 'flow') eslintrc.extends.push('plugin:github/flow')
   if (answers.typeSystem === 'typescript') {
     eslintrc.extends.push('plugin:github/typescript')
-    eslintrc.parser = "typescript-eslint-parser"
-    eslintrc.plugins = ["tslint", "typescript"]
+    eslintrc.parser = 'typescript-eslint-parser'
+    eslintrc.plugins = ['tslint', 'typescript']
     eslintrc.rules = {
-      "import/no-namespace": "off",
-      "typescript/no-unused-vars": "error",
-      "tslint/config": [
-        "warn",
+      'import/no-namespace': 'off',
+      'typescript/no-unused-vars': 'error',
+      'tslint/config': [
+        'warn',
         {
-          "lintFile": "./tslint.json",
-          "configFile": "./tsconfig.json"
+          lintFile: './tslint.json',
+          configFile: './tsconfig.json'
         }
       ]
     }
