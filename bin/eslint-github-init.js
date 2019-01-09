@@ -90,13 +90,9 @@ inquirer.prompt(questions).then(answers => {
       fs.writeFileSync(tsconfigPath, JSON.stringify(tsconfigDefaults, null, '  '), 'utf8')
     }
 
-    // Create a `tslint.json` if one doesn't exist. Equivalent to running `tslint --init`.
+    // Create a `tslint.json` if one doesn't exist.
     let tslintrc = {
-      defaultSeverity: 'error',
-      extends: ['tslint-config-prettier'],
-      jsRules: {},
-      rules: {},
-      rulesDirectory: []
+      extends: ['eslint-plugin-github/lib/configs/tslint.json']
     }
 
     const tslintPath = path.resolve(process.cwd(), 'tslint.json')
@@ -108,13 +104,17 @@ inquirer.prompt(questions).then(answers => {
         jsonSpacing = indent
       }
       tslintrc = JSON.parse(tslintrcContents)
-    }
 
-    // If `tslint-config-prettier` isn't the last string in the `extends` array.
-    if (tslintrc.extends[tslintrc.extends.length - 1] !== 'tslint-config-prettier') {
-      tslintrc.extends.push('tslint-config-prettier')
+      if (!tslintrc.extends) {
+        tslintrc.extends = []
+      }
+
+      // Add our tslint config to the extends array if it isn't there already
+      if (!tslintrc.extends.includes('eslint-plugin-github/lib/configs/tslint.json')) {
+        tslintrc.extends.push('eslint-plugin-github/lib/configs/tslint.json')
+      }
+      fs.writeFileSync(path.resolve(process.cwd(), 'tslint.json'), JSON.stringify(tslintrc, null, jsonSpacing), 'utf8')
     }
-    fs.writeFileSync(path.resolve(process.cwd(), 'tslint.json'), JSON.stringify(tslintrc, null, jsonSpacing), 'utf8')
   }
 
   if (answers.react) eslintrc.extends.push('plugin:github/react')
