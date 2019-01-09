@@ -3,7 +3,6 @@
 const inquirer = require('inquirer')
 const fs = require('fs')
 const path = require('path')
-const detectIndent = require('detect-indent')
 
 const defaults = {
   project: 'lib',
@@ -90,31 +89,12 @@ inquirer.prompt(questions).then(answers => {
       fs.writeFileSync(tsconfigPath, JSON.stringify(tsconfigDefaults, null, '  '), 'utf8')
     }
 
-    // Create a `tslint.json` if one doesn't exist.
+    // Create a `tslint.json`.
     let tslintrc = {
       extends: ['eslint-plugin-github/lib/configs/tslint.json']
     }
 
-    const tslintPath = path.resolve(process.cwd(), 'tslint.json')
-    let jsonSpacing = '  '
-    if (fs.existsSync(tslintPath)) {
-      const tslintrcContents = fs.readFileSync(tslintPath, 'utf8')
-      const {indent} = detectIndent(tslintrcContents)
-      if (indent) {
-        jsonSpacing = indent
-      }
-      tslintrc = JSON.parse(tslintrcContents)
-
-      if (!tslintrc.extends) {
-        tslintrc.extends = []
-      }
-
-      // Add our tslint config to the extends array if it isn't there already
-      if (!tslintrc.extends.includes('eslint-plugin-github/lib/configs/tslint.json')) {
-        tslintrc.extends.push('eslint-plugin-github/lib/configs/tslint.json')
-      }
-      fs.writeFileSync(path.resolve(process.cwd(), 'tslint.json'), JSON.stringify(tslintrc, null, jsonSpacing), 'utf8')
-    }
+    fs.writeFileSync(path.resolve(process.cwd(), 'tslint.json'), JSON.stringify(tslintrc, null, 2), 'utf8')
   }
 
   if (answers.react) eslintrc.extends.push('plugin:github/react')

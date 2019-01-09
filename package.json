@@ -34,7 +34,6 @@
   },
   "dependencies": {
     "babel-eslint": ">=8.2.0",
-    "detect-indent": "^5.0.0",
     "eslint-config-prettier": ">=2.9.0",
     "eslint-plugin-eslint-comments": ">=3.0.1",
     "eslint-plugin-flowtype": ">=2.49.3",
