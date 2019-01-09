@@ -93,11 +93,17 @@ inquirer.prompt(questions).then(answers => {
     if (!fs.existsSync(tsconfigPath)) {
       const tsconfigDefaults = {
         compilerOptions: {
-          target: 'ES2015',
-          module: 'esnext',
-          strict: true,
-          esModuleInterop: true
+          compilerOptions: {
+            target: 'es2015',
+            module: 'esnext',
+            lib: ['esnext', 'dom'],
+            allowSyntheticDefaultImports: true,
+            moduleResolution: 'node'
+          }
         }
+      }
+      if (answers.react) {
+        tsconfigDefaults.compilerOptions.jsx = 'react'
       }
       fs.writeFileSync(tsconfigPath, JSON.stringify(tsconfigDefaults, null, '  '), 'utf8')
     }
