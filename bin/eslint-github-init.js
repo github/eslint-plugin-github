@@ -89,7 +89,7 @@ inquirer.prompt(questions).then(answers => {
       ]
     }
 
-    // Create a `tsconfig.json` if one doesn't exits. Equivalent to running `tsc --init`.
+    // Create a `tsconfig.json`.
     const tsconfigPath = path.resolve(process.cwd(), 'tsconfig.json')
     if (!fs.existsSync(tsconfigPath)) {
       const tsconfigDefaults = {
