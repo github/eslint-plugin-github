@@ -7,7 +7,7 @@ const path = require('path')
 const defaults = {
   project: 'lib',
   env: 'browser',
-  typeSystem: 'flow',
+  typeSystem: 'none',
   react: true,
   relay: true
 }
@@ -19,6 +19,9 @@ if (fs.existsSync(packagePath)) {
   defaults.react = packageJSON.dependencies.includes('react') || packageJSON.devDependencies.includes('react')
   defaults.relay = packageJSON.dependencies.includes('relay') || packageJSON.devDependencies.includes('relay')
 
+  if (packageJSON.dependencies.includes('flow-bin') || packageJSON.devDependencies.includes('flow-bin')) {
+    defaults.typeSystem = 'flow'
+  }
   if (packageJSON.dependencies.includes('typescript') || packageJSON.devDependencies.includes('typescript')) {
     defaults.typeSystem = 'typescript'
   }
@@ -43,7 +46,7 @@ const questions = [
     type: 'list',
     name: 'typeSystem',
     message: 'What type system are you using?',
-    choices: ['flow', 'typescript'],
+    choices: ['flow', 'typescript', 'none'],
     default: defaults.typeSystem
   },
   {
