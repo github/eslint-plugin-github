@@ -17,8 +17,8 @@ if (fs.existsSync(packagePath)) {
   const packageJSON = JSON.parse(fs.readFileSync(packagePath, 'utf8'))
   defaults.project = packageJSON.private ? 'app' : 'lib'
 
-  const dependencies = Object.keys(packageJSON.dependencies)
-  const devDependencies = Object.keys(packageJSON.devDependencies)
+  const dependencies = Object.keys(packageJSON.dependencies || {})
+  const devDependencies = Object.keys(packageJSON.devDependencies || {})
 
   defaults.flow = dependencies.includes('flow-bin') || devDependencies.includes('flow-bin')
   defaults.react = dependencies.includes('react') || devDependencies.includes('react')
