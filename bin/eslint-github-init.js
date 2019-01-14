@@ -16,9 +16,13 @@ const packagePath = path.resolve(process.cwd(), 'package.json')
 if (fs.existsSync(packagePath)) {
   const packageJSON = JSON.parse(fs.readFileSync(packagePath, 'utf8'))
   defaults.project = packageJSON.private ? 'app' : 'lib'
-  defaults.flow = packageJSON.dependencies.includes('flow-bin') || packageJSON.devDependencies.includes('flow-bin')
-  defaults.react = packageJSON.dependencies.includes('react') || packageJSON.devDependencies.includes('react')
-  defaults.relay = packageJSON.dependencies.includes('relay') || packageJSON.devDependencies.includes('relay')
+
+  const dependencies = Object.keys(packageJSON.dependencies || {})
+  const devDependencies = Object.keys(packageJSON.devDependencies || {})
+
+  defaults.flow = dependencies.includes('flow-bin') || devDependencies.includes('flow-bin')
+  defaults.react = dependencies.includes('react') || devDependencies.includes('react')
+  defaults.relay = dependencies.includes('relay') || devDependencies.includes('relay')
 }
 
 const questions = [
