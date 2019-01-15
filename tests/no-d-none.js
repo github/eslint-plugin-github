@@ -10,6 +10,9 @@ ruleTester.run('no-d-none', rule, {
     },
     {
       code: 'el.classList.toggle("responsive-d-none")'
+    },
+    {
+      code: '[].pop()'
     }
   ],
   invalid: [
