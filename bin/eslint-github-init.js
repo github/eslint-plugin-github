@@ -7,7 +7,7 @@ const path = require('path')
 const defaults = {
   project: 'lib',
   env: 'browser',
-  flow: true,
+  typeSystem: 'none',
   react: true,
   relay: true
 }
@@ -20,9 +20,15 @@ if (fs.existsSync(packagePath)) {
   const dependencies = Object.keys(packageJSON.dependencies || {})
   const devDependencies = Object.keys(packageJSON.devDependencies || {})
 
-  defaults.flow = dependencies.includes('flow-bin') || devDependencies.includes('flow-bin')
   defaults.react = dependencies.includes('react') || devDependencies.includes('react')
   defaults.relay = dependencies.includes('relay') || devDependencies.includes('relay')
+
+  if (dependencies.includes('flow-bin') || devDependencies.includes('flow-bin')) {
+    defaults.typeSystem = 'flow'
+  }
+  if (dependencies.includes('typescript') || devDependencies.includes('typescript')) {
+    defaults.typeSystem = 'typescript'
+  }
 }
 
 const questions = [
@@ -41,10 +47,11 @@ const questions = [
     default: defaults.env
   },
   {
-    type: 'confirm',
-    name: 'flow',
-    message: 'Are you using Flow?',
-    default: defaults.flow
+    type: 'list',
+    name: 'typeSystem',
+    message: 'What type system are you using?',
+    choices: ['flow', 'typescript', 'none'],
+    default: defaults.typeSystem
   },
   {
     type: 'confirm',
@@ -72,14 +79,57 @@ inquirer.prompt(questions).then(answers => {
     eslintrc.extends.push('plugin:github/browser')
   }
 
-  if (answers.flow) eslintrc.extends.push('plugin:github/flow')
+  if (answers.typeSystem === 'flow') eslintrc.extends.push('plugin:github/flow')
+  if (answers.typeSystem === 'typescript') {
+    eslintrc.extends.push('plugin:github/typescript')
+    eslintrc.parser = 'typescript-eslint-parser'
+    eslintrc.plugins = ['tslint', 'typescript']
+    eslintrc.rules = {
+      'import/no-namespace': 'off',
+      'typescript/no-unused-vars': 'error',
+      'tslint/config': [
+        'warn',
+        {
+          lintFile: './tslint.json',
+          configFile: './tsconfig.json'
+        }
+      ]
+    }
+
+    // Create a `tsconfig.json`.
+    const tsconfigPath = path.resolve(process.cwd(), 'tsconfig.json')
+    if (!fs.existsSync(tsconfigPath)) {
+      const tsconfigDefaults = {
+        compilerOptions: {
+          target: 'es2015',
+          module: 'esnext',
+          lib: ['esnext', 'dom'],
+          allowSyntheticDefaultImports: true,
+          moduleResolution: 'node'
+        }
+      }
+      if (answers.react) {
+        tsconfigDefaults.compilerOptions.jsx = 'react'
+      }
+      fs.writeFileSync(tsconfigPath, JSON.stringify(tsconfigDefaults, null, '  '), 'utf8')
+    }
+
+    // Create a `tslint.json`.
+    let tslintrc = {
+      extends: ['eslint-plugin-github/lib/configs/tslint.json']
+    }
+
+    fs.writeFileSync(path.resolve(process.cwd(), 'tslint.json'), JSON.stringify(tslintrc, null, 2), 'utf8')
+  }
+
   if (answers.react) eslintrc.extends.push('plugin:github/react')
   if (answers.relay) eslintrc.extends.push('plugin:github/relay')
 
   fs.writeFileSync(path.resolve(process.cwd(), '.eslintrc.json'), JSON.stringify(eslintrc, null, '  '), 'utf8')
 
   const prettierConfig = []
-  if (answers.flow) prettierConfig.push('/* @flow */')
+  if (answers.typeSystem === 'flow') prettierConfig.push('/* @flow */')
+
   prettierConfig.push("module.exports = require('eslint-plugin-github/prettier.config')")
   prettierConfig.push('')
 

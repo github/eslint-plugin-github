@@ -44,15 +44,19 @@
     "eslint-plugin-prettier": ">=2.6.0",
     "eslint-plugin-react": ">=7.7.0",
     "eslint-plugin-relay": ">=1.0.0",
+    "eslint-plugin-tslint": "^3.1.0",
     "eslint-rule-documentation": ">=1.0.0",
     "inquirer": "^6.0.0",
     "prettier": ">=1.12.0",
     "read-pkg-up": "^4.0.0",
-    "svg-element-attributes": "^1.2.1"
+    "svg-element-attributes": "^1.2.1",
+    "tslint-config-prettier": "^1.17.0",
+    "typescript-eslint-parser": "^21.0.1"
   },
   "peerDependencies": {
     "eslint": ">=4.19.0",
     "flow-bin": ">=0.70.0",
+    "tslint": ">=5.11.0",
     "graphql": ">=14.0.0"
   },
   "files": [
@@ -64,6 +68,7 @@
     "eslint": "^4.8.0",
     "flow-bin": "^0.74.0",
     "graphql": "^14.0.2",
-    "mocha": "^5.1.0"
+    "mocha": "^5.1.0",
+    "tslint": "^5.11.0"
   }
 }
