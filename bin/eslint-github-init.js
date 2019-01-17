@@ -16,13 +16,17 @@ const packagePath = path.resolve(process.cwd(), 'package.json')
 if (fs.existsSync(packagePath)) {
   const packageJSON = JSON.parse(fs.readFileSync(packagePath, 'utf8'))
   defaults.project = packageJSON.private ? 'app' : 'lib'
-  defaults.react = packageJSON.dependencies.includes('react') || packageJSON.devDependencies.includes('react')
-  defaults.relay = packageJSON.dependencies.includes('relay') || packageJSON.devDependencies.includes('relay')
+  
+  const dependencies = Object.keys(packageJSON.dependencies || {})
+  const devDependencies = Object.keys(packageJSON.devDependencies || {})
+  
+  defaults.react = dependencies.includes('react') || devDependencies.includes('react')
+  defaults.relay = dependencies.includes('relay') || devDependencies.includes('relay')
 
-  if (packageJSON.dependencies.includes('flow-bin') || packageJSON.devDependencies.includes('flow-bin')) {
+  if (dependencies.includes('flow-bin') || devDependencies.includes('flow-bin')) {
     defaults.typeSystem = 'flow'
   }
-  if (packageJSON.dependencies.includes('typescript') || packageJSON.devDependencies.includes('typescript')) {
+  if (dependencies.includes('typescript') || devDependencies.includes('typescript')) {
     defaults.typeSystem = 'typescript'
   }
 }
