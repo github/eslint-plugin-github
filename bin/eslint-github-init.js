@@ -16,10 +16,10 @@ const packagePath = path.resolve(process.cwd(), 'package.json')
 if (fs.existsSync(packagePath)) {
   const packageJSON = JSON.parse(fs.readFileSync(packagePath, 'utf8'))
   defaults.project = packageJSON.private ? 'app' : 'lib'
-  
+
   const dependencies = Object.keys(packageJSON.dependencies || {})
   const devDependencies = Object.keys(packageJSON.devDependencies || {})
-  
+
   defaults.react = dependencies.includes('react') || devDependencies.includes('react')
   defaults.relay = dependencies.includes('relay') || devDependencies.includes('relay')
 
