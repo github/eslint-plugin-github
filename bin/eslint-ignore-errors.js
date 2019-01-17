@@ -38,7 +38,9 @@ execFile('eslint', ['--format', 'json', process.argv[2]], (error, stdout) => {
       addedLines += 1
     })
 
-    fs.writeFileSync(filename, jsLines.join('\n'), 'utf8')
+    if (result.messages.length !== 0) {
+      fs.writeFileSync(filename, jsLines.join('\n'), 'utf8')
+    }
   })
 })
 
