@@ -51,5 +51,5 @@ function isDisableComment(line) {
 function leftPad(line) {
   const spaceMatch = line.match(/^\s+/g)
   const spaces = spaceMatch ? spaceMatch[0].length : 0
-  return new Array(spaces).fill(' ').join('')
+  return ' '.repeat(spaces)
 }
