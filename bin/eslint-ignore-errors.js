@@ -31,9 +31,10 @@ execFile('eslint', ['--format', 'json', process.argv[2]], (error, stdout) => {
       const previousLine = jsLines[lineIndex - 1]
       const ruleIds = offensesByLine[line].join(', ')
       if (isDisableComment(previousLine)) {
-        jsLines[lineIndex - 1] = jsLines[lineIndex - 1].replace(/\s?\*\/$/, `, ${ruleIds} */`)
+        jsLines[lineIndex - 1] = previousLine.replace(/\s?\*\/$/, `, ${ruleIds} */`)
       } else {
-        jsLines.splice(lineIndex, 0, leftPad(jsLines[lineIndex]) + `/* eslint-disable-next-line ${ruleIds} */`)
+        const leftPad = ' '.repeat(jsLines[lineIndex].match(/^\s*/g)[0].length)
+        jsLines.splice(lineIndex, 0, `${leftPad}/* eslint-disable-next-line ${ruleIds} */`)
       }
       addedLines += 1
     })
@@ -46,10 +47,4 @@ execFile('eslint', ['--format', 'json', process.argv[2]], (error, stdout) => {
 
 function isDisableComment(line) {
   return line.match(/\/\* eslint-disable-next-line .+\*\//)
-}
-
-function leftPad(line) {
-  const spaceMatch = line.match(/^\s+/g)
-  const spaces = spaceMatch ? spaceMatch[0].length : 0
-  return ' '.repeat(spaces)
 }
