@@ -82,6 +82,7 @@ inquirer.prompt(questions).then(answers => {
   if (answers.typeSystem === 'flow') eslintrc.extends.push('plugin:github/flow')
   if (answers.typeSystem === 'typescript') {
     eslintrc.extends.push('plugin:github/typescript')
+    eslintrc.parser = '@typescript-eslint/parser'
 
     // Create a `tsconfig.json`.
     const tsconfigPath = path.resolve(process.cwd(), 'tsconfig.json')
