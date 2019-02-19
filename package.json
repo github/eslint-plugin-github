@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-github",
-  "version": "1.8.2",
+  "version": "1.9.0",
   "description": "An opinionated collection of ESLint shared configs and rules used by GitHub.",
   "main": "lib/index.js",
   "entries": [
