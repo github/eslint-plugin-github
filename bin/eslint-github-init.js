@@ -82,19 +82,6 @@ inquirer.prompt(questions).then(answers => {
   if (answers.typeSystem === 'flow') eslintrc.extends.push('plugin:github/flow')
   if (answers.typeSystem === 'typescript') {
     eslintrc.extends.push('plugin:github/typescript')
-    eslintrc.parser = 'typescript-eslint-parser'
-    eslintrc.plugins = ['tslint', 'typescript']
-    eslintrc.rules = {
-      'import/no-namespace': 'off',
-      'typescript/no-unused-vars': 'error',
-      'tslint/config': [
-        'warn',
-        {
-          lintFile: './tslint.json',
-          configFile: './tsconfig.json'
-        }
-      ]
-    }
 
     // Create a `tsconfig.json`.
     const tsconfigPath = path.resolve(process.cwd(), 'tsconfig.json')
@@ -113,13 +100,6 @@ inquirer.prompt(questions).then(answers => {
       }
       fs.writeFileSync(tsconfigPath, JSON.stringify(tsconfigDefaults, null, '  '), 'utf8')
     }
-
-    // Create a `tslint.json`.
-    let tslintrc = {
-      extends: ['eslint-plugin-github/lib/configs/tslint.json']
-    }
-
-    fs.writeFileSync(path.resolve(process.cwd(), 'tslint.json'), JSON.stringify(tslintrc, null, 2), 'utf8')
   }
 
   if (answers.react) eslintrc.extends.push('plugin:github/react')
