@@ -18,15 +18,15 @@ ruleTester.run('no-implicit-buggy-globals', rule, {
     },
     {
       code: 'var foo = 1;',
-      parserOptions: {sourceType: 'module'}
+      parserOptions: {sourceType: 'module', ecmaVersion: 2015}
     },
     {
       code: 'let foo = 1;',
-      parserOptions: {sourceType: 'module'}
+      parserOptions: {sourceType: 'module', ecmaVersion: 2015}
     },
     {
       code: 'const foo = 1;',
-      parserOptions: {sourceType: 'module'}
+      parserOptions: {sourceType: 'module', ecmaVersion: 2015}
     }
   ],
   invalid: [
