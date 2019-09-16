@@ -27,7 +27,7 @@ function execFile(command, args) {
   const isTypeScriptProject = fs.existsSync('tsconfig.json')
 
   if (isTypeScriptProject) {
-    eslintOptions = eslintOptions.concat(['--ext', '.ts,.tsx'])
+    eslintOptions = eslintOptions.concat(['--ext', '.js,.ts,.tsx'])
   }
 
   commands.push(['eslint', eslintOptions])
