@@ -5,11 +5,13 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
-
+    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    
     strategy:
       matrix:
         node-version: [8.x, 10.x, 12.x]
+        os: [ubuntu-latest, macOS-latest]
 
     steps:
     - uses: actions/checkout@v1
