@@ -31,25 +31,18 @@ describe('dependency-graph', () => {
     })
     it('gathers all imported files from dependencyGraph', () => {
       const {filenames} = dependencyGraph.imported()
-      assert.deepEqual([...filenames], [
-        resolve('./fixtures/one.js')
-      ])
+      assert.deepEqual([...filenames], [resolve('./fixtures/one.js')])
     })
     it('gathers all imported identifiers from dependencyGraph', () => {
       const {identifiers} = dependencyGraph.imported()
-      assert.deepEqual([...identifiers], [
-        resolve('./fixtures/one.js#a'),
-        resolve('./fixtures/one.js#b')
-      ])
+      assert.deepEqual([...identifiers], [resolve('./fixtures/one.js#a'), resolve('./fixtures/one.js#b')])
     })
     it('follows symlinks', () => {
       const graph = dependencyGraph.dependencyGraph.get('./fixtures/index.js')
       graph.imports.delete('./fixtures/one.js')
       graph.imports.set('./fixtures/link.js', new Set(['a', 'b']))
       const {filenames} = dependencyGraph.imported()
-      assert.deepEqual([...filenames], [
-        resolve('./fixtures/one.js'),
-      ])
+      assert.deepEqual([...filenames], [resolve('./fixtures/one.js')])
     })
   })
 })
