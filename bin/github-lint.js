@@ -22,7 +22,7 @@ function execFile(command, args) {
 
   const packageJson = fs.existsSync('package.json') ? require(path.join(process.cwd(), 'package.json')) : {}
 
-  let eslintOptions = ['--report-unused-disable-directives', '.']
+  let eslintOptions = ['--color', '--report-unused-disable-directives', '.']
 
   const isTypeScriptProject = fs.existsSync('tsconfig.json')
 
