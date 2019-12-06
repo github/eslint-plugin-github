@@ -25,7 +25,7 @@ function execFile(command, args) {
 
   const packageJson = fs.existsSync('package.json') ? require(path.join(process.cwd(), 'package.json')) : {}
 
-  let eslintOptions = ['--color', '--report-unused-disable-directives', '.']
+  let eslintOptions = ['--report-unused-disable-directives', '.']
 
   if (hasBasicColorSupport) {
     eslintOptions = eslintOptions.concat(['--color'])
