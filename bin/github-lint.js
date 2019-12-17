@@ -12,7 +12,7 @@ const hasBasicColorSupport = supportsColors.stdout.hasBasic && supportsColors.st
 
 function execFile(command, args) {
   return new Promise(resolve => {
-    childProcess.execFile(command, args, (error, stdout, stderr) => {
+    childProcess.execFile(command, args, {maxBuffer: 1024 ** 2}, (error, stdout, stderr) => {
       resolve({code: error ? error.code : 0, stdout, stderr})
     })
   })
