@@ -68,6 +68,35 @@ We know this code can only possibly mutate `apple`, as the return value is disca
 
 While `forEach` provides a set of arguments to the callback, it is still overall _less flexible_ than a `for` loop. A `for` loop can conditionally call the callback, can pass additional arguments to the callback (which would otherwise need to be hoisted or curried), can opt to change the `receiver` (`this` value) or not pass any `receiver` at all. This extra flexibility is the reason we almost always prefer to use `for` loops over any of the Array iteration methods.
 
+A good example of how `for` loops provide flexibility, where `forEach` constrains it, is to see how an iteration would be refactored to handle async work. Consider the following...
+
+```js
+apples.forEach(polishApple)
+// vs...
+for (const apple of apples) {
+  polishApple(apple)
+}
+```
+
+If `polishApple` need to do some async work, then we'd need to refactor the iteration steps to accomodate for this async work, by `await`ing each call to `polishApple`. We cannot simply pass an `async` function to `forEach`, as it does not understand async functions, instead we'd have to turn the `forEach` into a `map` and combine that with a `Promise.all`. For example:
+
+```diff
+- apples.forEach(polishApple)
++ await Promise.all(
++   apples.map(async apple => await polishApple(apple))
++ )
+```
+
+Compare this to the `for` loop, which has a much simpler path to refactoring:
+
+```diff
+ for (const apple of apples) {
+-  polishApple(apple)
++  await polishApple(apple)
+ }
+```
+
+
 ## See Also
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
