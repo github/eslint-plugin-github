@@ -23,7 +23,7 @@ Here's a summary of why `forEach` is disallowed, and why we prefer `for...of` fo
  - `for` loops are considered "more readable" and have **clearer intent**.
  - `for...of` loops offer the **most flexibility** for iteration (especially vs `Array.from`).
 
-For more detail, here is a break down of each of those points:
+For more detail, here is a breakdown of each of those points:
 
 ### Layering of bad practices
 
