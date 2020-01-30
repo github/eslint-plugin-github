@@ -50,6 +50,8 @@ The problem we now have is that we're iterating multiple times over the items in
  }
 ```
 
+Chaning isn't always necessarily bad. Chaining can advertise a series of transformations that are independant from one another, and therefore aid readability. Additionally, sometimes the "goto-style" behaviour of `continue` in for loops can hamper readability. For small Arrays, performance is not going to be of concern, but caution should be applied where there is a potentially unbounded Array (such as iterating over a fetched users list) as performance can easily become a bottleneck when unchecked.
+
 ### Hiding Intent
 
 The `forEach` method passes more than just the current item it is iterating over. The signature of the `forEach` callback method is `(cur: T, i: Number, all: []T) => void` and it can _additionally_ override the `receiver` (`this` value), meaning that often the _intent_ of what the callback does is hidden. To put this another way, there is _no way_ to know what the following code operates on without reading the implementation: `forEach(polishApple)`. 
