@@ -85,7 +85,7 @@ If `polishApple` need to do some async work, then we'd need to refactor the iter
 ```diff
 - apples.forEach(polishApple)
 + await Promise.all(
-+   apples.map(async apple => await polishApple(apple))
++   apples.map(polishApple)
 + )
 ```
 
