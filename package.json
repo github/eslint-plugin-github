@@ -43,7 +43,6 @@
     "eslint-plugin-import": ">=2.18.2",
     "eslint-plugin-jsdoc": ">=15.5.2",
     "eslint-plugin-prettier": ">=2.6.0",
-    "eslint-plugin-relay": ">=1.0.0",
     "eslint-rule-documentation": ">=1.0.0",
     "inquirer": ">=6.0.0",
     "prettier": ">=1.12.0",
