@@ -8,7 +8,6 @@ const defaults = {
   project: 'lib',
   env: 'browser',
   typeSystem: 'none',
-  react: true,
   relay: true
 }
 
@@ -20,7 +19,6 @@ if (fs.existsSync(packagePath)) {
   const dependencies = Object.keys(packageJSON.dependencies || {})
   const devDependencies = Object.keys(packageJSON.devDependencies || {})
 
-  defaults.react = dependencies.includes('react') || devDependencies.includes('react')
   defaults.relay = dependencies.includes('relay') || devDependencies.includes('relay')
 
   if (dependencies.includes('flow-bin') || devDependencies.includes('flow-bin')) {
@@ -58,13 +56,6 @@ const questions = [
     name: 'relay',
     message: 'Are you using Relay?',
     default: defaults.relay
-  },
-  {
-    type: 'confirm',
-    name: 'react',
-    message: 'Are you using React?',
-    default: defaults.react,
-    when: answers => answers.env === 'browser'
   }
 ]
 
@@ -96,14 +87,10 @@ inquirer.prompt(questions).then(answers => {
           moduleResolution: 'node'
         }
       }
-      if (answers.react) {
-        tsconfigDefaults.compilerOptions.jsx = 'react'
-      }
       fs.writeFileSync(tsconfigPath, JSON.stringify(tsconfigDefaults, null, '  '), 'utf8')
     }
   }
 
-  if (answers.react) eslintrc.extends.push('plugin:github/react')
   if (answers.relay) eslintrc.extends.push('plugin:github/relay')
 
   fs.writeFileSync(path.resolve(process.cwd(), '.eslintrc.json'), JSON.stringify(eslintrc, null, '  '), 'utf8')
