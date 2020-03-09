@@ -18,9 +18,6 @@ if (fs.existsSync(packagePath)) {
   const dependencies = Object.keys(packageJSON.dependencies || {})
   const devDependencies = Object.keys(packageJSON.devDependencies || {})
 
-  if (dependencies.includes('flow-bin') || devDependencies.includes('flow-bin')) {
-    defaults.typeSystem = 'flow'
-  }
   if (dependencies.includes('typescript') || devDependencies.includes('typescript')) {
     defaults.typeSystem = 'typescript'
   }
@@ -45,7 +42,7 @@ const questions = [
     type: 'list',
     name: 'typeSystem',
     message: 'What type system are you using?',
-    choices: ['flow', 'typescript', 'none'],
+    choices: ['typescript', 'none'],
     default: defaults.typeSystem
   }
 ]
@@ -61,7 +58,6 @@ inquirer.prompt(questions).then(answers => {
     eslintrc.extends.push('plugin:github/browser')
   }
 
-  if (answers.typeSystem === 'flow') eslintrc.extends.push('plugin:github/flow')
   if (answers.typeSystem === 'typescript') {
     eslintrc.extends.push('plugin:github/typescript')
     eslintrc.parser = '@typescript-eslint/parser'
@@ -85,8 +81,6 @@ inquirer.prompt(questions).then(answers => {
   fs.writeFileSync(path.resolve(process.cwd(), '.eslintrc.json'), JSON.stringify(eslintrc, null, '  '), 'utf8')
 
   const prettierConfig = []
-  if (answers.typeSystem === 'flow') prettierConfig.push('/* @flow */')
-
   prettierConfig.push("module.exports = require('eslint-plugin-github/prettier.config')")
   prettierConfig.push('')
 

@@ -43,14 +43,6 @@ function execFile(command, args) {
     commands.push(['tsc', ['--noEmit']])
   }
 
-  if (fs.existsSync('.flowconfig')) {
-    commands.push(['flow', ['check']])
-  }
-
-  if (packageJson && packageJson.flow && packageJson.flow.coverageThreshold) {
-    commands.push(['flow-coverage', []])
-  }
-
   for (const [command, args] of commands) {
     if (runs > 0) process.stderr.write('\n')
     process.stderr.write(`> ${command} ${args.join(' ')}\n`)
