@@ -40,8 +40,7 @@
   },
   "files": [
     "bin/*",
-    "lib/*",
-    "prettier.config.js"
+    "lib/*"
   ],
   "devDependencies": {
     "eslint": ">=6.5.1",
