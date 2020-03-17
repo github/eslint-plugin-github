@@ -30,14 +30,6 @@ Recommended rules when using Babel to transpile features from ES2015+.
 
 Recommended rules for projects using the [Flow type checker](https://flow.org/).
 
-### `plugin:github/react`
-
-Recommended rules for projects using [React](https://reactjs.org/).
-
-### `plugin:github/relay`
-
-Recommended rules for projects using [Relay](http://facebook.github.io/relay/) (and React).
-
 ### `plugin:github/app`
 
 Recommended rules when writing a browser application.

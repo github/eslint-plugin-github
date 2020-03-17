@@ -39,13 +39,9 @@
     "eslint-config-prettier": ">=6.4.0",
     "eslint-plugin-eslint-comments": ">=3.0.1",
     "eslint-plugin-flowtype": ">=4.3.0",
-    "eslint-plugin-graphql": ">=3.0.1",
     "eslint-plugin-import": ">=2.18.2",
     "eslint-plugin-jsdoc": ">=15.5.2",
-    "eslint-plugin-jsx-a11y": ">=6.0.0",
     "eslint-plugin-prettier": ">=2.6.0",
-    "eslint-plugin-react": ">=7.7.0",
-    "eslint-plugin-relay": ">=1.0.0",
     "eslint-rule-documentation": ">=1.0.0",
     "inquirer": ">=6.0.0",
     "prettier": ">=1.12.0",
@@ -55,8 +51,7 @@
   },
   "peerDependencies": {
     "eslint": ">=4.19.0",
-    "flow-bin": ">=0.70.0",
-    "graphql": ">=14.0.0"
+    "flow-bin": ">=0.70.0"
   },
   "files": [
     "bin/*",
@@ -66,7 +61,6 @@
   "devDependencies": {
     "eslint": ">=6.5.1",
     "flow-bin": ">=0.110.1",
-    "graphql": ">=14.5.8",
     "mocha": ">=6.2.2",
     "rimraf": "^3.0.0"
   }
