@@ -5,7 +5,6 @@
 
 const childProcess = require('child_process')
 const fs = require('fs')
-const path = require('path')
 const supportsColors = require('supports-color')
 
 const hasBasicColorSupport = supportsColors.stdout.hasBasic && supportsColors.stderr.hasBasic
@@ -22,8 +21,6 @@ function execFile(command, args) {
   let runs = 0
   const codes = []
   const commands = []
-
-  const packageJson = fs.existsSync('package.json') ? require(path.join(process.cwd(), 'package.json')) : {}
 
   let eslintOptions = ['--report-unused-disable-directives', '.']
 
