@@ -26,10 +26,6 @@ A base layer of configuration recommended for any JS project. The [Prettier](htt
 
 Recommended rules when using Babel to transpile features from ES2015+.
 
-### `plugin:github/flow`
-
-Recommended rules for projects using the [Flow type checker](https://flow.org/).
-
 ### `plugin:github/app`
 
 Recommended rules when writing a browser application.

@@ -5,7 +5,6 @@
 
 const childProcess = require('child_process')
 const fs = require('fs')
-const path = require('path')
 const supportsColors = require('supports-color')
 
 const hasBasicColorSupport = supportsColors.stdout.hasBasic && supportsColors.stderr.hasBasic
@@ -23,8 +22,6 @@ function execFile(command, args) {
   const codes = []
   const commands = []
 
-  const packageJson = fs.existsSync('package.json') ? require(path.join(process.cwd(), 'package.json')) : {}
-
   let eslintOptions = ['--report-unused-disable-directives', '.']
 
   if (hasBasicColorSupport) {
@@ -41,14 +38,6 @@ function execFile(command, args) {
 
   if (isTypeScriptProject) {
     commands.push(['tsc', ['--noEmit']])
-  }
-
-  if (fs.existsSync('.flowconfig')) {
-    commands.push(['flow', ['check']])
-  }
-
-  if (packageJson && packageJson.flow && packageJson.flow.coverageThreshold) {
-    commands.push(['flow-coverage', []])
   }
 
   for (const [command, args] of commands) {

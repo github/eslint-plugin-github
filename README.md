@@ -24,4 +24,4 @@ Set up `npm run lint` script.
 }
 ```
 
-The `github-lint` command will run `eslint`, `flow` and flow coverage checking depending on your project configuration.
+The `github-lint` command will run various checkers and linters depending on your project configuration.
