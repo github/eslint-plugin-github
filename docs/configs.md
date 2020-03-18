@@ -29,7 +29,3 @@ Recommended rules when using Babel to transpile features from ES2015+.
 ### `plugin:github/app`
 
 Recommended rules when writing a browser application.
-
-### `plugin:github/node`
-
-Recommended rules when writing a node application.

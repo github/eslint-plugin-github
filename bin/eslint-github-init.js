@@ -35,7 +35,7 @@ const questions = [
     type: 'list',
     name: 'env',
     message: 'Which environment does this library target?',
-    choices: ['browser', 'node'],
+    choices: ['browser'],
     default: defaults.env
   },
   {
@@ -50,9 +50,7 @@ const questions = [
 inquirer.prompt(questions).then(answers => {
   const eslintrc = {extends: ['plugin:github/es6']}
 
-  if (answers.env === 'node') {
-    eslintrc.extends.push('plugin:github/node')
-  } else if (answers.project === 'app') {
+  if (answers.project === 'app') {
     eslintrc.extends.push('plugin:github/app')
   } else if (answers.env === 'browser') {
     eslintrc.extends.push('plugin:github/browser')
