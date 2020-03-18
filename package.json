@@ -9,7 +9,6 @@
   "bin": {
     "eslint-github-init": "bin/eslint-github-init.js",
     "eslint-ignore-errors": "bin/eslint-ignore-errors.js",
-    "eslint-unused-modules": "bin/eslint-unused-modules.js",
     "github-lint": "bin/github-lint.js",
     "npm-check-github-package-requirements": "bin/npm-check-github-package-requirements.js"
   },
