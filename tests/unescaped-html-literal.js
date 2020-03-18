@@ -1,7 +1,7 @@
-var rule = require('../lib/rules/unescaped-html-literal')
-var RuleTester = require('eslint').RuleTester
+const rule = require('../lib/rules/unescaped-html-literal')
+const RuleTester = require('eslint').RuleTester
 
-var ruleTester = new RuleTester()
+const ruleTester = new RuleTester()
 
 ruleTester.run('unescaped-html-literal', rule, {
   valid: [

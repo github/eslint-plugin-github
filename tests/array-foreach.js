@@ -1,7 +1,7 @@
-var rule = require('../lib/rules/array-foreach')
-var RuleTester = require('eslint').RuleTester
+const rule = require('../lib/rules/array-foreach')
+const RuleTester = require('eslint').RuleTester
 
-var ruleTester = new RuleTester()
+const ruleTester = new RuleTester()
 
 ruleTester.run('array-foreach', rule, {
   valid: [

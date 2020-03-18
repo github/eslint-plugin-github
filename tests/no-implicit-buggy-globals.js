@@ -1,7 +1,7 @@
-var rule = require('../lib/rules/no-implicit-buggy-globals')
-var RuleTester = require('eslint').RuleTester
+const rule = require('../lib/rules/no-implicit-buggy-globals')
+const RuleTester = require('eslint').RuleTester
 
-var ruleTester = new RuleTester()
+const ruleTester = new RuleTester()
 
 ruleTester.run('no-implicit-buggy-globals', rule, {
   valid: [

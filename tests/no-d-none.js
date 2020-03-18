@@ -1,7 +1,7 @@
-var rule = require('../lib/rules/no-d-none')
-var RuleTester = require('eslint').RuleTester
+const rule = require('../lib/rules/no-d-none')
+const RuleTester = require('eslint').RuleTester
 
-var ruleTester = new RuleTester()
+const ruleTester = new RuleTester()
 
 ruleTester.run('no-d-none', rule, {
   valid: [

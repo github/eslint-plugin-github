@@ -1,7 +1,7 @@
-var rule = require('../lib/rules/get-attribute')
-var RuleTester = require('eslint').RuleTester
+const rule = require('../lib/rules/get-attribute')
+const RuleTester = require('eslint').RuleTester
 
-var ruleTester = new RuleTester()
+const ruleTester = new RuleTester()
 
 ruleTester.run('get-attribute', rule, {
   valid: [
