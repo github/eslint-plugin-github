@@ -7,15 +7,12 @@
     "lib/formatters/stylish-fixes.js"
   ],
   "bin": {
-    "eslint-github-init": "bin/eslint-github-init.js",
-    "eslint-ignore-errors": "bin/eslint-ignore-errors.js",
-    "github-lint": "bin/github-lint.js",
-    "npm-check-github-package-requirements": "bin/npm-check-github-package-requirements.js"
+    "eslint-ignore-errors": "bin/eslint-ignore-errors.js"
   },
   "scripts": {
     "pretest": "mkdir -p node_modules/ && ln -fs $(pwd) node_modules/",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-    "test": "npm run eslint-check && bin/github-lint.js && mocha tests/"
+    "test": "npm run eslint-check && eslint . && mocha tests/"
   },
   "repository": {
     "type": "git",
@@ -35,12 +32,8 @@
     "eslint-plugin-import": ">=2.18.2",
     "eslint-plugin-prettier": ">=2.6.0",
     "eslint-rule-documentation": ">=1.0.0",
-    "inquirer": ">=6.0.0",
     "prettier": ">=1.12.0",
-    "read-pkg-up": ">=6.0.0",
-    "supports-color": "^7.1.0",
-    "svg-element-attributes": ">=1.2.1",
-    "to-fast-properties": "^3.0.1"
+    "svg-element-attributes": ">=1.2.1"
   },
   "peerDependencies": {
     "eslint": ">=4.19.0"
@@ -52,7 +45,6 @@
   ],
   "devDependencies": {
     "eslint": ">=6.5.1",
-    "mocha": ">=6.2.2",
-    "rimraf": "^3.0.0"
+    "mocha": ">=6.2.2"
   }
 }
