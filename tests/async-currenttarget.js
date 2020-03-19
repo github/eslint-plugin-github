@@ -1,7 +1,7 @@
-var rule = require('../lib/rules/async-currenttarget')
-var RuleTester = require('eslint').RuleTester
+const rule = require('../lib/rules/async-currenttarget')
+const RuleTester = require('eslint').RuleTester
 
-var ruleTester = new RuleTester()
+const ruleTester = new RuleTester()
 
 ruleTester.run('async-currenttarget', rule, {
   valid: [

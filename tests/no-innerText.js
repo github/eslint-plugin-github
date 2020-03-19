@@ -1,7 +1,7 @@
-var rule = require('../lib/rules/no-innerText')
-var RuleTester = require('eslint').RuleTester
+const rule = require('../lib/rules/no-innerText')
+const RuleTester = require('eslint').RuleTester
 
-var ruleTester = new RuleTester()
+const ruleTester = new RuleTester()
 
 ruleTester.run('no-innerText', rule, {
   valid: [

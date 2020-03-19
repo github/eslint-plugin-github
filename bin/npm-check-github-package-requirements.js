@@ -10,7 +10,7 @@ function check(name, callback) {
 
 function run() {
   process.stdout.write(`1..${checks.length}\n`)
-  checks.forEach(([count, name, callback]) => {
+  for (const [count, name, callback] of checks) {
     Promise.resolve()
       .then(callback)
       .then(() => {
@@ -19,7 +19,7 @@ function run() {
       .catch(error => {
         process.stdout.write(`not ok ${count} - ${name}\n  ${error}\n`)
       })
-  })
+  }
 }
 
 const packageRoot = process.argv[2]
