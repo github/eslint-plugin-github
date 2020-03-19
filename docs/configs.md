@@ -22,10 +22,6 @@ $ node_modules/.bin/eslint-github-init
 
 A base layer of configuration recommended for any JS project. The [Prettier](https://prettier.io/) formatter is used to format code.
 
-### `plugin:github/es6`
+### `plugin:github/internal`
 
-Recommended rules when using Babel to transpile features from ES2015+.
-
-### `plugin:github/app`
-
-Recommended rules when writing a browser application.
+Recommended rules when writing a internal GitHub app.

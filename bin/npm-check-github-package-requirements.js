@@ -12,10 +12,13 @@ function run() {
   process.stdout.write(`1..${checks.length}\n`)
   for (const [count, name, callback] of checks) {
     Promise.resolve()
+      // eslint-disable-next-line github/no-then
       .then(callback)
+      // eslint-disable-next-line github/no-then
       .then(() => {
         process.stdout.write(`ok ${count} - ${name}\n`)
       })
+      // eslint-disable-next-line github/no-then
       .catch(error => {
         process.stdout.write(`not ok ${count} - ${name}\n  ${error}\n`)
       })

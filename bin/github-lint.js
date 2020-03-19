@@ -18,47 +18,49 @@ function execFile(command, args) {
 }
 
 ;(async function() {
-  let runs = 0
-  const codes = []
-  const commands = []
+  try {
+    let runs = 0
+    const codes = []
+    const commands = []
 
-  let eslintOptions = ['--report-unused-disable-directives', '.']
+    let eslintOptions = ['--report-unused-disable-directives', '.']
 
-  if (hasBasicColorSupport) {
-    eslintOptions = eslintOptions.concat(['--color'])
+    if (hasBasicColorSupport) {
+      eslintOptions = eslintOptions.concat(['--color'])
+    }
+
+    const isTypeScriptProject = fs.existsSync('tsconfig.json')
+
+    if (isTypeScriptProject) {
+      eslintOptions = eslintOptions.concat(['--ext', '.js,.ts,.tsx'])
+    }
+
+    commands.push(['eslint', eslintOptions])
+
+    if (isTypeScriptProject) {
+      commands.push(['tsc', ['--noEmit']])
+    }
+
+    for (const [command, args] of commands) {
+      if (runs > 0) process.stderr.write('\n')
+      process.stderr.write(`> ${command} ${args.join(' ')}\n`)
+
+      const {code, stdout, stderr} = await execFile(command, args)
+      codes.push(code)
+      if (stderr) process.stderr.write(stderr)
+      if (stdout) process.stdout.write(stdout)
+
+      runs++
+    }
+
+    const nonzero = codes.find(code => code !== 0)
+    if (nonzero) {
+      process.stderr.write(`\nCommand failed: ${nonzero}\n`)
+      process.exit(nonzero)
+    }
+  } catch (error) {
+    setTimeout(() => {
+      throw error
+    })
   }
-
-  const isTypeScriptProject = fs.existsSync('tsconfig.json')
-
-  if (isTypeScriptProject) {
-    eslintOptions = eslintOptions.concat(['--ext', '.js,.ts,.tsx'])
-  }
-
-  commands.push(['eslint', eslintOptions])
-
-  if (isTypeScriptProject) {
-    commands.push(['tsc', ['--noEmit']])
-  }
-
-  for (const [command, args] of commands) {
-    if (runs > 0) process.stderr.write('\n')
-    process.stderr.write(`> ${command} ${args.join(' ')}\n`)
-
-    const {code, stdout, stderr} = await execFile(command, args)
-    codes.push(code)
-    if (stderr) process.stderr.write(stderr)
-    if (stdout) process.stdout.write(stdout)
-
-    runs++
-  }
-
-  const nonzero = codes.find(code => code !== 0)
-  if (nonzero) {
-    process.stderr.write(`\nCommand failed: ${nonzero}\n`)
-    process.exit(nonzero)
-  }
-})().catch(error => {
-  setTimeout(() => {
-    throw error
-  })
-})
+})()
