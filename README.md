@@ -22,7 +22,7 @@ Extend the configs you wish to use.
 JSON ESLint config example:
 ```json
 {
-  "extends": ["extends": ["plugin:github/recommended"]
+  "extends": ["plugin:github/recommended"]
 }
 ```
 
