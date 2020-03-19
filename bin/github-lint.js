@@ -58,7 +58,7 @@ try {
       process.stderr.write(`\nCommand failed: ${nonzero}\n`)
       process.exit(nonzero)
     }
-  })
+  })()
 } catch (error) {
   setTimeout(() => {
     throw error
