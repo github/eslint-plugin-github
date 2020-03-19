@@ -47,7 +47,7 @@ const questions = [
   }
 ]
 
-inquirer.prompt(questions).then(answers => {
+for (const answers of inquirer.prompt(questions)) {
   const eslintrc = {extends: ['plugin:github/es6']}
 
   if (answers.project === 'app') {
@@ -83,4 +83,4 @@ inquirer.prompt(questions).then(answers => {
   prettierConfig.push('')
 
   fs.writeFileSync(path.resolve(process.cwd(), 'prettier.config.js'), prettierConfig.join('\n'), 'utf8')
-})
+}
