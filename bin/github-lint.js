@@ -17,8 +17,8 @@ function execFile(command, args) {
   })
 }
 
-try {
-  ;(async function() {
+;(async function() {
+  try {
     let runs = 0
     const codes = []
     const commands = []
@@ -58,9 +58,9 @@ try {
       process.stderr.write(`\nCommand failed: ${nonzero}\n`)
       process.exit(nonzero)
     }
-  })()
-} catch (error) {
-  setTimeout(() => {
-    throw error
-  })
-}
+  } catch (error) {
+    setTimeout(() => {
+      throw error
+    })
+  }
+})()
