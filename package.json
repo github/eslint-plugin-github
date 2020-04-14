@@ -7,7 +7,8 @@
     "lib/formatters/stylish-fixes.js"
   ],
   "bin": {
-    "eslint-ignore-errors": "bin/eslint-ignore-errors.js"
+    "eslint-ignore-errors": "bin/eslint-ignore-errors.js",
+    "find-unused-modules": "bin/find-unused-modules.js"
   },
   "scripts": {
     "pretest": "mkdir -p node_modules/ && ln -fs $(pwd) node_modules/",
@@ -33,7 +34,8 @@
     "eslint-plugin-prettier": ">=3.1.2",
     "eslint-rule-documentation": ">=1.0.0",
     "prettier": ">=1.12.0",
-    "svg-element-attributes": ">=1.3.1"
+    "svg-element-attributes": ">=1.3.1",
+    "ts-morph": "^7.0.2"
   },
   "prettier": "@github/prettier-config",
   "peerDependencies": {
