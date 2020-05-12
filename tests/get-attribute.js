@@ -26,7 +26,8 @@ ruleTester.run('get-attribute', rule, {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
           type: 'Literal'
         }
-      ]
+      ],
+      output: "el.getAttribute('src')"
     },
     {
       code: "el.hasAttribute('SRC')",
@@ -35,7 +36,8 @@ ruleTester.run('get-attribute', rule, {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
           type: 'Literal'
         }
-      ]
+      ],
+      output: "el.hasAttribute('src')"
     },
     {
       code: "el.getAttribute('onClick')",
@@ -44,7 +46,8 @@ ruleTester.run('get-attribute', rule, {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
           type: 'Literal'
         }
-      ]
+      ],
+      output: "el.getAttribute('onclick')"
     },
     {
       code: "el.getAttribute('viewbox')",
