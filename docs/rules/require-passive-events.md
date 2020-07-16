@@ -1,6 +1,6 @@
-# No Non Passive High Frequency Events
+# Require Passive Events
 
-This rule disallows adding high frequency event listeners (`touchstart`, `touchmove`, `wheel`, `mousewheel`) without the `passive: true` option.
+This rule enforces adding `passive: true` to high frequency event listeners (`touchstart`, `touchmove`, `wheel`, `mousewheel`).
 
 ```js
 // bad
