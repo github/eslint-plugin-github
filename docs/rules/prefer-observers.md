@@ -1,4 +1,4 @@
-# Prever Observers over Events
+# Prever Observers
 
 Some events, such as `scroll` and `resize` have traditionally caused performance issues on web pages, as they are high frequency events, firing many times per second as the user interacts with the page viewport.
 
