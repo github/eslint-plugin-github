@@ -1,9 +1,9 @@
-const rule = require('../lib/rules/no-non-passive-high-frequency-events')
+const rule = require('../lib/rules/require-passive-events')
 const RuleTester = require('eslint').RuleTester
 
 const ruleTester = new RuleTester()
 
-ruleTester.run('no-non-passive-high-frequency-events', rule, {
+ruleTester.run('require-passive-events', rule, {
   valid: [
     {
       code: 'document.addEventListener("load", function(event) {})'

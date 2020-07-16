@@ -1,9 +1,9 @@
-const rule = require('../lib/rules/prefer-observers-over-events')
+const rule = require('../lib/rules/prefer-observers')
 const RuleTester = require('eslint').RuleTester
 
 const ruleTester = new RuleTester()
 
-ruleTester.run('prefer-observers-over-events', rule, {
+ruleTester.run('prefer-observers', rule, {
   valid: [
     {
       code: 'document.addEventListener("touchstart", function(event) {})'
