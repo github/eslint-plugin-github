@@ -41,8 +41,7 @@
   },
   "files": [
     "bin/*",
-    "lib/*",
-    "prettier.config.js"
+    "lib/*"
   ],
   "devDependencies": {
     "@github/prettier-config": "0.0.4",
