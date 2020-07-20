@@ -16,4 +16,15 @@ describe('smoke tests', () => {
     const files = new Set(fs.readdirSync('./lib/configs').map(f => path.basename(f, path.extname(f))))
     assert.deepEqual(files, exportedConfigs)
   })
+
+  it('exports valid rules in each config', () => {
+    const exportedRules = new Set(Object.keys(config.rules))
+    for (const flavour in config.configs) {
+      for (const rule in config.configs[flavour].rules) {
+        if (rule.startsWith('github/')) {
+          assert(exportedRules.has(rule.replace(/^github\//, '')), `rule ${rule} is not a valid rule`)
+        }
+      }
+    }
+  })
 })
