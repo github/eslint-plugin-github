@@ -10,4 +10,10 @@ describe('smoke tests', () => {
     const files = new Set(fs.readdirSync('./lib/rules').map(f => path.basename(f, path.extname(f))))
     assert.deepEqual(files, exportedRules)
   })
+
+  it('exports every config in lib/config as .configs', () => {
+    const exportedConfigs = new Set(Object.keys(config.configs))
+    const files = new Set(fs.readdirSync('./lib/configs').map(f => path.basename(f, path.extname(f))))
+    assert.deepEqual(files, exportedConfigs)
+  })
 })
