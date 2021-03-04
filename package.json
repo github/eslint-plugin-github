@@ -11,7 +11,7 @@
   },
   "scripts": {
     "pretest": "mkdir -p node_modules/ && ln -fs $(pwd) node_modules/",
-    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "eslint-check": "eslint-config-prettier .eslintrc.js",
     "test": "npm run eslint-check && eslint . && mocha tests/"
   },
   "repository": {
@@ -27,7 +27,7 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": ">=2.25.0",
     "@typescript-eslint/parser": ">=2.25.0",
-    "eslint-config-prettier": ">=6.10.1",
+    "eslint-config-prettier": ">=8.0.0",
     "eslint-plugin-eslint-comments": ">=3.0.1",
     "eslint-plugin-import": ">=2.20.1",
     "eslint-plugin-prettier": ">=3.1.2",
@@ -46,6 +46,8 @@
   "devDependencies": {
     "@github/prettier-config": "0.0.4",
     "eslint": ">=7.0.0",
+    "eslint-visitor-keys": "^2.0.0",
+    "globals": "^13.6.0",
     "mocha": ">=7.1.1"
   }
 }
