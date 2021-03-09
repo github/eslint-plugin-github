@@ -28,7 +28,7 @@ JSON ESLint config example:
 
 The available configs are:
 
-- `app`
+- `internal`
   - Rules useful for github applications.
 - `browser`
   - Useful rules when shipping your app to the browser.
