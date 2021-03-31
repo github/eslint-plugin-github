@@ -21,36 +21,37 @@ ruleTester.run('get-attribute', rule, {
   invalid: [
     {
       code: "el.getAttribute('SRC')",
+      output: "el.getAttribute('src')",
       errors: [
         {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
           type: 'Literal'
         }
-      ],
-      output: "el.getAttribute('src')"
+      ]
     },
     {
       code: "el.hasAttribute('SRC')",
+      output: "el.hasAttribute('src')",
       errors: [
         {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
           type: 'Literal'
         }
-      ],
-      output: "el.hasAttribute('src')"
+      ]
     },
     {
       code: "el.getAttribute('onClick')",
+      output: "el.getAttribute('onclick')",
       errors: [
         {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
           type: 'Literal'
         }
-      ],
-      output: "el.getAttribute('onclick')"
+      ]
     },
     {
       code: "el.getAttribute('viewbox')",
+      output: null,
       errors: [
         {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
@@ -60,6 +61,7 @@ ruleTester.run('get-attribute', rule, {
     },
     {
       code: "el.getAttribute('preserveaspectratio')",
+      output: null,
       errors: [
         {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
