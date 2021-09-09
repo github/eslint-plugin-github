@@ -15,7 +15,7 @@ ruleTester.run('no-innter-html', rule, {
       errors: [
         {
           message:
-            'Using innerHTML poses a potential security risk and should not be used other than cleaning content.',
+            'Using innerHTML poses a potential security risk and should not be used other than clearing content.',
           type: 'AssignmentExpression'
         }
       ]
@@ -25,7 +25,7 @@ ruleTester.run('no-innter-html', rule, {
       errors: [
         {
           message:
-            'Using innerHTML poses a potential security risk and should not be used other than cleaning content.',
+            'Using innerHTML poses a potential security risk and should not be used other than clearing content.',
           type: 'AssignmentExpression'
         }
       ]
