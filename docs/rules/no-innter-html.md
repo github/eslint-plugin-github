@@ -1,6 +1,6 @@
 # No `innerHTML`
 
-Using `innerHTML` poses a potential security risk. Prefer using `textContent` so set text to an element.
+Using `innerHTML` poses a potential security risk. Prefer using `textContent` to set text to an element.
 
 ```js
 // bad
