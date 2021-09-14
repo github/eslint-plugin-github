@@ -1,6 +1,6 @@
 # No `innerHTML`
 
-Using `innerHTML` poses a potential security risk. It should only be used when clearing content.
+Using `innerHTML` poses a potential security risk. Prefer using `textContent` to set text to an element.
 
 ```js
 // bad
@@ -9,8 +9,8 @@ function setContent(element, content) {
 }
 
 // good
-function clearContent(element) {
-  element.innerHTML = ''
+function setContent(element, content) {
+  element.textContent = content
 }
 ```
 
