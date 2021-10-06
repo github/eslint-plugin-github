@@ -5,7 +5,8 @@ on:
     types: [created]
 
 jobs:
-  publish:
+
+  publish-npm:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,9 +23,21 @@ jobs:
       - run: npm whoami; npm --ignore-scripts publish
         env:
          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+  publish-gpr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
+          node-version: 14
           registry-url: https://npm.pkg.github.com/
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
+      - run: npm version ${TAG_NAME} --git-tag-version=false
+        env:
+          TAG_NAME: ${{ github.event.release.tag_name }}
       - run: npm whoami; npm --ignore-scripts publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
