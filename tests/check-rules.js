@@ -1,5 +1,5 @@
 /* globals describe, it*/
-const config = require('../lib/index.js')
+const config = require('../lib/index')
 const fs = require('fs')
 const assert = require('assert')
 const path = require('path')
