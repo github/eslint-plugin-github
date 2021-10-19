@@ -1,27 +1,17 @@
-# Array.forEach
+# Array Foreach
 
 Prefer `for...of` statement instead of `Array.forEach`.
 
-```js
-// bad
-els.forEach(el => {
-  el
-})
+## Rule Details
 
-// good
-for (const el of els) {
-  el
-}
-```
-
-## Why disallow `forEach`
+### Why disallow `forEach`
 
 Here's a summary of why `forEach` is disallowed, and why we prefer `for...of` for almost any use-case of `forEach`:
 
- - Allowing `forEach` encourages **layering of "bad practices"**, such as using `Array.from()` (which is less performant than using `for...of`).
- - When more requirements are added on, `forEach` typically gets **chained** with other methods like `filter` or `map`, causing multiple iterations over the same Array. Encouraging `for` loops discourages chaining and encourages single-iteration logic (e.g. using a `continue` instead of `filter`).
- - `for` loops are considered "more readable" and have **clearer intent**.
- - `for...of` loops offer the **most flexibility** for iteration (especially vs `Array.from`).
+- Allowing `forEach` encourages **layering of "bad practices"**, such as using `Array.from()` (which is less performant than using `for...of`).
+- When more requirements are added on, `forEach` typically gets **chained** with other methods like `filter` or `map`, causing multiple iterations over the same Array. Encouraging `for` loops discourages chaining and encourages single-iteration logic (e.g. using a `continue` instead of `filter`).
+- `for` loops are considered "more readable" and have **clearer intent**.
+- `for...of` loops offer the **most flexibility** for iteration (especially vs `Array.from`).
 
 For more detail, here is a breakdown of each of those points:
 
@@ -31,7 +21,7 @@ Typically developers will reach for a `forEach` when they want to iterate over a
 
 `forEach` does not do anything special with the Array - it does not create a new array or does not aid in encapsulation (except for introducing a new lexical scope within the callback, which isn't a benefit considering we use `let`/`const`). We don't dissallow `map`/`filter`/`reduce` because they have a tangible effect - they create a new array - which would take _more_ code and be _less_ readable to do with a `for...of` loop, the exception being as more requirements are added, and we start chaining array methods together...
 
-### Chaining 
+### Chaining
 
 Often when using a method like `forEach` - when coming back to add new code, let's say to filter certain elements from the Array before operating on them, a developer is implicitly encouraged to use Array's method chaining to achieve this result. For example if we wanted to filter out bad apples from an Array of Apples, if the code already uses `forEach`, then its a simple addition to add `filter()`:
 
@@ -54,12 +44,12 @@ Chaning isn't always necessarily bad. Chaining can advertise a series of transfo
 
 ### Hiding Intent
 
-The `forEach` method passes more than just the current item it is iterating over. The signature of the `forEach` callback method is `(cur: T, i: Number, all: []T) => void` and it can _additionally_ override the `receiver` (`this` value), meaning that often the _intent_ of what the callback does is hidden. To put this another way, there is _no way_ to know what the following code operates on without reading the implementation: `forEach(polishApple)`. 
+The `forEach` method passes more than just the current item it is iterating over. The signature of the `forEach` callback method is `(cur: T, i: Number, all: []T) => void` and it can _additionally_ override the `receiver` (`this` value), meaning that often the _intent_ of what the callback does is hidden. To put this another way, there is _no way_ to know what the following code operates on without reading the implementation: `forEach(polishApple)`.
 
 The `for` loop avoids this issue. Calls are explicit within the `for` loop, as they are not passed around. For example:
 
 ```js
-for(const apple of apples) {
+for (const apple of apples) {
   polishApple(apple)
 }
 ```
@@ -98,7 +88,30 @@ Compare this to the `for` loop, which has a much simpler path to refactoring:
  }
 ```
 
-
-## See Also
+### See Also
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
+
+👎 Examples of **incorrect** code for this rule:
+
+```js
+els.forEach(el => {
+  el
+})
+```
+
+👍 Examples of **correct** code for this rule:
+
+```js
+for (const el of els) {
+  el
+}
+```
+
+## When Not To Use It
+
+TODO
+
+## Version
+
+4.3.2

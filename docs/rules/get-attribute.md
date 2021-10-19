@@ -1,13 +1,27 @@
-# getAttribute
+# Get Attribute
+
+## Rule Details
 
 As HTML attributes are case insensitive, prefer using lowercase.
 
+👎 Examples of **incorrect** code for this rule:
+
 ```js
-// bad
 el.getAttribute('autoComplete')
 el.getAttribute('dataFoo')
+```
 
-// good
+👍 Examples of **correct** code for this rule:
+
+```js
 el.getAttribute('autocomplete')
 el.getAttribute('data-foo')
 ```
+
+## When Not To Use It
+
+TODO
+
+## Version
+
+4.3.2

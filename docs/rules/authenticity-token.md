@@ -1,4 +1,6 @@
-# `<input name="authenticity_token">`
+# Authenticity Token
+
+## Rule Details
 
 The Rails `form_tag` helper creates a `<form>` element with a `<input name="authenticity_token">` child element. The authenticity-token input tag contains a [Cross-Site Request Forgery (CSRF)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29) token that is verified by the Rails app when the form is submitted.
 
@@ -24,13 +26,13 @@ The preferred way to make an HTTP request with JavaScript is to use the [`FormDa
 ```
 
 ```js
-on('click', '.js-my-button', function(e) {
+on('click', '.js-my-button', function (e) {
   const form = this.closest('form')
 
   fetch(form.action, {
     method: form.method,
     body: new FormData(form)
-  }).then(function() {
+  }).then(function () {
     alert('Success!')
   })
 
@@ -45,14 +47,22 @@ An alternate, but less preferred approach is to include the a signed CSRF url in
 ```
 
 ```js
-on('click', '.js-my-button', function(e) {
+on('click', '.js-my-button', function (e) {
   csrfRequest(this.getAttribute('data-url'), {
     method: 'PUT',
     body: data
-  }).then(function() {
+  }).then(function () {
     alert('Success!')
   })
 
   e.preventDefault()
 })
 ```
+
+## When Not To Use It
+
+TODO
+
+## Version
+
+4.3.2

@@ -1,14 +1,22 @@
-# No `element.blur()`
+# No Blur
 
 Do not use `element.blur()`. Blurring an element causes the focus position to be reset causing accessibility issues when using keyboard or voice navigation. Instead, restore focus by calling `element.focus()` on a prior element.
 
+## Rule Details
+
+- [Use of `blur()` is discouraged by WHATWG HTML spec](https://html.spec.whatwg.org/multipage/interaction.html#dom-blur)
+
+👎 Examples of **incorrect** code for this rule:
+
 ```js
-// bad
 menu.addEventListener('close', () => {
   input.blur()
 })
+```
 
-// good
+👍 Examples of **correct** code for this rule:
+
+```js
 menu.addEventListener('open', () => {
   const previouslyFocusedElement = document.activeElement
 
@@ -20,6 +28,10 @@ menu.addEventListener('open', () => {
 })
 ```
 
-## See Also
+## When Not To Use It
 
-- [Use of `blur()` is discouraged by WHATWG HTML spec](https://html.spec.whatwg.org/multipage/interaction.html#dom-blur)
+TODO
+
+## Version
+
+4.3.2
