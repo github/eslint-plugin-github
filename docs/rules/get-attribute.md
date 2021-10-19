@@ -8,6 +8,9 @@ As HTML attributes are case insensitive, prefer using lowercase.
 
 ```js
 el.getAttribute('autoComplete')
+```
+
+```js
 el.getAttribute('dataFoo')
 ```
 
@@ -15,6 +18,9 @@ el.getAttribute('dataFoo')
 
 ```js
 el.getAttribute('autocomplete')
+```
+
+```js
 el.getAttribute('data-foo')
 ```
 

@@ -1,5 +1,7 @@
 # Async Currenttarget
 
+## Rule Details
+
 Accessing `event.currentTarget` inside an `async function()` will likely be `null` as `currentTarget` is mutated as the event is propagated.
 
 1.  A `click` event is dispatched

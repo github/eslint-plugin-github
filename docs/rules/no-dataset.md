@@ -7,13 +7,13 @@ Due to [camel-case transformations](https://developer.mozilla.org/en-US/docs/Web
 👎 Examples of **incorrect** code for this rule:
 
 ```js
-
+el.dataset.coolThing
 ```
 
 👍 Examples of **correct** code for this rule:
 
 ```js
-
+el.getAttribute('data-cool-thing')
 ```
 
 ## When Not To Use It

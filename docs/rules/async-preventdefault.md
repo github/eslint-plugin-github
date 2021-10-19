@@ -16,10 +16,9 @@ If you're using `async`, you likely need to wait on a promise in the event handl
 
 ```js
 document.addEventListener('click', async function (event) {
-  event.preventDefault()
-
   const data = await fetch()
-  // ...
+
+  event.preventDefault()
 })
 ```
 
