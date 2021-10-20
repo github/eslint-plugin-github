@@ -61,10 +61,6 @@ on('click', '.js-my-button', function (e) {
 })
 ```
 
-## When Not To Use It
-
-TODO
-
 ## Version
 
 4.3.2

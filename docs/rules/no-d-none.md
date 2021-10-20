@@ -16,10 +16,6 @@ div.classList.add('d-none')
 div.hidden = false
 ```
 
-## When Not To Use It
-
-TODO
-
 ## Version
 
 4.3.2

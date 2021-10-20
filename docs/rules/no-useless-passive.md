@@ -34,10 +34,6 @@ window.addEventListener('scroll', () => {
 })
 ```
 
-## When Not To Use It
-
-TODO
-
 ## Version
 
 4.3.2

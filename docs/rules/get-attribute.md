@@ -24,10 +24,6 @@ el.getAttribute('autocomplete')
 el.getAttribute('data-foo')
 ```
 
-## When Not To Use It
-
-TODO
-
 ## Version
 
 4.3.2

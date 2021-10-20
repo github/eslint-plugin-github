@@ -16,10 +16,6 @@ var foo = 1
 })()
 ```
 
-## When Not To Use It
-
-TODO
-
 ## Version
 
 4.3.2

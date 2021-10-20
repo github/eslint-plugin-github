@@ -16,10 +16,6 @@ const el = document.createElement('div')
 el.textContent = 'foo'
 ```
 
-## When Not To Use It
-
-TODO
-
 ## Version
 
 4.3.2

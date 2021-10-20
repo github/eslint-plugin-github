@@ -28,10 +28,6 @@ menu.addEventListener('open', () => {
 })
 ```
 
-## When Not To Use It
-
-TODO
-
 ## Version
 
 4.3.2

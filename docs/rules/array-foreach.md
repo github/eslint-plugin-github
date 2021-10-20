@@ -94,10 +94,6 @@ for (const el of els) {
 }
 ```
 
-## When Not To Use It
-
-TODO
-
 ## Version
 
 4.3.2

@@ -25,10 +25,6 @@ const title = document.createElement('h1')
 title.textContent = `Hello ${name}!`
 ```
 
-## When Not To Use It
-
-TODO
-
 ## Version
 
 4.3.2

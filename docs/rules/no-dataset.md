@@ -16,10 +16,6 @@ el.dataset.coolThing
 el.getAttribute('data-cool-thing')
 ```
 
-## When Not To Use It
-
-TODO
-
 ## Version
 
 4.3.2

@@ -36,10 +36,6 @@ const el = document.querySelector('.js-Foo')
 const el = document.querySelector('.js-foo')
 ```
 
-## When Not To Use It
-
-TODO
-
 ## Version
 
 4.3.2

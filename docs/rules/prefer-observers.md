@@ -52,10 +52,6 @@ const observer = new IntersectionObserver(entries => {
 observer.observe(element)
 ```
 
-## When Not To Use It
-
-TODO
-
 ## Version
 
 4.3.2
