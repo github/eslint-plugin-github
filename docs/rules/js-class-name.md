@@ -1,4 +1,4 @@
-# Js Class Name
+# JS Class Name
 
 JavaScript should only query and handle events for `js-` prefixed class names.
 

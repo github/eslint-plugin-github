@@ -1,4 +1,4 @@
-# No Inner Html
+# No Inner HTML
 
 ## Rule Details
 

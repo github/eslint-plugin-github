@@ -1,4 +1,4 @@
-# Unescaped Html Literal
+# Unescaped HTML Literal
 
 ## Rule Details
 

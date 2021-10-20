@@ -20,7 +20,7 @@ function makeTitle(name) {
     .replace(/-/g, ' ')
     .replace(/\w\S*/g, x => x.charAt(0).toUpperCase() + x.substr(1))
     .replace(/\b(The|An?|And|To|In|On|With)\b/g, x => x.toLowerCase())
-    .replace(/\b(Dom)\b/g, x => x.toUpperCase())
+    .replace(/\b(Dom|Html|Js)\b/g, x => x.toUpperCase())
 }
 
 function* extractCodeblocks(lines) {
