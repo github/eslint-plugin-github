@@ -1,19 +1,19 @@
-# No D None
+# No InnerText
 
 ## Rule Details
-
-Ideally JavaScript behaviors should not rely on Primer CSS when the `hidden` property can be used.
 
 👎 Examples of **incorrect** code for this rule:
 
 ```js
-div.classList.add('d-none')
+const el = document.createElement('div')
+el.innerText = 'foo'
 ```
 
 👍 Examples of **correct** code for this rule:
 
 ```js
-div.hidden = false
+const el = document.createElement('div')
+el.textContent = 'foo'
 ```
 
 ## Version

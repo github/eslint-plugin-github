@@ -1,31 +1,36 @@
-# No `Promise.then`
+# No Then
+
+## Rule Details
 
 Yes, you should use promises, but prefer `async`/`await` syntax instead of `Promise.then()` callback chaining.
 
-```js
-// bad
-function getProcessedData(url) {
-  return downloadData(url)
-    .catch(e => {
-      return downloadFallbackData(url)
-    })
-    .then(v => {
-      return processDataInWorker(v)
-    })
-}
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
 
-// good
+👎 Examples of **incorrect** code for this rule:
+
+```js
+function getProcessedData(url) {
+  return downloadData(url).catch(e => {
+    console.log('Error occured!', e)
+  })
+}
+```
+
+👍 Examples of **correct** code for this rule:
+
+```js
 async function getProcessedData(url) {
   let v
   try {
     v = await downloadData(url)
   } catch (e) {
-    v = await downloadFallbackData(url)
+    console.log('Error occured!', e)
+    return
   }
-  return processDataInWorker(v)
+  return v
 }
 ```
 
-## See Also
+## Version
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+4.3.2

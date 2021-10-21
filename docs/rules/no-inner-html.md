@@ -1,19 +1,27 @@
-# No `innerHTML`
+# No Inner HTML
+
+## Rule Details
 
 Using `innerHTML` poses a potential security risk. Prefer using `textContent` to set text to an element.
 
+https://github.com/github/paste-markdown/security/advisories/GHSA-gpfj-4j6g-c4w9
+
+👎 Examples of **incorrect** code for this rule:
+
 ```js
-// bad
 function setContent(element, content) {
   element.innerHTML = content
 }
+```
 
-// good
+👍 Examples of **correct** code for this rule:
+
+```js
 function setContent(element, content) {
   element.textContent = content
 }
 ```
 
-## See Also
+## Version
 
-https://github.com/github/paste-markdown/security/advisories/GHSA-gpfj-4j6g-c4w9
+4.3.2
