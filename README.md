@@ -1,7 +1,5 @@
 # eslint-plugin-github
 
-[![Node CI](https://github.com/github/eslint-plugin-github/actions/workflows/nodejs.yml/badge.svg)](https://github.com/github/eslint-plugin-github/actions/workflows/nodejs.yml)
-
 ## Installation
 
 ```sh
