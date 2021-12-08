@@ -58,13 +58,11 @@ for (const apple of apples) {
 }
 ```
 
-If `polishApple` need to do some async work, then we'd need to refactor the iteration steps to accomodate for this async work, by `await`ing each call to `polishApple`. We cannot simply pass an `async` function to `forEach`, as it does not understand async functions, instead we'd have to turn the `forEach` into a `map` and combine that with a `Promise.all`. For example:
+If `polishApple` needed to do some serial async work, then we'd need to refactor the iteration steps to accomodate for this async work, by `await`ing each call to `polishApple`. We cannot simply pass an `async` function to `forEach`, as it does not understand async functions, instead we'd have to turn the `forEach` into a `reduce` and combine that with a `Promise` returning function. For example:
 
 ```diff
 - apples.forEach(polishApple)
-+ await Promise.all(
-+   apples.map(polishApple)
-+ )
++ await apples.reduce((cur, next) => cur.then(() => polishApple(next)), Promise.resolve())
 ```
 
 Compare this to the `for` loop, which has a much simpler path to refactoring:
