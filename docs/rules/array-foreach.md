@@ -13,7 +13,7 @@ Here's a summary of why `forEach` is disallowed, and why we prefer `for...of` fo
 
 Typically developers will reach for a `forEach` when they want to iterate over a set of items. However not all "iterables" have access to Array methods. So a developer might convert their iterable to an Array by using `Array.from(iter).forEach()`. This code has introduced performance problems, where a `for...of` loop would be more performant.
 
-`forEach` does not do anything special with the Array - it does not create a new array or does not aid in encapsulation (except for introducing a new lexical scope within the callback, which isn't a benefit considering we use `let`/`const`). We don't dissallow `map`/`filter`/`reduce` because they have a tangible effect - they create a new array - which would take _more_ code and be _less_ readable to do with a `for...of` loop, the exception being as more requirements are added, and we start chaining array methods together...
+`forEach` does not do anything special with the Array - it does not create a new array or does not aid in encapsulation (except for introducing a new lexical scope within the callback, which isn't a benefit considering we use `let`/`const`). We don't disallow `map`/`filter`/`reduce` because they have a tangible effect - they create a new array - which would take _more_ code and be _less_ readable to do with a `for...of` loop, the exception being as more requirements are added, and we start chaining array methods together...
 
 Often when using a method like `forEach` - when coming back to add new code, let's say to filter certain elements from the Array before operating on them, a developer is implicitly encouraged to use Array's method chaining to achieve this result. For example if we wanted to filter out bad apples from an Array of Apples, if the code already uses `forEach`, then its a simple addition to add `filter()`:
 
@@ -23,7 +23,7 @@ Often when using a method like `forEach` - when coming back to add new code, let
     .forEach(polishApple)
 ```
 
-The problem we now have is that we're iterating multiple times over the items in a collection. Using `forEach` to begin with is what encouraged the chaining, if this were a `for` loop then the equivalent behaviour would be to use 2 `for` loops, which a developer is far less likely to write, so the `for` loop instead encourages an imperative style `continue`, keeping within a single set of iterations:
+The problem we now have is that we're iterating multiple times over the items in a collection. Using `forEach` to begin with is what encouraged the chaining, if this were a `for` loop then the equivalent behavior would be to use 2 `for` loops, which a developer is far less likely to write, so the `for` loop instead encourages an imperative style `continue`, keeping within a single set of iterations:
 
 ```diff
  for(const apple of apples) {
@@ -32,7 +32,7 @@ The problem we now have is that we're iterating multiple times over the items in
  }
 ```
 
-Chaning isn't always necessarily bad. Chaining can advertise a series of transformations that are independant from one another, and therefore aid readability. Additionally, sometimes the "goto-style" behaviour of `continue` in for loops can hamper readability. For small Arrays, performance is not going to be of concern, but caution should be applied where there is a potentially unbounded Array (such as iterating over a fetched users list) as performance can easily become a bottleneck when unchecked.
+Changing isn't always necessarily bad. Chaining can advertise a series of transformations that are independent from one another, and therefore aid readability. Additionally, sometimes the "goto-style" behavior of `continue` in for loops can hamper readability. For small Arrays, performance is not going to be of concern, but caution should be applied where there is a potentially unbounded Array (such as iterating over a fetched users list) as performance can easily become a bottleneck when unchecked.
 
 The `forEach` method passes more than just the current item it is iterating over. The signature of the `forEach` callback method is `(cur: T, i: Number, all: []T) => void` and it can _additionally_ override the `receiver` (`this` value), meaning that often the _intent_ of what the callback does is hidden. To put this another way, there is _no way_ to know what the following code operates on without reading the implementation: `forEach(polishApple)`.
 
@@ -58,7 +58,7 @@ for (const apple of apples) {
 }
 ```
 
-If `polishApple` needed to do some serial async work, then we'd need to refactor the iteration steps to accomodate for this async work, by `await`ing each call to `polishApple`. We cannot simply pass an `async` function to `forEach`, as it does not understand async functions, instead we'd have to turn the `forEach` into a `reduce` and combine that with a `Promise` returning function. For example:
+If `polishApple` needed to do some serial async work, then we'd need to refactor the iteration steps to accommodate for this async work, by `await`ing each call to `polishApple`. We cannot simply pass an `async` function to `forEach`, as it does not understand async functions, instead we'd have to turn the `forEach` into a `reduce` and combine that with a `Promise` returning function. For example:
 
 ```diff
 - apples.forEach(polishApple)
