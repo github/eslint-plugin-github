@@ -10,7 +10,6 @@
     "eslint-ignore-errors": "bin/eslint-ignore-errors.js"
   },
   "scripts": {
-    "pretest": "mkdir -p node_modules/ && ln -fs $(pwd) node_modules/",
     "eslint-check": "eslint-config-prettier .eslintrc.js",
     "test": "npm run eslint-check && eslint . && mocha tests/"
   },
@@ -52,6 +51,7 @@
     "eslint": "^8.0.1",
     "eslint-plugin-eslint-plugin": "^2.3.0",
     "globals": "^13.7.0",
-    "mocha": "^8.3.2"
+    "mocha": "^8.3.2",
+    "eslint-plugin-github": "file:./"
   }
 }
