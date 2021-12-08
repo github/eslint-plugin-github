@@ -47,7 +47,7 @@ ruleTester.run('require-passive-events', rule, {
       ]
     },
     {
-      // Intentionally mispelled!
+      // Intentionally misspelled!
       code: 'document.addEventListener("wheel", function(event) {}, { pssive: true })',
       errors: [
         {

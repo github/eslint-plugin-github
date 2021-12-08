@@ -3,7 +3,7 @@ const RuleTester = require('eslint').RuleTester
 
 const ruleTester = new RuleTester()
 
-ruleTester.run('no-innter-html', rule, {
+ruleTester.run('no-inner-html', rule, {
   valid: [
     {
       code: 'document.createElement("js-flash-text").textContent = ""'

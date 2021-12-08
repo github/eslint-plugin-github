@@ -11,7 +11,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/asy
 ```js
 function getProcessedData(url) {
   return downloadData(url).catch(e => {
-    console.log('Error occured!', e)
+    console.log('Error occurred!', e)
   })
 }
 ```
@@ -24,7 +24,7 @@ async function getProcessedData(url) {
   try {
     v = await downloadData(url)
   } catch (e) {
-    console.log('Error occured!', e)
+    console.log('Error occurred!', e)
     return
   }
   return v
