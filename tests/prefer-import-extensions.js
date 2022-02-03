@@ -12,6 +12,11 @@ ruleTester.run('prefer-import-extensions', rule, {
       parserOptions
     },
     {
+      code: "import './something.css'",
+      options: ['always', {extensions: ['js', 'css']}],
+      parserOptions
+    },
+    {
       code: "import 'left-pad'",
       parserOptions
     },
@@ -31,7 +36,7 @@ ruleTester.run('prefer-import-extensions', rule, {
       parserOptions,
       errors: [
         {
-          message: 'The imported file is missing a file extension. Consider adding the `.js` extension.',
+          message: 'The imported file is missing a file extension. Consider adding a valid extension: "js"',
           type: 'Literal'
         }
       ]
@@ -42,7 +47,7 @@ ruleTester.run('prefer-import-extensions', rule, {
       parserOptions,
       errors: [
         {
-          message: 'The imported file is missing a file extension. Consider adding the `.js` extension.',
+          message: 'The imported file is missing a file extension. Consider adding a valid extension: "js"',
           type: 'Literal'
         }
       ]
@@ -53,7 +58,7 @@ ruleTester.run('prefer-import-extensions', rule, {
       parserOptions,
       errors: [
         {
-          message: 'The imported file is missing a file extension. Consider adding the `.js` extension.',
+          message: 'The imported file is missing a file extension. Consider adding a valid extension: "js"',
           type: 'Literal'
         }
       ]
