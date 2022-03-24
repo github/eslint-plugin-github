@@ -1,4 +1,4 @@
-# No Script Tag Building
+# No Dynamic Script Tag
 
 ## Rule Details
 

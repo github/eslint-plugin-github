@@ -1,9 +1,9 @@
-const rule = require('../lib/rules/no-script-tag-building')
+const rule = require('../lib/rules/no-dynamic-script-tag')
 const RuleTester = require('eslint').RuleTester
 
 const ruleTester = new RuleTester()
 
-ruleTester.run('no-script-tag-building', rule, {
+ruleTester.run('no-dynamic-script-tag', rule, {
   valid: [
     {
       code: 'document.createElement("div")'
