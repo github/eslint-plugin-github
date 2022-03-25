@@ -50,6 +50,7 @@ The available configs are:
 - [No Blur](./docs/rules/no-blur.md)
 - [No D None](./docs/rules/no-d-none.md)
 - [No Dataset](./docs/rules/no-dataset.md)
+- [No Dynamic Script Tag](./docs/rules/no-dynamic-script-tag.md)
 - [No Implicit Buggy Globals](./docs/rules/no-implicit-buggy-globals.md)
 - [No Inner HTML](./docs/rules/no-inner-html.md)
 - [No InnerText](./docs/rules/no-innerText.md)
