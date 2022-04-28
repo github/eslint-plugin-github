@@ -92,6 +92,13 @@ for (const el of els) {
 }
 ```
 
+Use [`entries()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries) to get access to the index:
+```js
+for (const [i, el] of els.entries()) {
+  els.name = `Element ${i}`
+}
+```
+
 ## Version
 
 4.3.2
