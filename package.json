@@ -50,7 +50,7 @@
   "devDependencies": {
     "@github/prettier-config": "0.0.4",
     "eslint": "^8.0.1",
-    "eslint-plugin-eslint-plugin": "^4.0.3",
+    "eslint-plugin-eslint-plugin": "^5.0.0",
     "mocha": "^10.0.0"
   }
 }
