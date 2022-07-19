@@ -34,6 +34,8 @@ The available configs are:
   - Rules useful for github applications.
 - `browser`
   - Useful rules when shipping your app to the browser.
+- `react`
+  - Recommended rules for React applications.
 - `recommended`
   - Recommended rules for every application.
 - `typescript`
@@ -59,3 +61,7 @@ The available configs are:
 - [Prefer Observers](./docs/rules/prefer-observers.md)
 - [Require Passive Events](./docs/rules/require-passive-events.md)
 - [Unescaped HTML Literal](./docs/rules/unescaped-html-literal.md)
+
+#### Accessibility
+
+- [No Generic Link Text](./docs/rules/a11y-no-generic-link-text.md)
