@@ -31,8 +31,7 @@ ruleTester.run('no-generic-link-text', rule, {
       code: "<a aria-label='Does not include visible label'>Read more!</a>;",
       errors: [
         {
-          message:
-            'When using ARIA to set a more descriptive text, it must fully contain the visible label.'
+          message: 'When using ARIA to set a more descriptive text, it must fully contain the visible label.'
         }
       ]
     }
