@@ -22,7 +22,7 @@ ruleTester.run('no-generic-link-text', rule, {
     {code: "<a aria-labelledby='someId' href='#'>Read more</a>;"}
   ],
   invalid: [
-    {code: '<a>Click here!</a>;', errors: [{message: errorMessage}]},
+    {code: '<a>Click here*</a>;', errors: [{message: errorMessage}]},
     {code: '<a>Learn more.</a>;', errors: [{message: errorMessage}]},
     {code: "<a aria-label='read more!!!'></a>;", errors: [{message: errorMessage}]},
     {code: "<a aria-label='click here.'></a>;", errors: [{message: errorMessage}]},
