@@ -62,6 +62,6 @@ The available configs are:
 - [Require Passive Events](./docs/rules/require-passive-events.md)
 - [Unescaped HTML Literal](./docs/rules/unescaped-html-literal.md)
 
-#### Accessibility
+#### Accessibility-focused rules (prefixed with a11y)
 
 - [No Generic Link Text](./docs/rules/a11y-no-generic-link-text.md)
