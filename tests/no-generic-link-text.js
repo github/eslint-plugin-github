@@ -26,6 +26,15 @@ ruleTester.run('no-generic-link-text', rule, {
     {code: '<a>Learn more.</a>;', errors: [{message: errorMessage}]},
     {code: "<a aria-label='read more!!!'></a>;", errors: [{message: errorMessage}]},
     {code: "<a aria-label='click here.'></a>;", errors: [{message: errorMessage}]},
-    {code: "<a aria-label='Here'></a>;", errors: [{message: errorMessage}]}
+    {code: "<a aria-label='Here'></a>;", errors: [{message: errorMessage}]},
+    {
+      code: "<a aria-label='Does not include visible label'>Read more!</a>;",
+      errors: [
+        {
+          message:
+            'When setting ARIA to provide a more descriptive accessible name, it must fully include the visible label content.'
+        }
+      ]
+    }
   ]
 })
