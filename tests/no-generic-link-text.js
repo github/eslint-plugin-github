@@ -32,7 +32,7 @@ ruleTester.run('no-generic-link-text', rule, {
       errors: [
         {
           message:
-            'When setting ARIA to provide a more descriptive accessible name, it must fully include the visible label content.'
+            'When using ARIA to set a more descriptive text, it must fully contain the visible label.'
         }
       ]
     }
