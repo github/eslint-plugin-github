@@ -1,4 +1,4 @@
-const rule = require('../lib/rules/no-generic-link-text')
+const rule = require('../lib/rules/a11y-no-generic-link-text')
 const RuleTester = require('eslint').RuleTester
 
 const ruleTester = new RuleTester({
@@ -14,7 +14,7 @@ const ruleTester = new RuleTester({
 const errorMessage =
   'Avoid setting generic link text like `Here`, `Click here`, `Read more`. Make sure that your link text is both descriptive and concise.'
 
-ruleTester.run('no-generic-link-text', rule, {
+ruleTester.run('a11y-no-generic-link-text', rule, {
   valid: [
     {code: "<a href='#'>GitHub Home</a>;"},
     {code: "<Box><a href='#'>GitHub Home</a></Box>;"},
