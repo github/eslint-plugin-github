@@ -12,7 +12,7 @@
   "scripts": {
     "pretest": "mkdir -p node_modules/ && ln -fs $(pwd) node_modules/",
     "eslint-check": "eslint-config-prettier .eslintrc.js",
-    "test": "mocha tests/no-generic-link-text.js"
+    "test": "npm run eslint-check && eslint . && mocha tests/"
   },
   "repository": {
     "type": "git",
