@@ -1,4 +1,7 @@
 const {getElementType} = require('../../lib/utils/get-element-type')
+const mocha = require('mocha')
+const describe = mocha.describe
+const it = mocha.it
 const expect = require('chai').expect
 
 function mockJSXAttribute(prop, propValue) {
@@ -15,7 +18,7 @@ function mockJSXAttribute(prop, propValue) {
   }
 }
 
-function mockJSXOpeningElement(tagName, attributes = [], children = []) {
+function mockJSXOpeningElement(tagName, attributes = []) {
   return {
     type: 'JSXOpeningElement',
     name: {
@@ -37,12 +40,12 @@ function mockSetting(componentSetting = {}) {
 }
 
 describe('getElementType', function () {
-  it('gets element type', function () {
+  it('returns raw element type', function () {
     const node = mockJSXOpeningElement('a')
     expect(getElementType({}, node)).to.equal('a')
   })
 
-  it('gets element type from default', function () {
+  it('returns element type from default if set', function () {
     const node = mockJSXOpeningElement('Link', [mockJSXAttribute('as', 'summary')])
     const setting = mockSetting({
       Link: {
@@ -52,7 +55,7 @@ describe('getElementType', function () {
     expect(getElementType(setting, node)).to.equal('button')
   })
 
-  it('gets element type from matching props setting', function () {
+  it('returns element type from matching props setting if set', function () {
     const setting = mockSetting({
       Link: {
         default: 'a',
@@ -61,17 +64,12 @@ describe('getElementType', function () {
         }
       }
     })
-    const node_1 = mockJSXOpeningElement('Link')
-    expect(getElementType(setting, node_1)).to.equal('a')
 
-    const node_2 = mockJSXOpeningElement('Link', [mockJSXAttribute('as', 'p')])
-    expect(getElementType(setting, node_2)).to.equal('a')
-
-    const node_3 = mockJSXOpeningElement('Link', [mockJSXAttribute('as', 'summary')])
-    expect(getElementType(setting, node_3)).to.equal('summary')
+    const node = mockJSXOpeningElement('Link', [mockJSXAttribute('as', 'summary')])
+    expect(getElementType(setting, node)).to.equal('summary')
   })
 
-  it('uses original type if no default or matching prop setting', function () {
+  it('returns raw type if no default or matching prop setting', function () {
     const setting = mockSetting({
       Link: {
         props: {
@@ -95,7 +93,7 @@ describe('getElementType', function () {
     expect(getElementType(setting, node)).to.equal('a')
   })
 
-  it('falls back to original type if no default and prop does not match props setting', function () {
+  it('returns raw type if prop does not match props setting and no default type', function () {
     const setting = mockSetting({
       Link: {
         props: {
