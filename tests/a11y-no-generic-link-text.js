@@ -19,9 +19,65 @@ ruleTester.run('a11y-no-generic-link-text', rule, {
     {code: "<a href='#'>GitHub Home</a>;"},
     {code: "<Box><a href='#'>GitHub Home</a></Box>;"},
     {code: "<a aria-label='Read more about our project' href='#'>Read more</a>;"},
-    {code: "<a aria-labelledby='someId' href='#'>Read more</a>;"}
+    {code: "<a aria-labelledby='someId' href='#'>Read more</a>;"},
+    {code: '<summary>Read more</summary>;'},
+    {
+      code: '<Link as="button" href="#">Read more</Link>',
+      settings: {
+        github: {
+          components: {
+            Link: {
+              props: { as: {undefined: 'a'} }
+            }
+          }
+        }
+      }
+    },
   ],
   invalid: [
+    {
+      code: '<ButtonLink href="#">Read more</ButtonLink>',
+      settings: {
+        github: {
+          components: {
+            ButtonLink: {
+              default: 'a'
+            }
+          }
+        }
+      },
+      errors:  [{message: errorMessage}]
+    },
+    {
+      code: '<Link href="#">Read more</Link>',
+      settings: {
+        github: {
+          components: {
+            Link: {
+              props: { as: {undefined: 'a'} }
+            }
+          }
+        }
+      },
+      errors:  [{message: errorMessage}]
+    },
+    {
+      code: '<Test as="a" href="#">Read more</Test>',
+      settings: {
+        github: {
+          components: {
+            Test: {
+              props: { as: {'a': 'a'} }
+            }
+          }
+        }
+      },
+      errors:  [{message: errorMessage}]
+    },
+    {
+      code: "<Box><a href='#'>Click here</a></Box>;",
+      errors: [{message: errorMessage}]
+    },
     {code: '<a>Click here*</a>;', errors: [{message: errorMessage}]},
     {code: '<a>Learn more.</a>;', errors: [{message: errorMessage}]},
     {code: "<a aria-label='read more!!!'></a>;", errors: [{message: errorMessage}]},

@@ -12,7 +12,7 @@
   "scripts": {
     "pretest": "mkdir -p node_modules/ && ln -fs $(pwd) node_modules/",
     "eslint-check": "eslint-config-prettier .eslintrc.js",
-    "test": "npm run eslint-check && eslint . && mocha tests/"
+    "test": "mocha ./tests/**/*.js ./tests/*.js"
   },
   "repository": {
     "type": "git",
@@ -51,6 +51,7 @@
   ],
   "devDependencies": {
     "@github/prettier-config": "0.0.4",
+    "chai": "^4.3.6",
     "eslint": "^8.0.1",
     "eslint-plugin-eslint-plugin": "^5.0.0",
     "mocha": "^10.0.0"
