@@ -68,7 +68,7 @@ This config will be interpreted in the following way:
 - `<Link>` without a defined `as` prop will be treated as a `a`.
 - `<Link as='a'>` will treated as an `a` element type.
 - `<Link as='button'>` will be treated as a `button` element type.
-- `<Link as='summary'>` will be treated as the original `Link` element type because there is no matching mapping for `as='summary'`.
+- `<Link as='summary'>` will be treated as the original `Link` element type because there is no matching mapping for `as='summary'` resulting in the element being treated as an `a`
 
 ### Rules
 
