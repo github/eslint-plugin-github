@@ -1,6 +1,6 @@
 # Require Passive Events
 
-This rule enforces adding `passive: true` to high frequency event listeners (`touchstart`, `touchmove`, `wheel`, `mousewheel`).
+This rule enforces adding `passive: true` to high frequency event listeners (`touchstart`, `touchmove`, `touchenter`, `touchend`, `touchleave`, `wheel`, `mousewheel`).
 
 ## Rule Details
 
