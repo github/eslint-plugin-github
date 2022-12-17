@@ -54,8 +54,8 @@ For each component, you may specify a `default` and/or `props`. `default` may ma
   "settings": {
     "github": {
       "components": {
-        "Box": { "default": "p" },
-        "Link": { "props": {"as": { "undefined": "a", "a": "a", "button": "button"}}},
+        "Box": {"default": "p"},
+        "Link": {"props": {"as": {"undefined": "a", "a": "a", "button": "button"}}}
       }
     }
   }
@@ -89,6 +89,7 @@ This config will be interpreted in the following way:
 - [No Useless Passive](./docs/rules/no-useless-passive.md)
 - [Prefer Observers](./docs/rules/prefer-observers.md)
 - [Require Passive Events](./docs/rules/require-passive-events.md)
+- [Role Supports ARIA Props](./docs/rules/role-supports-aria-props.md)
 - [Unescaped HTML Literal](./docs/rules/unescaped-html-literal.md)
 
 #### Accessibility-focused rules (prefixed with a11y)
