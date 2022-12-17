@@ -1,4 +1,15 @@
 // @ts-check
+
+// Tests in this file were adapted from https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/__tests__/src/rules/role-supports-aria-props-test.js, which was authored by Ethan Cohen and is distributed under the MIT license as follows:
+//
+// The MIT License (MIT) Copyright (c) 2016 Ethan Cohen
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 const rule = require('../lib/rules/role-supports-aria-props')
 const RuleTester = require('eslint').RuleTester
 
@@ -91,9 +102,6 @@ ruleTester.run('role-supports-aria-props', rule, {
     // this will have global
     {code: '<link aria-checked />'},
 
-    // IMG TESTS - no implicit role
-    {code: '<img alt="" aria-checked />'},
-
     // this will have role of `img`
     {code: '<img alt="foobar" aria-busy />'},
 
@@ -113,9 +121,6 @@ ruleTester.run('role-supports-aria-props', rule, {
     {code: '<menu type="toolbar" aria-live />'},
     {code: '<menu type="toolbar" aria-owns />'},
     {code: '<menu type="toolbar" aria-relevant />'},
-
-    // this will have global
-    {code: '<menu aria-checked />'},
 
     // MENUITEM TESTS
     // when `type="command`, the implicit role is `menuitem`
@@ -370,142 +375,138 @@ ruleTester.run('role-supports-aria-props', rule, {
     {
       code: '<ul aria-expanded />',
       errors: [getErrorMessage('aria-expanded', 'list')]
+    },
+    {
+      code: '<details aria-expanded />',
+      errors: [getErrorMessage('aria-expanded', 'group')]
+    },
+    {
+      code: '<dialog aria-expanded />',
+      errors: [getErrorMessage('aria-expanded', 'dialog')]
+    },
+    {
+      code: '<aside aria-expanded />',
+      errors: [getErrorMessage('aria-expanded', 'complementary')]
+    },
+    {
+      code: '<article aria-expanded />',
+      errors: [getErrorMessage('aria-expanded', 'article')]
+    },
+    {
+      code: '<body aria-expanded />',
+      errors: [getErrorMessage('aria-expanded', 'document')]
+    },
+    {
+      code: '<li aria-expanded />',
+      errors: [getErrorMessage('aria-expanded', 'listitem')]
+    },
+    {
+      code: '<nav aria-expanded />',
+      errors: [getErrorMessage('aria-expanded', 'navigation')]
+    },
+    {
+      code: '<ol aria-expanded />',
+      errors: [getErrorMessage('aria-expanded', 'list')]
+    },
+    {
+      code: '<output aria-expanded />',
+      errors: [getErrorMessage('aria-expanded', 'status')]
+    },
+    {
+      code: '<section aria-expanded />',
+      errors: [getErrorMessage('aria-expanded', 'region')]
+    },
+    {
+      code: '<tbody aria-expanded />',
+      errors: [getErrorMessage('aria-expanded', 'rowgroup')]
+    },
+    {
+      code: '<tfoot aria-expanded />',
+      errors: [getErrorMessage('aria-expanded', 'rowgroup')]
+    },
+    {
+      code: '<thead aria-expanded />',
+      errors: [getErrorMessage('aria-expanded', 'rowgroup')]
+    },
+    {
+      code: '<input type="radio" aria-invalid />',
+      errors: [getErrorMessage('aria-invalid', 'radio')]
+    },
+    {
+      code: '<input type="radio" aria-selected />',
+      errors: [getErrorMessage('aria-selected', 'radio')]
+    },
+    {
+      code: '<input type="radio" aria-haspopup />',
+      errors: [getErrorMessage('aria-haspopup', 'radio')]
+    },
+    {
+      code: '<input type="checkbox" aria-haspopup />',
+      errors: [getErrorMessage('aria-haspopup', 'checkbox')]
+    },
+    {
+      code: '<input type="reset" aria-invalid />',
+      errors: [getErrorMessage('aria-invalid', 'button')]
+    },
+    {
+      code: '<input type="submit" aria-invalid />',
+      errors: [getErrorMessage('aria-invalid', 'button')]
+    },
+    {
+      code: '<input type="image" aria-invalid />',
+      errors: [getErrorMessage('aria-invalid', 'button')]
+    },
+    {
+      code: '<input type="button" aria-invalid />',
+      errors: [getErrorMessage('aria-invalid', 'button')]
+    },
+    {
+      code: '<menuitem type="command" aria-invalid />',
+      errors: [getErrorMessage('aria-invalid', 'menuitem')]
+    },
+    {
+      code: '<menuitem type="radio" aria-selected />',
+      errors: [getErrorMessage('aria-selected', 'menuitemradio')]
+    },
+    {
+      code: '<menu type="toolbar" aria-haspopup />',
+      errors: [getErrorMessage('aria-haspopup', 'toolbar')]
+    },
+    {
+      code: '<menu type="toolbar" aria-invalid />',
+      errors: [getErrorMessage('aria-invalid', 'toolbar')]
+    },
+    {
+      code: '<menu type="toolbar" aria-expanded />',
+      errors: [getErrorMessage('aria-expanded', 'toolbar')]
+    },
+    {
+      code: '<link href="#" aria-invalid />',
+      errors: [getErrorMessage('aria-invalid', 'link')]
+    },
+    {
+      code: '<area href="#" aria-invalid />',
+      errors: [getErrorMessage('aria-invalid', 'link')]
+    },
+    {
+      code: '<a href="#" aria-invalid />',
+      errors: [getErrorMessage('aria-invalid', 'link')]
+    },
+    {
+      code: '<span aria-label />',
+      errors: [getErrorMessage('aria-label', 'generic')]
+    },
+    {
+      code: '<span aria-labelledby />',
+      errors: [getErrorMessage('aria-labelledby', 'generic')]
+    },
+    {
+      code: '<div aria-label />',
+      errors: [getErrorMessage('aria-label', 'generic')]
+    },
+    {
+      code: '<div aria-labelledby />',
+      errors: [getErrorMessage('aria-labelledby', 'generic')]
     }
-    // {
-    //   code: '<details aria-expanded />',
-    //   errors: [getErrorMessage('aria-expanded', 'group')]
-    // },
-    // {
-    //   code: '<dialog aria-expanded />',
-    //   errors: [getErrorMessage('aria-expanded', 'dialog')]
-    // },
-    // {
-    //   code: '<aside aria-expanded />',
-    //   errors: [getErrorMessage('aria-expanded', 'complementary')]
-    // },
-    // {
-    //   code: '<article aria-expanded />',
-    //   errors: [getErrorMessage('aria-expanded', 'article')]
-    // },
-    // {
-    //   code: '<body aria-expanded />',
-    //   errors: [getErrorMessage('aria-expanded', 'document')]
-    // },
-    // {
-    //   code: '<li aria-expanded />',
-    //   errors: [getErrorMessage('aria-expanded', 'listitem')]
-    // },
-    // {
-    //   code: '<nav aria-expanded />',
-    //   errors: [getErrorMessage('aria-expanded', 'navigation')]
-    // },
-    // {
-    //   code: '<ol aria-expanded />',
-    //   errors: [getErrorMessage('aria-expanded', 'list')]
-    // },
-    // {
-    //   code: '<output aria-expanded />',
-    //   errors: [getErrorMessage('aria-expanded', 'status')]
-    // },
-    // {
-    //   code: '<section aria-expanded />',
-    //   errors: [getErrorMessage('aria-expanded', 'region')]
-    // },
-    // {
-    //   code: '<tbody aria-expanded />',
-    //   errors: [getErrorMessage('aria-expanded', 'rowgroup')]
-    // },
-    // {
-    //   code: '<tfoot aria-expanded />',
-    //   errors: [getErrorMessage('aria-expanded', 'rowgroup')]
-    // },
-    // {
-    //   code: '<thead aria-expanded />',
-    //   errors: [getErrorMessage('aria-expanded', 'rowgroup')]
-    // },
-    // {
-    //   code: '<input type="radio" aria-invalid />',
-    //   errors: [getErrorMessage('aria-invalid', 'radio')]
-    // },
-    // {
-    //   code: '<input type="radio" aria-selected />',
-    //   errors: [getErrorMessage('aria-selected', 'radio')]
-    // },
-    // {
-    //   code: '<input type="radio" aria-haspopup />',
-    //   errors: [getErrorMessage('aria-haspopup', 'radio')]
-    // },
-    // {
-    //   code: '<input type="checkbox" aria-haspopup />',
-    //   errors: [getErrorMessage('aria-haspopup', 'checkbox')]
-    // },
-    // {
-    //   code: '<input type="reset" aria-invalid />',
-    //   errors: [getErrorMessage('aria-invalid', 'button')]
-    // },
-    // {
-    //   code: '<input type="submit" aria-invalid />',
-    //   errors: [getErrorMessage('aria-invalid', 'button')]
-    // },
-    // {
-    //   code: '<input type="image" aria-invalid />',
-    //   errors: [getErrorMessage('aria-invalid', 'button')]
-    // },
-    // {
-    //   code: '<input type="button" aria-invalid />',
-    //   errors: [getErrorMessage('aria-invalid', 'button')]
-    // },
-    // {
-    //   code: '<menuitem type="command" aria-invalid />',
-    //   errors: [getErrorMessage('aria-invalid', 'menuitem')]
-    // },
-    // {
-    //   code: '<menuitem type="radio" aria-selected />',
-    //   errors: [getErrorMessage('aria-selected', 'menuitemradio')]
-    // },
-    // {
-    //   code: '<menu type="toolbar" aria-haspopup />',
-    //   errors: [getErrorMessage('aria-haspopup', 'toolbar')]
-    // },
-    // {
-    //   code: '<menu type="toolbar" aria-invalid />',
-    //   errors: [getErrorMessage('aria-invalid', 'toolbar')]
-    // },
-    // {
-    //   code: '<menu type="toolbar" aria-expanded />',
-    //   errors: [getErrorMessage('aria-expanded', 'toolbar')]
-    // },
-    // {
-    //   code: '<link href="#" aria-invalid />',
-    //   errors: [getErrorMessage('aria-invalid', 'link')]
-    // },
-    // {
-    //   code: '<area href="#" aria-invalid />',
-    //   errors: [getErrorMessage('aria-invalid', 'link')]
-    // },
-    // {
-    //   code: '<a href="#" aria-invalid />',
-    //   errors: [getErrorMessage('aria-invalid', 'link')]
-    // },
-    // {
-    //   code: '<Link href="#" aria-checked />',
-    //   errors: [getErrorMessage('aria-checked', 'link')]
-    // },
-    // {
-    //   code: '<span aria-label />',
-    //   errors: [getErrorMessage('aria-label', 'generic')]
-    // },
-    // {
-    //   code: '<span aria-labelledby />',
-    //   errors: [getErrorMessage('aria-labelledby', 'generic')]
-    // },
-    // {
-    //   code: '<div aria-label />',
-    //   errors: [getErrorMessage('aria-label', 'generic')]
-    // },
-    // {
-    //   code: '<div aria-labelledby />',
-    //   errors: [getErrorMessage('aria-labelledby', 'generic')]
-    // }
   ]
 })
