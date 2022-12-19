@@ -89,9 +89,9 @@ This config will be interpreted in the following way:
 - [No Useless Passive](./docs/rules/no-useless-passive.md)
 - [Prefer Observers](./docs/rules/prefer-observers.md)
 - [Require Passive Events](./docs/rules/require-passive-events.md)
-- [Role Supports ARIA Props](./docs/rules/role-supports-aria-props.md)
 - [Unescaped HTML Literal](./docs/rules/unescaped-html-literal.md)
 
 #### Accessibility-focused rules (prefixed with a11y)
 
 - [No Generic Link Text](./docs/rules/a11y-no-generic-link-text.md)
+- [Role Supports ARIA Props](./docs/rules/role-supports-aria-props.md)
