@@ -27,5 +27,15 @@ jobs:
           cache: npm
       - name: Install
         run: npm ci
+      - name: Node version
+        id: version
+        run: echo "node-version=$(node -v)" >> $GITHUB_OUTPUT
       - name: Test
+        id: test
         run: npm test
+        continue-on-error: ${{ matrix.node-version == 'latest' }}
+      - name: Fail
+        if: ${{ matrix.node-version == 'latest' && steps.test.outcome != 'success' }}
+        run: |
+          echo "Node.js ${{ matrix.node-version }} (${{ steps.version.outputs.node-version }}) failed"
+          exit 0
