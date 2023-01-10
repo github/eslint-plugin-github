@@ -6,28 +6,28 @@ const ruleTester = new RuleTester()
 ruleTester.run('no-implicit-buggy-globals', rule, {
   valid: [
     {
-      code: '(function() { var foo = 1; })();'
+      code: '(function() { var foo = 1; })();',
     },
     {
       code: '(function() { let foo = 1; })();',
-      parserOptions: {ecmaVersion: 6}
+      parserOptions: {ecmaVersion: 6},
     },
     {
       code: '(function() { const foo = 1; })();',
-      parserOptions: {ecmaVersion: 6}
+      parserOptions: {ecmaVersion: 6},
     },
     {
       code: 'var foo = 1;',
-      parserOptions: {sourceType: 'module', ecmaVersion: 2015}
+      parserOptions: {sourceType: 'module', ecmaVersion: 2015},
     },
     {
       code: 'let foo = 1;',
-      parserOptions: {sourceType: 'module', ecmaVersion: 2015}
+      parserOptions: {sourceType: 'module', ecmaVersion: 2015},
     },
     {
       code: 'const foo = 1;',
-      parserOptions: {sourceType: 'module', ecmaVersion: 2015}
-    }
+      parserOptions: {sourceType: 'module', ecmaVersion: 2015},
+    },
   ],
   invalid: [
     {
@@ -36,9 +36,9 @@ ruleTester.run('no-implicit-buggy-globals', rule, {
       errors: [
         {
           message: 'Implicit global variable, assign as global property instead.',
-          type: 'VariableDeclarator'
-        }
-      ]
+          type: 'VariableDeclarator',
+        },
+      ],
     },
     {
       code: 'let foo = 1;',
@@ -46,9 +46,9 @@ ruleTester.run('no-implicit-buggy-globals', rule, {
       errors: [
         {
           message: 'Implicit global variable, assign as global property instead.',
-          type: 'VariableDeclarator'
-        }
-      ]
+          type: 'VariableDeclarator',
+        },
+      ],
     },
     {
       code: 'let foo = function() {};',
@@ -56,9 +56,9 @@ ruleTester.run('no-implicit-buggy-globals', rule, {
       errors: [
         {
           message: 'Implicit global variable, assign as global property instead.',
-          type: 'VariableDeclarator'
-        }
-      ]
+          type: 'VariableDeclarator',
+        },
+      ],
     },
     {
       code: 'const foo = function() {};',
@@ -66,9 +66,9 @@ ruleTester.run('no-implicit-buggy-globals', rule, {
       errors: [
         {
           message: 'Implicit global variable, assign as global property instead.',
-          type: 'VariableDeclarator'
-        }
-      ]
+          type: 'VariableDeclarator',
+        },
+      ],
     },
     {
       code: 'class Foo {}',
@@ -76,9 +76,9 @@ ruleTester.run('no-implicit-buggy-globals', rule, {
       errors: [
         {
           message: 'Implicit global variable, assign as global property instead.',
-          type: 'ClassDeclaration'
-        }
-      ]
-    }
-  ]
+          type: 'ClassDeclaration',
+        },
+      ],
+    },
+  ],
 })

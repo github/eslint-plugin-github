@@ -6,17 +6,17 @@ const ruleTester = new RuleTester()
 ruleTester.run('require-passive-events', rule, {
   valid: [
     {
-      code: 'document.addEventListener("load", function(event) {})'
+      code: 'document.addEventListener("load", function(event) {})',
     },
     {
-      code: 'document.addEventListener("click", function(event) {})'
+      code: 'document.addEventListener("click", function(event) {})',
     },
     {
-      code: 'document.addEventListener("touchstart", function(event) {}, { passive: true })'
+      code: 'document.addEventListener("touchstart", function(event) {}, { passive: true })',
     },
     {
-      code: 'el.addEventListener("touchstart", function(event) {}, { passive: true })'
-    }
+      code: 'el.addEventListener("touchstart", function(event) {}, { passive: true })',
+    },
   ],
   invalid: [
     {
@@ -24,27 +24,27 @@ ruleTester.run('require-passive-events', rule, {
       errors: [
         {
           message: 'High Frequency Events like "touchstart" should be `passive: true`',
-          type: 'CallExpression'
-        }
-      ]
+          type: 'CallExpression',
+        },
+      ],
     },
     {
       code: 'el.addEventListener("wheel", function(event) {})',
       errors: [
         {
           message: 'High Frequency Events like "wheel" should be `passive: true`',
-          type: 'CallExpression'
-        }
-      ]
+          type: 'CallExpression',
+        },
+      ],
     },
     {
       code: 'document.addEventListener("wheel", function(event) {})',
       errors: [
         {
           message: 'High Frequency Events like "wheel" should be `passive: true`',
-          type: 'CallExpression'
-        }
-      ]
+          type: 'CallExpression',
+        },
+      ],
     },
     {
       // Intentionally misspelled!
@@ -52,18 +52,18 @@ ruleTester.run('require-passive-events', rule, {
       errors: [
         {
           message: 'High Frequency Events like "wheel" should be `passive: true`',
-          type: 'CallExpression'
-        }
-      ]
+          type: 'CallExpression',
+        },
+      ],
     },
     {
       code: 'document.addEventListener("wheel", function(event) {}, { passive: false })',
       errors: [
         {
           message: 'High Frequency Events like "wheel" should be `passive: true`',
-          type: 'CallExpression'
-        }
-      ]
-    }
-  ]
+          type: 'CallExpression',
+        },
+      ],
+    },
+  ],
 })
