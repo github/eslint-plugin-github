@@ -6,14 +6,14 @@ const ruleTester = new RuleTester()
 ruleTester.run('no-dynamic-script-tag', rule, {
   valid: [
     {
-      code: 'document.createElement("div")'
+      code: 'document.createElement("div")',
     },
     {
-      code: 'document.createElement("span")'
+      code: 'document.createElement("span")',
     },
     {
-      code: 'document.createElement("span").type = "foo"'
-    }
+      code: 'document.createElement("span").type = "foo"',
+    },
   ],
   invalid: [
     {
@@ -21,18 +21,18 @@ ruleTester.run('no-dynamic-script-tag', rule, {
       errors: [
         {
           message: "Don't create dynamic script tags, add them in the server template instead.",
-          type: 'Literal'
-        }
-      ]
+          type: 'Literal',
+        },
+      ],
     },
     {
       code: 'document.createElement("span").type = "text/javascript"',
       errors: [
         {
           message: "Don't create dynamic script tags, add them in the server template instead.",
-          type: 'Literal'
-        }
-      ]
-    }
-  ]
+          type: 'Literal',
+        },
+      ],
+    },
+  ],
 })

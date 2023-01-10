@@ -14,9 +14,9 @@ ruleTester.run('js-class-name', rule, {
     {code: "document.querySelector('.js-foo ' + ' > ' + '.js-bar')"},
     {
       code: 'document.querySelector(`.js-foo`)',
-      parserOptions: {ecmaVersion: 6}
+      parserOptions: {ecmaVersion: 6},
     },
-    {code: "'random textjs-XXX'"}
+    {code: "'random textjs-XXX'"},
   ],
   invalid: [
     {
@@ -24,62 +24,62 @@ ruleTester.run('js-class-name', rule, {
       errors: [
         {
           message: 'js- class names should be lowercase and only contain dashes.',
-          type: 'Literal'
-        }
-      ]
+          type: 'Literal',
+        },
+      ],
     },
     {
       code: "document.querySelector('#js-Foo')",
       errors: [
         {
           message: 'js- class names should be lowercase and only contain dashes.',
-          type: 'Literal'
-        }
-      ]
+          type: 'Literal',
+        },
+      ],
     },
     {
       code: "document.querySelector('.js-foo > .js-Bar')",
       errors: [
         {
           message: 'js- class names should be lowercase and only contain dashes.',
-          type: 'Literal'
-        }
-      ]
+          type: 'Literal',
+        },
+      ],
     },
     {
       code: "document.querySelector('.js-' + foo)",
       errors: [
         {
           message: 'js- class names should be lowercase and only contain dashes.',
-          type: 'Literal'
+          type: 'Literal',
         },
         {
           message: 'js- class names should be statically defined.',
-          type: 'Literal'
-        }
-      ]
+          type: 'Literal',
+        },
+      ],
     },
     {
       code: "document.querySelector('.js-foo-' + foo)",
       errors: [
         {
           message: 'js- class names should be lowercase and only contain dashes.',
-          type: 'Literal'
+          type: 'Literal',
         },
         {
           message: 'js- class names should be statically defined.',
-          type: 'Literal'
-        }
-      ]
+          type: 'Literal',
+        },
+      ],
     },
     {
       code: "document.querySelector('.js-foo' + idx)",
       errors: [
         {
           message: 'js- class names should be statically defined.',
-          type: 'Literal'
-        }
-      ]
+          type: 'Literal',
+        },
+      ],
     },
     {
       code: 'document.querySelector(`.js-${foo}`)',
@@ -87,13 +87,13 @@ ruleTester.run('js-class-name', rule, {
       errors: [
         {
           message: 'js- class names should be lowercase and only contain dashes.',
-          type: 'TemplateElement'
+          type: 'TemplateElement',
         },
         {
           message: 'js- class names should be statically defined.',
-          type: 'TemplateElement'
-        }
-      ]
+          type: 'TemplateElement',
+        },
+      ],
     },
     {
       code: 'document.querySelector(`.js-foo-${foo}`)',
@@ -101,13 +101,13 @@ ruleTester.run('js-class-name', rule, {
       errors: [
         {
           message: 'js- class names should be lowercase and only contain dashes.',
-          type: 'TemplateElement'
+          type: 'TemplateElement',
         },
         {
           message: 'js- class names should be statically defined.',
-          type: 'TemplateElement'
-        }
-      ]
+          type: 'TemplateElement',
+        },
+      ],
     },
     {
       code: 'document.querySelector(`.js-foo${idx}`)',
@@ -115,9 +115,9 @@ ruleTester.run('js-class-name', rule, {
       errors: [
         {
           message: 'js- class names should be statically defined.',
-          type: 'TemplateElement'
-        }
-      ]
-    }
-  ]
+          type: 'TemplateElement',
+        },
+      ],
+    },
+  ],
 })

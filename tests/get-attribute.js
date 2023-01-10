@@ -16,7 +16,7 @@ ruleTester.run('get-attribute', rule, {
     {code: "el.getAttribute('data-foo1')"},
     // some SVG attributes must preserve case
     {code: "el.getAttribute('preserveAspectRatio')"},
-    {code: "el.getAttribute('viewBox')"}
+    {code: "el.getAttribute('viewBox')"},
   ],
   invalid: [
     {
@@ -25,9 +25,9 @@ ruleTester.run('get-attribute', rule, {
       errors: [
         {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
-          type: 'Literal'
-        }
-      ]
+          type: 'Literal',
+        },
+      ],
     },
     {
       code: "el.hasAttribute('SRC')",
@@ -35,9 +35,9 @@ ruleTester.run('get-attribute', rule, {
       errors: [
         {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
-          type: 'Literal'
-        }
-      ]
+          type: 'Literal',
+        },
+      ],
     },
     {
       code: "el.getAttribute('onClick')",
@@ -45,9 +45,9 @@ ruleTester.run('get-attribute', rule, {
       errors: [
         {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
-          type: 'Literal'
-        }
-      ]
+          type: 'Literal',
+        },
+      ],
     },
     {
       code: "el.getAttribute('viewbox')",
@@ -55,9 +55,9 @@ ruleTester.run('get-attribute', rule, {
       errors: [
         {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
-          type: 'Literal'
-        }
-      ]
+          type: 'Literal',
+        },
+      ],
     },
     {
       code: "el.getAttribute('preserveaspectratio')",
@@ -65,9 +65,9 @@ ruleTester.run('get-attribute', rule, {
       errors: [
         {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
-          type: 'Literal'
-        }
-      ]
-    }
-  ]
+          type: 'Literal',
+        },
+      ],
+    },
+  ],
 })

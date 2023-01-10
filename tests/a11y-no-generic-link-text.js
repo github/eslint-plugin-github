@@ -6,9 +6,9 @@ const ruleTester = new RuleTester({
     ecmaVersion: 'latest',
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true
-    }
-  }
+      jsx: true,
+    },
+  },
 })
 
 const errorMessage =
@@ -27,12 +27,12 @@ ruleTester.run('a11y-no-generic-link-text', rule, {
         github: {
           components: {
             Link: {
-              props: {as: {undefined: 'a'}}
-            }
-          }
-        }
-      }
-    }
+              props: {as: {undefined: 'a'}},
+            },
+          },
+        },
+      },
+    },
   ],
   invalid: [
     {
@@ -42,11 +42,11 @@ ruleTester.run('a11y-no-generic-link-text', rule, {
         github: {
           components: {
             ButtonLink: {
-              default: 'a'
-            }
-          }
-        }
-      }
+              default: 'a',
+            },
+          },
+        },
+      },
     },
     {
       code: '<Link href="#">Read more</Link>',
@@ -55,11 +55,11 @@ ruleTester.run('a11y-no-generic-link-text', rule, {
         github: {
           components: {
             Link: {
-              props: {as: {undefined: 'a'}}
-            }
-          }
-        }
-      }
+              props: {as: {undefined: 'a'}},
+            },
+          },
+        },
+      },
     },
     {
       code: '<Test as="a" href="#">Read more</Test>',
@@ -68,15 +68,15 @@ ruleTester.run('a11y-no-generic-link-text', rule, {
         github: {
           components: {
             Test: {
-              props: {as: {a: 'a'}}
-            }
-          }
-        }
-      }
+              props: {as: {a: 'a'}},
+            },
+          },
+        },
+      },
     },
     {
       code: "<Box><a href='#'>Click here</a></Box>;",
-      errors: [{message: errorMessage}]
+      errors: [{message: errorMessage}],
     },
     {code: '<a>Click here*</a>;', errors: [{message: errorMessage}]},
     {code: '<a>Learn more.</a>;', errors: [{message: errorMessage}]},
@@ -87,9 +87,9 @@ ruleTester.run('a11y-no-generic-link-text', rule, {
       code: "<a aria-label='Does not include visible label'>Read more!</a>;",
       errors: [
         {
-          message: 'When using ARIA to set a more descriptive text, it must fully contain the visible label.'
-        }
-      ]
-    }
-  ]
+          message: 'When using ARIA to set a more descriptive text, it must fully contain the visible label.',
+        },
+      ],
+    },
+  ],
 })

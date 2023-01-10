@@ -10,9 +10,9 @@ ruleTester.run('no-blur', rule, {
       code: 'el.blur()',
       errors: [
         {
-          message: 'Do not use element.blur(), instead restore the focus of a previous element.'
-        }
-      ]
-    }
-  ]
+          message: 'Do not use element.blur(), instead restore the focus of a previous element.',
+        },
+      ],
+    },
+  ],
 })

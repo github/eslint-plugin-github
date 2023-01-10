@@ -6,12 +6,12 @@ const ruleTester = new RuleTester()
 ruleTester.run('async-currenttarget', rule, {
   valid: [
     {
-      code: 'document.addEventListener(function(event) { event.currentTarget })'
+      code: 'document.addEventListener(function(event) { event.currentTarget })',
     },
     {
       code: 'document.addEventListener(async function(event) { event.currentTarget; await delay() })',
-      parserOptions: {ecmaVersion: 2017}
-    }
+      parserOptions: {ecmaVersion: 2017},
+    },
   ],
   invalid: [
     {
@@ -20,9 +20,9 @@ ruleTester.run('async-currenttarget', rule, {
       errors: [
         {
           message: 'event.currentTarget inside an async function is error prone',
-          type: 'MemberExpression'
-        }
-      ]
-    }
-  ]
+          type: 'MemberExpression',
+        },
+      ],
+    },
+  ],
 })

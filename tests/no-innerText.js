@@ -6,11 +6,11 @@ const ruleTester = new RuleTester()
 ruleTester.run('no-innerText', rule, {
   valid: [
     {
-      code: 'document.createElement("js-flash-text").textContent = "foo"'
+      code: 'document.createElement("js-flash-text").textContent = "foo"',
     },
     {
-      code: 'document.querySelector("js-flash-text").textContent = "bar"'
-    }
+      code: 'document.querySelector("js-flash-text").textContent = "bar"',
+    },
   ],
   invalid: [
     {
@@ -19,9 +19,9 @@ ruleTester.run('no-innerText', rule, {
       errors: [
         {
           message: 'Prefer textContent to innerText',
-          type: 'Identifier'
-        }
-      ]
+          type: 'Identifier',
+        },
+      ],
     },
     {
       code: 'document.querySelector("js-flash-text").innerText = "bar"',
@@ -29,9 +29,9 @@ ruleTester.run('no-innerText', rule, {
       errors: [
         {
           message: 'Prefer textContent to innerText',
-          type: 'Identifier'
-        }
-      ]
-    }
-  ]
+          type: 'Identifier',
+        },
+      ],
+    },
+  ],
 })
