@@ -9,12 +9,12 @@ function mockJSXAttribute(prop, propValue) {
     type: 'JSXAttribute',
     name: {
       type: 'JSXIdentifier',
-      name: prop
+      name: prop,
     },
     value: {
       type: 'Literal',
-      value: propValue
-    }
+      value: propValue,
+    },
   }
 }
 
@@ -23,9 +23,9 @@ function mockJSXOpeningElement(tagName, attributes = []) {
     type: 'JSXOpeningElement',
     name: {
       type: 'JSXIdentifier',
-      name: tagName
+      name: tagName,
     },
-    attributes
+    attributes,
   }
 }
 
@@ -33,9 +33,9 @@ function mockSetting(componentSetting = {}) {
   return {
     settings: {
       github: {
-        components: componentSetting
-      }
-    }
+        components: componentSetting,
+      },
+    },
   }
 }
 
@@ -49,8 +49,8 @@ describe('getElementType', function () {
     const node = mockJSXOpeningElement('Link', [mockJSXAttribute('as', 'summary')])
     const setting = mockSetting({
       Link: {
-        default: 'button'
-      }
+        default: 'button',
+      },
     })
     expect(getElementType(setting, node)).to.equal('button')
   })
@@ -60,9 +60,9 @@ describe('getElementType', function () {
       Link: {
         default: 'a',
         props: {
-          as: {summary: 'summary'}
-        }
-      }
+          as: {summary: 'summary'},
+        },
+      },
     })
 
     const node = mockJSXOpeningElement('Link', [mockJSXAttribute('as', 'summary')])
@@ -73,9 +73,9 @@ describe('getElementType', function () {
     const setting = mockSetting({
       Link: {
         props: {
-          as: {summary: 'summary'}
-        }
-      }
+          as: {summary: 'summary'},
+        },
+      },
     })
     const node = mockJSXOpeningElement('Link', [mockJSXAttribute('as', 'p')])
     expect(getElementType(setting, node)).to.equal('Link')
@@ -85,9 +85,9 @@ describe('getElementType', function () {
     const setting = mockSetting({
       Link: {
         props: {
-          as: {undefined: 'a'}
-        }
-      }
+          as: {undefined: 'a'},
+        },
+      },
     })
     const node = mockJSXOpeningElement('Link')
     expect(getElementType(setting, node)).to.equal('a')
@@ -97,9 +97,9 @@ describe('getElementType', function () {
     const setting = mockSetting({
       Link: {
         props: {
-          as: {undefined: 'a'}
-        }
-      }
+          as: {undefined: 'a'},
+        },
+      },
     })
 
     const node = mockJSXOpeningElement('Link', [mockJSXAttribute('as', 'p')])

@@ -7,24 +7,24 @@ ruleTester.run('unescaped-html-literal', rule, {
   valid: [
     {
       code: '`Hello World!`;',
-      parserOptions: {ecmaVersion: 2017}
+      parserOptions: {ecmaVersion: 2017},
     },
     {
       code: "'Hello World!'",
-      parserOptions: {ecmaVersion: 2017}
+      parserOptions: {ecmaVersion: 2017},
     },
     {
       code: '"Hello World!"',
-      parserOptions: {ecmaVersion: 2017}
+      parserOptions: {ecmaVersion: 2017},
     },
     {
       code: 'const helloTemplate = () => html`<div>Hello World!</div>`;',
-      parserOptions: {ecmaVersion: 2017}
+      parserOptions: {ecmaVersion: 2017},
     },
     {
       code: 'const helloTemplate = (name) => html`<div>Hello ${name}!</div>`;',
-      parserOptions: {ecmaVersion: 2017}
-    }
+      parserOptions: {ecmaVersion: 2017},
+    },
   ],
   invalid: [
     {
@@ -33,9 +33,9 @@ ruleTester.run('unescaped-html-literal', rule, {
       errors: [
         {
           message: 'Unescaped HTML literal. Use html`` tag template literal for secure escaping.',
-          type: 'Literal'
-        }
-      ]
+          type: 'Literal',
+        },
+      ],
     },
     {
       code: 'const helloHTML = "<h1>Hello, World!</h1>"',
@@ -43,9 +43,9 @@ ruleTester.run('unescaped-html-literal', rule, {
       errors: [
         {
           message: 'Unescaped HTML literal. Use html`` tag template literal for secure escaping.',
-          type: 'Literal'
-        }
-      ]
+          type: 'Literal',
+        },
+      ],
     },
     {
       code: 'const helloHTML = `<div>Hello ${name}!</div>`',
@@ -53,9 +53,9 @@ ruleTester.run('unescaped-html-literal', rule, {
       errors: [
         {
           message: 'Unescaped HTML literal. Use html`` tag template literal for secure escaping.',
-          type: 'TemplateLiteral'
-        }
-      ]
+          type: 'TemplateLiteral',
+        },
+      ],
     },
     {
       code: 'const helloHTML = foo`<div>Hello ${name}!</div>`',
@@ -63,9 +63,9 @@ ruleTester.run('unescaped-html-literal', rule, {
       errors: [
         {
           message: 'Unescaped HTML literal. Use html`` tag template literal for secure escaping.',
-          type: 'TemplateLiteral'
-        }
-      ]
-    }
-  ]
+          type: 'TemplateLiteral',
+        },
+      ],
+    },
+  ],
 })

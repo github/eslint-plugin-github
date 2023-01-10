@@ -6,11 +6,11 @@ const ruleTester = new RuleTester()
 ruleTester.run('no-inner-html', rule, {
   valid: [
     {
-      code: 'document.createElement("js-flash-text").textContent = ""'
+      code: 'document.createElement("js-flash-text").textContent = ""',
     },
     {
-      code: 'document.createElement("js-flash-text").textContent = "foo"'
-    }
+      code: 'document.createElement("js-flash-text").textContent = "foo"',
+    },
   ],
   invalid: [
     {
@@ -18,27 +18,27 @@ ruleTester.run('no-inner-html', rule, {
       errors: [
         {
           message: 'Using innerHTML poses a potential security risk and should not be used. Prefer using textContent.',
-          type: 'Identifier'
-        }
-      ]
+          type: 'Identifier',
+        },
+      ],
     },
     {
       code: 'document.querySelector("js-flash-text").innerHTML = "<div>code</div>"',
       errors: [
         {
           message: 'Using innerHTML poses a potential security risk and should not be used. Prefer using textContent.',
-          type: 'Identifier'
-        }
-      ]
+          type: 'Identifier',
+        },
+      ],
     },
     {
       code: 'document.querySelector("js-flash-text").innerHTML = ""',
       errors: [
         {
           message: 'Using innerHTML poses a potential security risk and should not be used. Prefer using textContent.',
-          type: 'Identifier'
-        }
-      ]
-    }
-  ]
+          type: 'Identifier',
+        },
+      ],
+    },
+  ],
 })

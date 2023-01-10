@@ -7,12 +7,12 @@ ruleTester.run('no-then', rule, {
   valid: [
     {
       code: '(async function() { const data = await read(); console.log(data) })()',
-      parserOptions: {ecmaVersion: 2017}
+      parserOptions: {ecmaVersion: 2017},
     },
     {
       code: '(async function() { try { await read() } catch(error) { console.error(error) } })()',
-      parserOptions: {ecmaVersion: 2017}
-    }
+      parserOptions: {ecmaVersion: 2017},
+    },
   ],
   invalid: [
     {
@@ -21,9 +21,9 @@ ruleTester.run('no-then', rule, {
       errors: [
         {
           message: 'Prefer async/await to Promise.then()',
-          type: 'Identifier'
-        }
-      ]
+          type: 'Identifier',
+        },
+      ],
     },
     {
       code: '(function() { read().catch(error => console.error(error)) })()',
@@ -31,9 +31,9 @@ ruleTester.run('no-then', rule, {
       errors: [
         {
           message: 'Prefer async/await to Promise.catch()',
-          type: 'Identifier'
-        }
-      ]
-    }
-  ]
+          type: 'Identifier',
+        },
+      ],
+    },
+  ],
 })
