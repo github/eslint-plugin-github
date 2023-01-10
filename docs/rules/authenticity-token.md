@@ -33,7 +33,7 @@ on('click', '.js-my-button', function (e) {
 
   fetch(form.action, {
     method: form.method,
-    body: new FormData(form)
+    body: new FormData(form),
   }).then(function () {
     alert('Success!')
   })
@@ -52,7 +52,7 @@ An alternate, but less preferred approach is to include the a signed CSRF url in
 on('click', '.js-my-button', function (e) {
   csrfRequest(this.getAttribute('data-url'), {
     method: 'PUT',
-    body: data
+    body: data,
   }).then(function () {
     alert('Success!')
   })

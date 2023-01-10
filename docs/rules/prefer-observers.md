@@ -34,7 +34,7 @@ window.addEventListener('scroll', () => {
   const isIntersecting = checkIfElementIntersects(
     element.getBoundingClientRect(),
     window.innerHeight,
-    document.clientHeight
+    document.clientHeight,
   )
   element.classList.toggle('intersecting', isIntersecting)
 })

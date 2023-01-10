@@ -63,14 +63,18 @@ Please perform browser tests and spot checks:
 ```
 
 ```jsx
-<a href="github.com/about" aria-label="Why dogs are awesome">Read more</a>
+<a href="github.com/about" aria-label="Why dogs are awesome">
+  Read more
+</a>
 ```
 
 ```jsx
-<a href="github.com/about" aria-describedby="element123">Read more</a>
+<a href="github.com/about" aria-describedby="element123">
+  Read more
+</a>
 ```
 
-### **Correct** code for this rule  👍
+### **Correct** code for this rule 👍
 
 ```jsx
 <a href="github.com/about">Learn more about GitHub</a>

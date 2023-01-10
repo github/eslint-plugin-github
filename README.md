@@ -54,8 +54,8 @@ For each component, you may specify a `default` and/or `props`. `default` may ma
   "settings": {
     "github": {
       "components": {
-        "Box": { "default": "p" },
-        "Link": { "props": {"as": { "undefined": "a", "a": "a", "button": "button"}}},
+        "Box": {"default": "p"},
+        "Link": {"props": {"as": {"undefined": "a", "a": "a", "button": "button"}}}
       }
     }
   }
@@ -94,3 +94,4 @@ This config will be interpreted in the following way:
 #### Accessibility-focused rules (prefixed with a11y)
 
 - [No Generic Link Text](./docs/rules/a11y-no-generic-link-text.md)
+- [Role Supports ARIA Props](./docs/rules/role-supports-aria-props.md)

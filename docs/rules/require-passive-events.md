@@ -28,7 +28,7 @@ window.addEventListener(
   () => {
     /* ... */
   },
-  {passive: true}
+  {passive: true},
 )
 ```
 
