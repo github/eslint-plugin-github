@@ -2,7 +2,7 @@
 
 This rule disallows setting `passive: true` for events on which it will have no effect.
 
-Events where `passive: true` has an effect are: `touchstart`, `touchmove`, `wheel`, and `mousewheel`.
+Events where `passive: true` has an effect are: `touchstart`, `touchmove`, `touchenter`, `touchend`, `touchleave`, `wheel`, and `mousewheel`.
 
 ## Rule Details
 
