@@ -16,7 +16,7 @@ jobs:
           - lts/-2
           - lts/-1
           - lts/*
-          - latest
+          - current
 
     steps:
       - uses: actions/checkout@v3
@@ -33,9 +33,15 @@ jobs:
       - name: Test
         id: test
         run: npm test
-        continue-on-error: ${{ matrix.node-version == 'latest' }}
-      - name: Fail
-        if: ${{ matrix.node-version == 'latest' && steps.test.outcome != 'success' }}
-        run: |
-          echo "Node.js ${{ matrix.node-version }} (${{ steps.version.outputs.node-version }}) failed"
-          exit 0
+        continue-on-error: ${{ matrix.node-version == 'current' }}
+      - name: Create Issue on Fail
+        if: ${{ matrix.node-version == 'current' && steps.test.outcome != 'success' }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Test failed on Node.js ${{ matrix.node-version }} (${{ steps.version.outputs.node-version }})',
+              body: 'The test failed on Node.js ${{ steps.version.outputs.node-version }}, [possibly due to a new version being promoted to node@current](https://github.com/nodejs/release#release-schedule). See [Action run output](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) for more information.'
+            })
