@@ -18,9 +18,9 @@ const ruleTester = new RuleTester({
     ecmaVersion: 'latest',
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true
-    }
-  }
+      jsx: true,
+    },
+  },
 })
 
 function getErrorMessage(attribute, role) {
@@ -343,170 +343,170 @@ ruleTester.run('role-supports-aria-props', rule, {
     {code: '<select aria-expanded />'},
     {code: '<datalist aria-expanded />'},
     {code: '<div role="heading" aria-level />'},
-    {code: '<div role="heading" aria-level="1" />'}
+    {code: '<div role="heading" aria-level="1" />'},
   ],
 
   invalid: [
     // implicit basic checks
     {
       code: '<a href="#" aria-checked />',
-      errors: [getErrorMessage('aria-checked', 'link')]
+      errors: [getErrorMessage('aria-checked', 'link')],
     },
     {
       code: '<area href="#" aria-checked />',
-      errors: [getErrorMessage('aria-checked', 'link')]
+      errors: [getErrorMessage('aria-checked', 'link')],
     },
     {
       code: '<link href="#" aria-checked />',
-      errors: [getErrorMessage('aria-checked', 'link')]
+      errors: [getErrorMessage('aria-checked', 'link')],
     },
     {
       code: '<img alt="foobar" aria-checked />',
-      errors: [getErrorMessage('aria-checked', 'img')]
+      errors: [getErrorMessage('aria-checked', 'img')],
     },
     {
       code: '<menu type="toolbar" aria-checked />',
-      errors: [getErrorMessage('aria-checked', 'toolbar')]
+      errors: [getErrorMessage('aria-checked', 'toolbar')],
     },
     {
       code: '<aside aria-checked />',
-      errors: [getErrorMessage('aria-checked', 'complementary')]
+      errors: [getErrorMessage('aria-checked', 'complementary')],
     },
     {
       code: '<ul aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'list')]
+      errors: [getErrorMessage('aria-expanded', 'list')],
     },
     {
       code: '<details aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'group')]
+      errors: [getErrorMessage('aria-expanded', 'group')],
     },
     {
       code: '<dialog aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'dialog')]
+      errors: [getErrorMessage('aria-expanded', 'dialog')],
     },
     {
       code: '<aside aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'complementary')]
+      errors: [getErrorMessage('aria-expanded', 'complementary')],
     },
     {
       code: '<article aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'article')]
+      errors: [getErrorMessage('aria-expanded', 'article')],
     },
     {
       code: '<body aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'document')]
+      errors: [getErrorMessage('aria-expanded', 'document')],
     },
     {
       code: '<li aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'listitem')]
+      errors: [getErrorMessage('aria-expanded', 'listitem')],
     },
     {
       code: '<nav aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'navigation')]
+      errors: [getErrorMessage('aria-expanded', 'navigation')],
     },
     {
       code: '<ol aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'list')]
+      errors: [getErrorMessage('aria-expanded', 'list')],
     },
     {
       code: '<output aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'status')]
+      errors: [getErrorMessage('aria-expanded', 'status')],
     },
     {
       code: '<section aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'region')]
+      errors: [getErrorMessage('aria-expanded', 'region')],
     },
     {
       code: '<tbody aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'rowgroup')]
+      errors: [getErrorMessage('aria-expanded', 'rowgroup')],
     },
     {
       code: '<tfoot aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'rowgroup')]
+      errors: [getErrorMessage('aria-expanded', 'rowgroup')],
     },
     {
       code: '<thead aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'rowgroup')]
+      errors: [getErrorMessage('aria-expanded', 'rowgroup')],
     },
     {
       code: '<input type="radio" aria-invalid />',
-      errors: [getErrorMessage('aria-invalid', 'radio')]
+      errors: [getErrorMessage('aria-invalid', 'radio')],
     },
     {
       code: '<input type="radio" aria-selected />',
-      errors: [getErrorMessage('aria-selected', 'radio')]
+      errors: [getErrorMessage('aria-selected', 'radio')],
     },
     {
       code: '<input type="radio" aria-haspopup />',
-      errors: [getErrorMessage('aria-haspopup', 'radio')]
+      errors: [getErrorMessage('aria-haspopup', 'radio')],
     },
     {
       code: '<input type="checkbox" aria-haspopup />',
-      errors: [getErrorMessage('aria-haspopup', 'checkbox')]
+      errors: [getErrorMessage('aria-haspopup', 'checkbox')],
     },
     {
       code: '<input type="reset" aria-invalid />',
-      errors: [getErrorMessage('aria-invalid', 'button')]
+      errors: [getErrorMessage('aria-invalid', 'button')],
     },
     {
       code: '<input type="submit" aria-invalid />',
-      errors: [getErrorMessage('aria-invalid', 'button')]
+      errors: [getErrorMessage('aria-invalid', 'button')],
     },
     {
       code: '<input type="image" aria-invalid />',
-      errors: [getErrorMessage('aria-invalid', 'button')]
+      errors: [getErrorMessage('aria-invalid', 'button')],
     },
     {
       code: '<input type="button" aria-invalid />',
-      errors: [getErrorMessage('aria-invalid', 'button')]
+      errors: [getErrorMessage('aria-invalid', 'button')],
     },
     {
       code: '<menuitem type="command" aria-invalid />',
-      errors: [getErrorMessage('aria-invalid', 'menuitem')]
+      errors: [getErrorMessage('aria-invalid', 'menuitem')],
     },
     {
       code: '<menuitem type="radio" aria-selected />',
-      errors: [getErrorMessage('aria-selected', 'menuitemradio')]
+      errors: [getErrorMessage('aria-selected', 'menuitemradio')],
     },
     {
       code: '<menu type="toolbar" aria-haspopup />',
-      errors: [getErrorMessage('aria-haspopup', 'toolbar')]
+      errors: [getErrorMessage('aria-haspopup', 'toolbar')],
     },
     {
       code: '<menu type="toolbar" aria-invalid />',
-      errors: [getErrorMessage('aria-invalid', 'toolbar')]
+      errors: [getErrorMessage('aria-invalid', 'toolbar')],
     },
     {
       code: '<menu type="toolbar" aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'toolbar')]
+      errors: [getErrorMessage('aria-expanded', 'toolbar')],
     },
     {
       code: '<link href="#" aria-invalid />',
-      errors: [getErrorMessage('aria-invalid', 'link')]
+      errors: [getErrorMessage('aria-invalid', 'link')],
     },
     {
       code: '<area href="#" aria-invalid />',
-      errors: [getErrorMessage('aria-invalid', 'link')]
+      errors: [getErrorMessage('aria-invalid', 'link')],
     },
     {
       code: '<a href="#" aria-invalid />',
-      errors: [getErrorMessage('aria-invalid', 'link')]
+      errors: [getErrorMessage('aria-invalid', 'link')],
     },
     {
       code: '<span aria-label />',
-      errors: [getErrorMessage('aria-label', 'generic')]
+      errors: [getErrorMessage('aria-label', 'generic')],
     },
     {
       code: '<span aria-labelledby />',
-      errors: [getErrorMessage('aria-labelledby', 'generic')]
+      errors: [getErrorMessage('aria-labelledby', 'generic')],
     },
     {
       code: '<div aria-label />',
-      errors: [getErrorMessage('aria-label', 'generic')]
+      errors: [getErrorMessage('aria-label', 'generic')],
     },
     {
       code: '<div aria-labelledby />',
-      errors: [getErrorMessage('aria-labelledby', 'generic')]
-    }
-  ]
+      errors: [getErrorMessage('aria-labelledby', 'generic')],
+    },
+  ],
 })

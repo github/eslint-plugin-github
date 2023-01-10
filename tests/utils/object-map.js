@@ -46,7 +46,7 @@ describe('ObjectMap', function () {
   it('lists entries that exist', function () {
     const iterable = [
       [{name: 'form'}, ['form']],
-      [{name: 'span'}, ['generic']]
+      [{name: 'span'}, ['generic']],
     ]
     const objectMap = new ObjectMap(iterable)
     const iterator = objectMap.entries()
@@ -89,7 +89,7 @@ describe('ObjectMap', function () {
   it('calls callback for each datum', function () {
     const iterable = [
       [{name: 'form'}, ['form']],
-      [{name: 'span'}, ['generic']]
+      [{name: 'span'}, ['generic']],
     ]
     const objectMap = new ObjectMap(iterable)
     const values = []
@@ -129,7 +129,7 @@ describe('ObjectMap', function () {
   it('lists keys', function () {
     const iterable = [
       [{name: 'form'}, ['form']],
-      [{name: 'span'}, ['generic']]
+      [{name: 'span'}, ['generic']],
     ]
     const objectMap = new ObjectMap(iterable)
     const iterator = objectMap.keys()
@@ -168,7 +168,7 @@ describe('ObjectMap', function () {
   it('lists values', function () {
     const iterable = [
       [{name: 'form'}, ['form']],
-      [{name: 'span'}, ['generic']]
+      [{name: 'span'}, ['generic']],
     ]
     const objectMap = new ObjectMap(iterable)
     const iterator = objectMap.values()

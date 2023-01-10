@@ -21,7 +21,7 @@ window.addEventListener(
   () => {
     console.log('Scroll event fired!')
   },
-  {passive: true}
+  {passive: true},
 )
 ```
 
