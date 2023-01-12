@@ -4,7 +4,9 @@
 
 Using `innerHTML` poses a potential security risk. Prefer using `textContent` to set text to an element.
 
-https://github.com/github/paste-markdown/security/advisories/GHSA-gpfj-4j6g-c4w9
+[Related security notification](https://github.com/github/paste-markdown/security/advisories/GHSA-gpfj-4j6g-c4w9)
+
+It may be reasonable to disable this rule in testing setups that use known, trusted input and carry little security risk.
 
 👎 Examples of **incorrect** code for this rule:
 
