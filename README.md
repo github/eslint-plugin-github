@@ -93,5 +93,7 @@ This config will be interpreted in the following way:
 
 #### Accessibility-focused rules (prefixed with a11y)
 
+_note: these rules apply to .jsx and .tsx file types_
+
 - [No Generic Link Text](./docs/rules/a11y-no-generic-link-text.md)
 - [Role Supports ARIA Props](./docs/rules/role-supports-aria-props.md)
