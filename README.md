@@ -94,7 +94,3 @@ This config will be interpreted in the following way:
 #### Accessibility-focused rules (prefixed with a11y)
 
 - [Role Supports ARIA Props](./docs/rules/role-supports-aria-props.md)
-
-##### Deprecated
-
-- [No Generic Link Text](./docs/rules/a11y-no-generic-link-text.md)
