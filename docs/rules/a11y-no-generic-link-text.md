@@ -1,4 +1,6 @@
-# No Generic Link Text
+# No Generic Link Text [Deprecated]
+
+_This rule has been deprecated in favor of `anchor-ambiguous-text` in `eslint-plugin-jsx-a11y`._
 
 ## Rule Details
 
