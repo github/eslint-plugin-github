@@ -1,4 +1,8 @@
-# Async Preventdefault
+# Disallow `event.preventDefault` calls inside of async functions (`github/async-preventdefault`)
+
+💼 This rule is enabled in the 🔍 `browser` config.
+
+<!-- end auto-generated rule header -->
 
 Using `event.preventDefault()` inside an `async function()` won't likely work as you'd expect because synchronous nature of event dispatch.
 

@@ -1,6 +1,8 @@
-# No Generic Link Text [Deprecated]
+# Disallow generic link text (`github/a11y-no-generic-link-text`)
 
-_This rule has been deprecated in favor of `anchor-ambiguous-text` in `eslint-plugin-jsx-a11y`._
+❌ This rule is deprecated. It was replaced by `jsx-a11y/anchor-ambiguous-text`.
+
+<!-- end auto-generated rule header -->
 
 ## Rule Details
 

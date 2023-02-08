@@ -1,4 +1,8 @@
-# Array Foreach
+# Enforce `for..of` loops over `Array.forEach` (`github/array-foreach`)
+
+💼 This rule is enabled in the ✅ `recommended` config.
+
+<!-- end auto-generated rule header -->
 
 Prefer `for...of` statement instead of `Array.forEach`.
 

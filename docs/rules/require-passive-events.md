@@ -1,4 +1,8 @@
-# Require Passive Events
+# Enforce marking high frequency event handlers as passive (`github/require-passive-events`)
+
+💼 This rule is enabled in the 🔍 `browser` config.
+
+<!-- end auto-generated rule header -->
 
 This rule enforces adding `passive: true` to high frequency event listeners (`touchstart`, `touchmove`, `touchenter`, `touchend`, `touchleave`, `wheel`, `mousewheel`).
 

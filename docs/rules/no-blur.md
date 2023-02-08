@@ -1,4 +1,8 @@
-# No Blur
+# Disallow usage of `Element.prototype.blur()` (`github/no-blur`)
+
+💼 This rule is enabled in the 🔍 `browser` config.
+
+<!-- end auto-generated rule header -->
 
 Do not use `element.blur()`. Blurring an element causes the focus position to be reset causing accessibility issues when using keyboard or voice navigation. Instead, restore focus by calling `element.focus()` on a prior element.
 

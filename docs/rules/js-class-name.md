@@ -1,4 +1,8 @@
-# JS Class Name
+# Enforce a naming convention for js- prefixed classes (`github/js-class-name`)
+
+💼 This rule is enabled in the 🔐 `internal` config.
+
+<!-- end auto-generated rule header -->
 
 JavaScript should only query and handle events for `js-` prefixed class names.
 

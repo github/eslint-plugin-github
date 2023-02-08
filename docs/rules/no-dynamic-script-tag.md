@@ -1,4 +1,8 @@
-# No Dynamic Script Tag
+# Disallow creating dynamic script tags (`github/no-dynamic-script-tag`)
+
+💼 This rule is enabled in the ✅ `recommended` config.
+
+<!-- end auto-generated rule header -->
 
 ## Rule Details
 

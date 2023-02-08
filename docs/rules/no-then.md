@@ -1,4 +1,8 @@
-# No Then
+# Enforce using `async/await` syntax over Promises (`github/no-then`)
+
+💼 This rule is enabled in the ✅ `recommended` config.
+
+<!-- end auto-generated rule header -->
 
 ## Rule Details
 
