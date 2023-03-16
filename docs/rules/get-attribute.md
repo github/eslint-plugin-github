@@ -1,4 +1,10 @@
-# Get Attribute
+# Disallow wrong usage of attribute names (`github/get-attribute`)
+
+💼 This rule is enabled in the 🔍 `browser` config.
+
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
+
+<!-- end auto-generated rule header -->
 
 ## Rule Details
 

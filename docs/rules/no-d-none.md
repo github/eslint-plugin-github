@@ -1,4 +1,8 @@
-# No D None
+# Disallow usage the `d-none` CSS class (`github/no-d-none`)
+
+💼 This rule is enabled in the 🔐 `internal` config.
+
+<!-- end auto-generated rule header -->
 
 ## Rule Details
 

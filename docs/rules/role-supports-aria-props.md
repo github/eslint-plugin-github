@@ -1,4 +1,8 @@
-# Role Supports ARIA Props
+# Enforce that elements with explicit or implicit roles defined contain only `aria-*` properties supported by that `role` (`github/role-supports-aria-props`)
+
+💼 This rule is enabled in the ⚛️ `react` config.
+
+<!-- end auto-generated rule header -->
 
 ## Rule Details
 
@@ -72,3 +76,5 @@ There are conflicting resources and opinions on what elements should support the
   <h1 id="dialogHeading">Heading</h1>
 </div>
 ```
+
+## Version

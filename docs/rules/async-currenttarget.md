@@ -1,4 +1,8 @@
-# Async Currenttarget
+# Disallow `event.currentTarget` calls inside of async functions (`github/async-currenttarget`)
+
+💼 This rule is enabled in the 🔍 `browser` config.
+
+<!-- end auto-generated rule header -->
 
 ## Rule Details
 

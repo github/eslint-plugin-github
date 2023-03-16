@@ -1,4 +1,8 @@
-# Unescaped HTML Literal
+# Disallow unescaped HTML literals (`github/unescaped-html-literal`)
+
+💼 This rule is enabled in the 🔍 `browser` config.
+
+<!-- end auto-generated rule header -->
 
 ## Rule Details
 

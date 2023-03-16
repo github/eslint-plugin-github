@@ -1,4 +1,8 @@
-# No Dataset
+# Enforce usage of `Element.prototype.getAttribute` instead of `Element.prototype.datalist` (`github/no-dataset`)
+
+💼 This rule is enabled in the 🔍 `browser` config.
+
+<!-- end auto-generated rule header -->
 
 ## Rule Details
 
