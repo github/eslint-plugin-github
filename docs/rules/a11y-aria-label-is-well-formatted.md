@@ -1,4 +1,4 @@
-# [aria-label] text should be formatted as you would visible text, in a human-readable format (`github/a11y-aria-label-is-well-formatted`)
+# [aria-label] text should be formatted as you would visual text (`github/a11y-aria-label-is-well-formatted`)
 
 💼 This rule is enabled in the ⚛️ `react` config.
 
@@ -6,7 +6,7 @@
 
 ## Rule Details
 
-`[aria-label]` content should be formatted in the same way you would visible text.
+`[aria-label]` content should be formatted in the same way you would visual text.
 
 Please use sentence case, and avoid using hyphens like you would an ID.
 
