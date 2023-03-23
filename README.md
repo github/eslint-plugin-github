@@ -84,7 +84,7 @@ This config will be interpreted in the following way:
 
 | Name                                                                     | Description                                                                                                              | 💼 | 🔧 | ❌  |
 | :----------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------- | :- | :- | :- |
-| [a11y-aria-label-is-readable](docs/rules/a11y-aria-label-is-readable.md) | [aria-label] text should be formatted as you would visible text, in a human-readable format.                             | ⚛️ |    |    |
+| [a11y-aria-label-is-well-formatted](docs/rules/a11y-aria-label-is-well-formatted.md) | [aria-label] text should be formatted as you would visible text, in a human-readable format.                             | ⚛️ |    |    |
 | [a11y-no-generic-link-text](docs/rules/a11y-no-generic-link-text.md)     | disallow generic link text                                                                                               |    |    | ❌  |
 | [array-foreach](docs/rules/array-foreach.md)                             | enforce `for..of` loops over `Array.forEach`                                                                             | ✅  |    |    |
 | [async-currenttarget](docs/rules/async-currenttarget.md)                 | disallow `event.currentTarget` calls inside of async functions                                                           | 🔍 |    |    |

@@ -1,4 +1,4 @@
-const rule = require('../lib/rules/a11y-aria-label-is-readable')
+const rule = require('../lib/rules/a11y-aria-label-is-well-formatted')
 const RuleTester = require('eslint').RuleTester
 
 const ruleTester = new RuleTester({
@@ -14,14 +14,12 @@ const ruleTester = new RuleTester({
 const errorMessage =
   '[aria-label] text should be formatted the same as you would visible text. Use sentence case and make sure you are not using hyphens.'
 
-ruleTester.run('a11y-aria-label-is-readable', rule, {
+ruleTester.run('a11y-aria-label-is-well-formatted', rule, {
   valid: [
     {code: "<a aria-labelledby='someId' href='#'>Read more</a>;"},
     {code: "<a aria-label={someName} href='#'>Read more</a>;"},
     {code: "<a aria-label='This is a label'></a>;"},
-    {
-      code: '<Link as="button" href="#">Read more</Link>',
-    },
+    {code: '<Link aria-label="Valid" href="#">Read more</Link>'},
   ],
   invalid: [
     {code: "<a aria-label='close modal'></a>;", errors: [{message: errorMessage}]},
