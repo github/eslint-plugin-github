@@ -12,7 +12,7 @@ const ruleTester = new RuleTester({
 })
 
 const errorMessage =
-'[aria-label] text should be formatted the same as you would visual text. Use sentence case and make sure you are not using hyphens.'
+  '[aria-label] text should be formatted the same as you would visual text. Use sentence case and make sure you are not using hyphens.'
 
 ruleTester.run('a11y-aria-label-is-well-formatted', rule, {
   valid: [
