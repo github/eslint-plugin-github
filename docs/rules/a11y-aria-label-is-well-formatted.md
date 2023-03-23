@@ -6,11 +6,13 @@
 
 ## Rule Details
 
-`[aria-label]` content should be formatted in the same way you would visual text.
+`[aria-label]` content should be formatted in the same way you would visual text. Please use sentence case.
 
-Please use sentence case, and avoid using hyphens like you would an ID.
+Do not connect the words like you would an ID. An `aria-label` is not an ID, and should be formatted as human-friendly text.
 
 ## Resources
+
+- [Using aria-label](https://www.w3.org/WAI/tutorials/forms/labels/#using-aria-label)
 
 ## Examples
 
