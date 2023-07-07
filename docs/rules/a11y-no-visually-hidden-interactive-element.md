@@ -1,4 +1,4 @@
-# Ensures that interactive elements are not visually hidden (`github/a11y-no-sr-only-class-when-focusable`)
+# Ensures that interactive elements are not visually hidden (`github/a11y-no-visually-hidden-interactive-element`)
 
 <!-- end auto-generated rule header -->
 
@@ -9,7 +9,7 @@ This rule guards against visually hiding interactive elements. If a sighted keyb
 👎 Examples of **incorrect** code for this rule:
 
 ```jsx
-<button className="sr-only">Submit</button>
+<button className="visually-hidden">Submit</button>
 ```
 
 ```jsx
@@ -25,7 +25,7 @@ This rule guards against visually hiding interactive elements. If a sighted keyb
 👍 Examples of **correct** code for this rule:
 
 ```jsx
-<h2 className="sr-only">Welcome to GitHub</h2>
+<h2 className="visually-hidden">Welcome to GitHub</h2>
 ```
 
 ```jsx
@@ -36,6 +36,20 @@ This rule guards against visually hiding interactive elements. If a sighted keyb
 
 ```jsx
 <VisuallyHidden as="h2">Welcome to GitHub</VisuallyHidden>
+```
+
+## Options
+
+```json
+{
+  "a11y-no-visually-hidden-interactive-element": [
+    "error",
+    {
+      "className": "visually-hidden",
+      "componentName": "VisuallyHidden"
+    }
+  ]
+}
 ```
 
 ## Version
