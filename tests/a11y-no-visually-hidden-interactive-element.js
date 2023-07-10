@@ -44,11 +44,11 @@ ruleTester.run('a11y-no-visually-hidden-interactive-element', rule, {
     },
     {
       code: "<VisuallyHidden as='button'>Submit</VisuallyHidden>",
-      options: [
-        {
-          htmlPropName: 'html',
+      settings: {
+        github: {
+          polymorphicPropName: 'html',
         },
-      ],
+      },
     },
   ],
   invalid: [
@@ -86,12 +86,12 @@ ruleTester.run('a11y-no-visually-hidden-interactive-element', rule, {
     },
     {
       code: "<VisuallyHidden html='button'>Submit</VisuallyHidden>",
-      options: [
-        {
-          htmlPropName: 'html',
-        },
-      ],
       errors: [{message: errorMessage}],
+      settings: {
+        github: {
+          polymorphicPropName: 'html',
+        },
+      },
     },
   ],
 })
