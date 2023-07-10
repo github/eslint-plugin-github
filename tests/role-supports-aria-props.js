@@ -372,7 +372,7 @@ ruleTester.run('role-supports-aria-props', rule, {
     },
     {
       code: '<body aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'document')],
+      errors: [getErrorMessage('aria-expanded', 'generic')],
     },
     {
       code: '<li aria-expanded />',
