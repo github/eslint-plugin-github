@@ -57,9 +57,6 @@ ruleTester.run('role-supports-aria-props', rule, {
     {code: '<a href="#" aria-owns />'},
     {code: '<a href="#" aria-relevant />'},
 
-    // this will have global
-    {code: '<a aria-checked />'},
-
     // AREA TESTS - implicit role is `link`
     {code: '<area href="#" aria-expanded />'},
     {code: '<area href="#" aria-atomic />'},
@@ -77,9 +74,6 @@ ruleTester.run('role-supports-aria-props', rule, {
     {code: '<area href="#" aria-live />'},
     {code: '<area href="#" aria-owns />'},
     {code: '<area href="#" aria-relevant />'},
-
-    // this will have global
-    {code: '<area aria-checked />'},
 
     // LINK TESTS - implicit role is `link`
     {code: '<link href="#" aria-expanded />'},
@@ -348,6 +342,14 @@ ruleTester.run('role-supports-aria-props', rule, {
 
   invalid: [
     // implicit basic checks
+    {
+      code: '<area aria-checked />',
+      errors: [getErrorMessage('aria-checked', 'generic')],
+    },
+    {
+      code: '<a aria-checked />',
+      errors: [getErrorMessage('aria-checked', 'generic')],
+    },
     {
       code: '<a href="#" aria-checked />',
       errors: [getErrorMessage('aria-checked', 'link')],
