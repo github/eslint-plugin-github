@@ -1,5 +1,7 @@
 # Ensures that interactive elements are not visually hidden (`github/a11y-no-visually-hidden-interactive-element`)
 
+💼 This rule is enabled in the ⚛️ `react` config.
+
 <!-- end auto-generated rule header -->
 
 ## Rule Details
