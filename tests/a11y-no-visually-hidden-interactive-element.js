@@ -25,6 +25,31 @@ ruleTester.run('a11y-no-visually-hidden-interactive-element', rule, {
     {code: "<input className='sr-only' />"},
     {code: "<a className='other show-on-focus'>skip to main content</a>"},
     {code: '<button>Submit</button>'},
+    {
+      code: "<button className='sr-only'>Submit</button>",
+      options: [
+        {
+          className: 'visually-hidden',
+        },
+      ],
+    },
+    {
+      code: "<VisuallyHidden as='button'>Submit</VisuallyHidden>",
+      options: [
+        {
+          componentName: 'Hidden',
+        },
+      ],
+      errors: [{message: errorMessage}],
+    },
+    {
+      code: "<VisuallyHidden as='button'>Submit</VisuallyHidden>",
+      options: [
+        {
+          htmlPropName: 'html',
+        },
+      ],
+    },
   ],
   invalid: [
     {code: '<VisuallyHidden as="button">Submit</VisuallyHidden>', errors: [{message: errorMessage}]},
@@ -41,5 +66,32 @@ ruleTester.run('a11y-no-visually-hidden-interactive-element', rule, {
     {code: "<select className='sr-only' />", errors: [{message: errorMessage}]},
     {code: "<option className='sr-only' />", errors: [{message: errorMessage}]},
     {code: "<a className='sr-only'>Read more</a>", errors: [{message: errorMessage}]},
+    {
+      code: "<button className='visually-hidden'>Submit</button>",
+      options: [
+        {
+          className: 'visually-hidden',
+        },
+      ],
+      errors: [{message: errorMessage}],
+    },
+    {
+      code: "<Hidden as='button'>Submit</Hidden>",
+      options: [
+        {
+          componentName: 'Hidden',
+        },
+      ],
+      errors: [{message: errorMessage}],
+    },
+    {
+      code: "<VisuallyHidden html='button'>Submit</VisuallyHidden>",
+      options: [
+        {
+          htmlPropName: 'html',
+        },
+      ],
+      errors: [{message: errorMessage}],
+    },
   ],
 })
