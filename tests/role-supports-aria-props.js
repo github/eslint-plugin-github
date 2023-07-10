@@ -348,7 +348,7 @@ ruleTester.run('role-supports-aria-props', rule, {
     },
     {
       code: '<aside aria-checked />',
-      errors: [getErrorMessage('aria-checked', 'complementary')],
+      errors: [getErrorMessage('aria-checked', 'generic')],
     },
     {
       code: '<ul aria-expanded />',
@@ -364,7 +364,7 @@ ruleTester.run('role-supports-aria-props', rule, {
     },
     {
       code: '<aside aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'complementary')],
+      errors: [getErrorMessage('aria-expanded', 'generic')],
     },
     {
       code: '<article aria-expanded />',
@@ -392,6 +392,10 @@ ruleTester.run('role-supports-aria-props', rule, {
     },
     {
       code: '<section aria-expanded />',
+      errors: [getErrorMessage('aria-expanded', 'generic')],
+    },
+    {
+      code: '<section aria-label="something" aria-expanded />',
       errors: [getErrorMessage('aria-expanded', 'region')],
     },
     {
