@@ -1,33 +1,10 @@
 const {getElementType} = require('../../lib/utils/get-element-type')
+const {mockJSXAttribute, mockJSXOpeningElement} = require('./helpers')
+
 const mocha = require('mocha')
 const describe = mocha.describe
 const it = mocha.it
 const expect = require('chai').expect
-
-function mockJSXAttribute(prop, propValue) {
-  return {
-    type: 'JSXAttribute',
-    name: {
-      type: 'JSXIdentifier',
-      name: prop,
-    },
-    value: {
-      type: 'Literal',
-      value: propValue,
-    },
-  }
-}
-
-function mockJSXOpeningElement(tagName, attributes = []) {
-  return {
-    type: 'JSXOpeningElement',
-    name: {
-      type: 'JSXIdentifier',
-      name: tagName,
-    },
-    attributes,
-  }
-}
 
 function mockSetting(componentSetting = {}) {
   return {
