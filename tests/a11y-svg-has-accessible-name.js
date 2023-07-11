@@ -12,7 +12,7 @@ const ruleTester = new RuleTester({
 })
 
 const errorMessage =
-  '`<svg>` must have accessible text. Set `aria-label` or `aria-labelledby`, or nest a `<title>` element. However, if the `<svg>` is purely decorative, hide it with `aria-hidden="true"` or `role="presentation"`.'
+  '`<svg>` must have an accessible name. Set `aria-label` or `aria-labelledby`, or nest a `<title>` element. However, if the `<svg>` is purely decorative, hide it with `aria-hidden="true"` or `role="presentation"`.'
 
 ruleTester.run('a11y-svg-has-accessible-name', rule, {
   valid: [
