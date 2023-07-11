@@ -11,8 +11,7 @@ const ruleTester = new RuleTester({
   },
 })
 
-const errorMessage =
-  "The title attribute is not accessible and should never be used unless for an `<iframe>`. If you cannot convey the information in another way, replace the title attribute with an accessible tooltip like, Primer React's Tooltip."
+const errorMessage = 'The title attribute is not accessible and should never be used unless for an `<iframe>`.'
 
 ruleTester.run('a11y-no-title-attribute', rule, {
   valid: [
