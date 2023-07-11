@@ -107,6 +107,31 @@ describe('getRole', function () {
     expect(getRole({}, h6)).to.equal('heading')
   })
 
+  it('returns navigation role for <nav>', function () {
+    const node = mockJSXOpeningElement('nav')
+    expect(getRole({}, node)).to.equal('navigation')
+  })
+
+  it('returns option role for <opt>', function () {
+    const node = mockJSXOpeningElement('option')
+    expect(getRole({}, node)).to.equal('option')
+  })
+
+  it('returns textbox role for <textarea>', function () {
+    const node = mockJSXOpeningElement('textarea')
+    expect(getRole({}, node)).to.equal('textbox')
+  })
+
+  it('returns listbox role for <select>', function () {
+    const node = mockJSXOpeningElement('textarea')
+    expect(getRole({}, node)).to.equal('textbox')
+  })
+
+  it('returns group role for <details>', function () {
+    const node = mockJSXOpeningElement('details')
+    expect(getRole({}, node)).to.equal('group')
+  })
+
   // <link> does not map to anything.
   it('returns undefined role for <link>', function () {
     const node = mockJSXOpeningElement('link')
