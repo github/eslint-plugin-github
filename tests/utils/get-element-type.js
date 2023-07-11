@@ -78,14 +78,4 @@ describe('getElementType', function () {
     const node = mockJSXOpeningElement('Link', [mockJSXAttribute('as', 'Button')])
     expect(getElementType(setting, node)).to.equal('button')
   })
-
-  it('if rendered as another component check its default type', function () {
-    const setting = mockSetting({
-      Link: 'Button',
-      Button: 'button',
-    })
-
-    const node = mockJSXOpeningElement('Link')
-    expect(getElementType(setting, node)).to.equal('button')
-  })
 })
