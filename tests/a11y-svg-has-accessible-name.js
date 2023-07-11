@@ -12,7 +12,7 @@ const ruleTester = new RuleTester({
 })
 
 const errorMessage =
-  'SVG elements should have an accessible name. Add a `<title>` element as the first descendant of the `<svg>` or add an `aria-label` or `aria-labelledby` to the `<svg>` element.'
+  '`<svg>` must have accessible text. Set `aria-label` or `aria-labelledby`, or nest a `<title>` element. However, if the `<svg>` is purely decorative, hide it with `aria-hidden="true"`.'
 
 ruleTester.run('a11y-aria-label-is-well-formatted', rule, {
   valid: [
