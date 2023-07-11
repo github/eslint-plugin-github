@@ -26,9 +26,7 @@ ruleTester.run('a11y-no-generic-link-text', rule, {
       settings: {
         github: {
           components: {
-            Link: {
-              props: {as: {undefined: 'a'}},
-            },
+            Link: 'a',
           },
         },
       },
@@ -41,9 +39,7 @@ ruleTester.run('a11y-no-generic-link-text', rule, {
       settings: {
         github: {
           components: {
-            ButtonLink: {
-              default: 'a',
-            },
+            ButtonLink: 'a',
           },
         },
       },
@@ -54,9 +50,7 @@ ruleTester.run('a11y-no-generic-link-text', rule, {
       settings: {
         github: {
           components: {
-            Link: {
-              props: {as: {undefined: 'a'}},
-            },
+            Link: 'a',
           },
         },
       },
@@ -64,15 +58,6 @@ ruleTester.run('a11y-no-generic-link-text', rule, {
     {
       code: '<Test as="a" href="#">Read more</Test>',
       errors: [{message: errorMessage}],
-      settings: {
-        github: {
-          components: {
-            Test: {
-              props: {as: {a: 'a'}},
-            },
-          },
-        },
-      },
     },
     {
       code: "<Box><a href='#'>Click here</a></Box>;",
