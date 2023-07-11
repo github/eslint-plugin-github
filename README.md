@@ -47,15 +47,16 @@ _Note: This is experimental and subject to change._
 
 The `react` config includes rules which target specific HTML elements. You may provide a mapping of custom components to an HTML element in your `eslintrc` configuration to increase linter coverage.
 
-For each component, you may specify a `default` and/or `props`. `default` may make sense if there's a 1:1 mapping between a component and an HTML element. However, if the HTML output of a component is dependent on a prop value, you can provide a mapping using the `props` key. To minimize conflicts and complexity, this currently only supports the mapping of a single prop type.
+By default, these eslint rules will check the "as" prop for underlying element changes. If your repo uses a different prop name for polymorphic components provide the prop name in your `eslintrc` configuration under `polymorphicPropName`.
 
 ```json
 {
   "settings": {
     "github": {
+      "polymorphicPropName": "asChild",
       "components": {
-        "Box": {"default": "p"},
-        "Link": {"props": {"as": {"undefined": "a", "a": "a", "button": "button"}}}
+        "Box": "p",
+        "Link": "a"
       }
     }
   }
@@ -66,9 +67,7 @@ This config will be interpreted in the following way:
 
 - All `<Box>` elements will be treated as a `p` element type.
 - `<Link>` without a defined `as` prop will be treated as a `a`.
-- `<Link as='a'>` will treated as an `a` element type.
 - `<Link as='button'>` will be treated as a `button` element type.
-- `<Link as='summary'>` will be treated as the raw `Link` type because there is no configuration set for `as='summary'`.
 
 ### Rules
 
