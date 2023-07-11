@@ -132,6 +132,41 @@ describe('getRole', function () {
     expect(getRole({}, node)).to.equal('group')
   })
 
+  it('returns group role for <details>', function () {
+    const node = mockJSXOpeningElement('details')
+    expect(getRole({}, node)).to.equal('group')
+  })
+
+  // <input>
+  it('returns slider role for <input> with type range', function () {
+    const node = mockJSXOpeningElement('input', [mockJSXAttribute('type', 'range')])
+    expect(getRole({}, node)).to.equal('slider')
+  })
+
+  it('returns spinbutton for <input> with type number', function () {
+    const node = mockJSXOpeningElement('input', [mockJSXAttribute('type', 'number')])
+    expect(getRole({}, node)).to.equal('spinbutton')
+  })
+
+  it('returns checkbox for <input> with type checkbox', function () {
+    const node = mockJSXOpeningElement('input', [mockJSXAttribute('type', 'checkbox')])
+    expect(getRole({}, node)).to.equal('checkbox')
+  })
+
+  it('returns button for <input> with type button, image, reset, submit', function () {
+    const button = mockJSXOpeningElement('input', [mockJSXAttribute('type', 'button')])
+    expect(getRole({}, button)).to.equal('button')
+
+    const image = mockJSXOpeningElement('input', [mockJSXAttribute('type', 'image')])
+    expect(getRole({}, image)).to.equal('button')
+
+    const reset = mockJSXOpeningElement('input', [mockJSXAttribute('type', 'reset')])
+    expect(getRole({}, reset)).to.equal('button')
+
+    const submit = mockJSXOpeningElement('input', [mockJSXAttribute('type', 'submit')])
+    expect(getRole({}, submit)).to.equal('button')
+  })
+
   // <link> does not map to anything.
   it('returns undefined role for <link>', function () {
     const node = mockJSXOpeningElement('link')
