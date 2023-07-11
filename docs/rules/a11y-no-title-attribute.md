@@ -1,5 +1,7 @@
 # Guards against developers using the title attribute (`github/a11y-no-title-attribute`)
 
+💼 This rule is enabled in the ⚛️ `react` config.
+
 <!-- end auto-generated rule header -->
 
 The title attribute is strongly discouraged. The only exception is on an `<iframe>` element. It is hardly useful and cannot be accessed by multiple groups of users including keyboard-only users and mobile users.
