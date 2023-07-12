@@ -348,7 +348,7 @@ ruleTester.run('role-supports-aria-props', rule, {
     },
     {
       code: '<aside aria-checked />',
-      errors: [getErrorMessage('aria-checked', 'generic')],
+      errors: [getErrorMessage('aria-checked', 'complementary')],
     },
     {
       code: '<ul aria-expanded />',
@@ -364,7 +364,7 @@ ruleTester.run('role-supports-aria-props', rule, {
     },
     {
       code: '<aside aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'generic')],
+      errors: [getErrorMessage('aria-expanded', 'complementary')],
     },
     {
       code: '<article aria-expanded />',
