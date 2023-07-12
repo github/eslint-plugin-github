@@ -1,5 +1,5 @@
 const {getRole} = require('../../lib/utils/get-role')
-const {mockJSXAttribute, mockJSXOpeningElement} = require('./helpers')
+const {mockJSXAttribute, mockJSXOpeningElement} = require('./mocks')
 const mocha = require('mocha')
 const describe = mocha.describe
 const it = mocha.it

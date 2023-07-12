@@ -1,5 +1,5 @@
 const {getElementType} = require('../../lib/utils/get-element-type')
-const {mockJSXAttribute, mockJSXOpeningElement} = require('./helpers')
+const {mockJSXAttribute, mockJSXOpeningElement} = require('./mocks')
 
 const mocha = require('mocha')
 const describe = mocha.describe
