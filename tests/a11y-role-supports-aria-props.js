@@ -27,7 +27,7 @@ function getErrorMessage(attribute, role) {
   return `The attribute ${attribute} is not supported by the role ${role}.`
 }
 
-ruleTester.run('role-supports-aria-props', rule, {
+ruleTester.run('a11y-role-supports-aria-props', rule, {
   valid: [
     {code: '<Foo bar />'},
     {code: '<div />'},
