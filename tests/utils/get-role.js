@@ -167,6 +167,27 @@ describe('getRole', function () {
     expect(getRole({}, submit)).to.equal('button')
   })
 
+  it('returns rowheader role for <th scope="row">', function () {
+    const node = mockJSXOpeningElement('th', [mockJSXAttribute('scope', 'row')])
+    expect(getRole({}, node)).to.equal('rowheader')
+  })
+
+  it('returns rowheader role for <th scope="rowgroup">', function () {
+    const node = mockJSXOpeningElement('th', [mockJSXAttribute('scope', 'rowgroup')])
+    expect(getRole({}, node)).to.equal('rowheader')
+  })
+
+  // Hard-coded mapping
+  it('returns listitem role for <li>', function () {
+    const node = mockJSXOpeningElement('li')
+    expect(getRole({}, node)).to.equal('listitem')
+  })
+
+  it('returns complementary role for <aside>', function () {
+    const node = mockJSXOpeningElement('aside')
+    expect(getRole({}, node)).to.equal('complementary')
+  })
+
   // <link> does not map to anything.
   it('returns undefined role for <link>', function () {
     const node = mockJSXOpeningElement('link')
