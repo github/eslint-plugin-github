@@ -87,6 +87,7 @@ This config will be interpreted in the following way:
 | [a11y-no-generic-link-text](docs/rules/a11y-no-generic-link-text.md)                                     | disallow generic link text                                                                                               |    |    | ❌  |
 | [a11y-no-title-attribute](docs/rules/a11y-no-title-attribute.md)                                         | Guards against developers using the title attribute                                                                      | ⚛️ |    |    |
 | [a11y-no-visually-hidden-interactive-element](docs/rules/a11y-no-visually-hidden-interactive-element.md) | Ensures that interactive elements are not visually hidden                                                                | ⚛️ |    |    |
+| [a11y-role-supports-aria-props](docs/rules/a11y-role-supports-aria-props.md)         | Enforce that elements with explicit or implicit roles defined contain only `aria-*` properties supported by that `role`. | ⚛️ |    |    |
 | [a11y-svg-has-accessible-name](docs/rules/a11y-svg-has-accessible-name.md)                               | SVGs must have an accessible name                                                                                        | ⚛️ |    |    |
 | [array-foreach](docs/rules/array-foreach.md)                                                             | enforce `for..of` loops over `Array.forEach`                                                                             | ✅  |    |    |
 | [async-currenttarget](docs/rules/async-currenttarget.md)                                                 | disallow `event.currentTarget` calls inside of async functions                                                           | 🔍 |    |    |
@@ -105,7 +106,6 @@ This config will be interpreted in the following way:
 | [no-useless-passive](docs/rules/no-useless-passive.md)                                                   | disallow marking a event handler as passive when it has no effect                                                        | 🔍 | 🔧 |    |
 | [prefer-observers](docs/rules/prefer-observers.md)                                                       | disallow poorly performing event listeners                                                                               | 🔍 |    |    |
 | [require-passive-events](docs/rules/require-passive-events.md)                                           | enforce marking high frequency event handlers as passive                                                                 | 🔍 |    |    |
-| [role-supports-aria-props](docs/rules/role-supports-aria-props.md)                                       | Enforce that elements with explicit or implicit roles defined contain only `aria-*` properties supported by that `role`. | ⚛️ |    |    |
 | [unescaped-html-literal](docs/rules/unescaped-html-literal.md)                                           | disallow unescaped HTML literals                                                                                         | 🔍 |    |    |
 
 <!-- end auto-generated rules list -->
