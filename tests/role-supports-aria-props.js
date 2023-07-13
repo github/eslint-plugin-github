@@ -57,9 +57,6 @@ ruleTester.run('role-supports-aria-props', rule, {
     {code: '<a href="#" aria-owns />'},
     {code: '<a href="#" aria-relevant />'},
 
-    // this will have global
-    {code: '<a aria-checked />'},
-
     // AREA TESTS - implicit role is `link`
     {code: '<area href="#" aria-expanded />'},
     {code: '<area href="#" aria-atomic />'},
@@ -77,30 +74,6 @@ ruleTester.run('role-supports-aria-props', rule, {
     {code: '<area href="#" aria-live />'},
     {code: '<area href="#" aria-owns />'},
     {code: '<area href="#" aria-relevant />'},
-
-    // this will have global
-    {code: '<area aria-checked />'},
-
-    // LINK TESTS - implicit role is `link`
-    {code: '<link href="#" aria-expanded />'},
-    {code: '<link href="#" aria-atomic />'},
-    {code: '<link href="#" aria-busy />'},
-    {code: '<link href="#" aria-controls />'},
-    {code: '<link href="#" aria-describedby />'},
-    {code: '<link href="#" aria-disabled />'},
-    {code: '<link href="#" aria-dropeffect />'},
-    {code: '<link href="#" aria-flowto />'},
-    {code: '<link href="#" aria-grabbed />'},
-    {code: '<link href="#" aria-hidden />'},
-    {code: '<link href="#" aria-haspopup />'},
-    {code: '<link href="#" aria-label />'},
-    {code: '<link href="#" aria-labelledby />'},
-    {code: '<link href="#" aria-live />'},
-    {code: '<link href="#" aria-owns />'},
-    {code: '<link href="#" aria-relevant />'},
-
-    // this will have global
-    {code: '<link aria-checked />'},
 
     // this will have role of `img`
     {code: '<img alt="foobar" aria-busy />'},
@@ -344,20 +317,25 @@ ruleTester.run('role-supports-aria-props', rule, {
     {code: '<datalist aria-expanded />'},
     {code: '<div role="heading" aria-level />'},
     {code: '<div role="heading" aria-level="1" />'},
+    {code: '<link href="#" aria-expanded />'}, // link maps to nothing
   ],
 
   invalid: [
     // implicit basic checks
+    {
+      code: '<area aria-checked />',
+      errors: [getErrorMessage('aria-checked', 'generic')],
+    },
+    {
+      code: '<a aria-checked />',
+      errors: [getErrorMessage('aria-checked', 'generic')],
+    },
     {
       code: '<a href="#" aria-checked />',
       errors: [getErrorMessage('aria-checked', 'link')],
     },
     {
       code: '<area href="#" aria-checked />',
-      errors: [getErrorMessage('aria-checked', 'link')],
-    },
-    {
-      code: '<link href="#" aria-checked />',
       errors: [getErrorMessage('aria-checked', 'link')],
     },
     {
@@ -394,7 +372,7 @@ ruleTester.run('role-supports-aria-props', rule, {
     },
     {
       code: '<body aria-expanded />',
-      errors: [getErrorMessage('aria-expanded', 'document')],
+      errors: [getErrorMessage('aria-expanded', 'generic')],
     },
     {
       code: '<li aria-expanded />',
@@ -414,6 +392,10 @@ ruleTester.run('role-supports-aria-props', rule, {
     },
     {
       code: '<section aria-expanded />',
+      errors: [getErrorMessage('aria-expanded', 'generic')],
+    },
+    {
+      code: '<section aria-label="something" aria-expanded />',
       errors: [getErrorMessage('aria-expanded', 'region')],
     },
     {
@@ -479,10 +461,6 @@ ruleTester.run('role-supports-aria-props', rule, {
     {
       code: '<menu type="toolbar" aria-expanded />',
       errors: [getErrorMessage('aria-expanded', 'toolbar')],
-    },
-    {
-      code: '<link href="#" aria-invalid />',
-      errors: [getErrorMessage('aria-invalid', 'link')],
     },
     {
       code: '<area href="#" aria-invalid />',
