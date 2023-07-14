@@ -11,6 +11,10 @@ ruleTester.run('no-innerText', rule, {
     {
       code: 'document.querySelector("js-flash-text").textContent = "bar"',
     },
+    {
+      // This is unrelated to the `HTMLElement.innerText` property, and should not trigger a warning
+      code: 'var text = element.textContent()',
+    },
   ],
   invalid: [
     {
