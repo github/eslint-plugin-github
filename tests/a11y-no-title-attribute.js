@@ -30,6 +30,7 @@ ruleTester.run('a11y-no-title-attribute', rule, {
       },
     },
     {
+      // Note: we are only checking semantic elements. We cannot make assumptions about how a React Components is using the title prop.
       code: '<Link title="some title">Submit</Link>',
       settings: {
         github: {
@@ -39,7 +40,8 @@ ruleTester.run('a11y-no-title-attribute', rule, {
         },
       },
     },
-    {  // Note: we are only checking semantic elements. We cannot make assumptions about how a React Components is using the title prop.
+    {
+      // Note: we are only checking semantic elements. We cannot make assumptions about how a React Components is using the title prop.
       code: '<Link as="a" title="some title">Submit</Link>',
     },
   ],
