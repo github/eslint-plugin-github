@@ -46,6 +46,27 @@ describe('getRole', function () {
     expect(getRole({}, node)).to.equal('link')
   })
 
+  it('returns link role for <Foo> with polymorphic prop set to "a" and conditional href', function () {
+    const node = mockJSXOpeningElement('Foo', [
+      mockJSXAttribute('as', 'a'),
+      mockJSXConditionalAttribute('href', 'getUrl', '#', 'https://github.com/'),
+    ])
+    expect(getRole({}, node)).to.equal('link')
+  })
+
+  it('returns link role for <Foo> with polymorphic prop set to "a" and literal href', function () {
+    const node = mockJSXOpeningElement('Foo', [
+      mockJSXAttribute('as', 'a'),
+      mockJSXAttribute('href', 'https://github.com/'),
+    ])
+    expect(getRole({}, node)).to.equal('link')
+  })
+
+  it('returns generic role for <Foo> with polymorphic prop set to "a" and no href', function () {
+    const node = mockJSXOpeningElement('Foo', [mockJSXAttribute('as', 'a')])
+    expect(getRole({}, node)).to.equal('generic')
+  })
+
   it('returns region role for <section> with aria-label', function () {
     const node = mockJSXOpeningElement('section', [mockJSXAttribute('aria-label', 'something')])
     expect(getRole({}, node)).to.equal('region')
