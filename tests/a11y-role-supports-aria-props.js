@@ -35,11 +35,11 @@ ruleTester.run('a11y-role-supports-aria-props', rule, {
     {code: '<div role />'},
     {code: '<div role="presentation" {...props} />'},
     {code: '<Foo.Bar baz={true} />'},
+    {code: '<Foo as="a" href={url} aria-label={`Issue #${title}`} />'},
     {code: '<Link href="#" aria-checked />'},
     // Don't try to evaluate expression
     {code: '<Box aria-labelledby="some-id" role={role} />'},
-    {code: '<Box aria-labelledby="some-id"as={isNavigationOpen ? "div" : "nav"} />'},
-
+    {code: '<Box aria-labelledby="some-id" as={isNavigationOpen ? "div" : "nav"} />'},
     // IMPLICIT ROLE TESTS
     // A TESTS - implicit role is `link`
     {code: '<a href="#" aria-expanded />'},
