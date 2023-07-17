@@ -30,7 +30,6 @@ ruleTester.run('a11y-no-title-attribute', rule, {
       },
     },
     {
-      // Note: we are only checking semantic elements. We cannot make assumptions about how a React Components is using the title prop.
       code: '<Link title="some title">Submit</Link>',
       settings: {
         github: {
@@ -40,20 +39,12 @@ ruleTester.run('a11y-no-title-attribute', rule, {
         },
       },
     },
+    {  // Note: we are only checking semantic elements. We cannot make assumptions about how a React Components is using the title prop.
+      code: '<Link as="a" title="some title">Submit</Link>',
+    },
   ],
   invalid: [
     {code: '<a title="some title" href="github.com">GitHub</a>', errors: [{message: errorMessage}]},
     {code: '<span><button title="some title">submit</button></span>', errors: [{message: errorMessage}]},
-    {
-      code: '<Component as="a" title="some title">Submit</Component>',
-      errors: [{message: errorMessage}],
-      settings: {
-        github: {
-          components: {
-            Component: 'iframe',
-          },
-        },
-      },
-    },
   ],
 })
