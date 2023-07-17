@@ -36,6 +36,8 @@ ruleTester.run('a11y-role-supports-aria-props', rule, {
     {code: '<div role="presentation" {...props} />'},
     {code: '<Foo.Bar baz={true} />'},
     {code: '<Link href="#" aria-checked />'},
+    {code: '<Box aria-labelledby="some-id" role={role} />'},
+    {code: '<Box aria-labelledby="some-id"as={isNavigationOpen ? "div" : "nav"} />'},
 
     // IMPLICIT ROLE TESTS
     // A TESTS - implicit role is `link`
