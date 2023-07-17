@@ -1,5 +1,5 @@
 const {getElementType} = require('../../lib/utils/get-element-type')
-const {mockJSXAttribute, mockJSXOpeningElement} = require('./mocks')
+const {mockJSXAttribute, mockJSXConditionalAttribute, mockJSXOpeningElement} = require('./mocks')
 
 const mocha = require('mocha')
 const describe = mocha.describe
@@ -54,5 +54,13 @@ describe('getElementType', function () {
 
     const node = mockJSXOpeningElement('Link', [mockJSXAttribute('as', 'Button')])
     expect(getElementType(setting, node)).to.equal('button')
+  })
+
+  it('returns raw type when polymorphic prop is set to non-literal expression', function () {
+    // <Box as={isNavigationOpen ? 'generic' : 'navigation'} />
+    const node = mockJSXOpeningElement('Box', [
+      mockJSXConditionalAttribute('as', 'isNavigationOpen', 'generic', 'navigation'),
+    ])
+    expect(getElementType({}, node)).to.equal('Box')
   })
 })

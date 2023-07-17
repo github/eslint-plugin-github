@@ -36,6 +36,9 @@ ruleTester.run('a11y-role-supports-aria-props', rule, {
     {code: '<div role="presentation" {...props} />'},
     {code: '<Foo.Bar baz={true} />'},
     {code: '<Link href="#" aria-checked />'},
+    // Don't try to evaluate expression
+    {code: '<Box aria-labelledby="some-id" role={role} />'},
+    {code: '<Box aria-labelledby="some-id"as={isNavigationOpen ? "div" : "nav"} />'},
 
     // IMPLICIT ROLE TESTS
     // A TESTS - implicit role is `link`
@@ -479,12 +482,17 @@ ruleTester.run('a11y-role-supports-aria-props', rule, {
       errors: [getErrorMessage('aria-labelledby', 'generic')],
     },
     {
-      code: '<div aria-label />',
-      errors: [getErrorMessage('aria-label', 'generic')],
-    },
-    {
       code: '<div aria-labelledby />',
       errors: [getErrorMessage('aria-labelledby', 'generic')],
+    },
+    // Determines role from literal `as` prop.
+    {
+      code: '<Box as="span" aria-labelledby />',
+      errors: [getErrorMessage('aria-labelledby', 'generic')],
+    },
+    {
+      code: '<p role="generic" aria-label />',
+      errors: [getErrorMessage('aria-label', 'generic')],
     },
   ],
 })

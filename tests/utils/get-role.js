@@ -1,11 +1,31 @@
 const {getRole} = require('../../lib/utils/get-role')
-const {mockJSXAttribute, mockJSXOpeningElement} = require('./mocks')
+const {mockJSXAttribute, mockJSXConditionalAttribute, mockJSXOpeningElement} = require('./mocks')
 const mocha = require('mocha')
 const describe = mocha.describe
 const it = mocha.it
 const expect = require('chai').expect
 
 describe('getRole', function () {
+  it('returns undefined when polymorphic prop is set with a non-literal expression', function () {
+    // <Box as={isNavigationOpen ? 'div' : 'nav'} />
+    const node = mockJSXOpeningElement('Box', [mockJSXConditionalAttribute('as', 'isNavigationOpen', 'div', 'nav')])
+    expect(getRole({}, node)).to.equal(undefined)
+  })
+
+  it('returns undefined when role is set to non-literal expression', function () {
+    // <Box role={isNavigationOpen ? 'generic' : 'navigation'} />
+    const node = mockJSXOpeningElement('Box', [
+      mockJSXConditionalAttribute('role', 'isNavigationOpen', 'generic', 'navigation'),
+    ])
+    expect(getRole({}, node)).to.equal(undefined)
+  })
+
+  it('returns `role` when set to a literal expression', function () {
+    // <Box role="generic" />
+    const node = mockJSXOpeningElement('Box', [mockJSXAttribute('role', 'generic')])
+    expect(getRole({}, node)).to.equal('generic')
+  })
+
   it('returns generic role for <span> regardless of attribute', function () {
     const node = mockJSXOpeningElement('span', [mockJSXAttribute('aria-label', 'something')])
     expect(getRole({}, node)).to.equal('generic')
