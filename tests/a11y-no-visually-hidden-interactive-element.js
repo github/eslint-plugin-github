@@ -23,6 +23,9 @@ ruleTester.run('a11y-no-visually-hidden-interactive-element', rule, {
     {code: "<span className='sr-only'>Text</span>;"},
     {code: "<button className='other'>Submit</button>"},
     {code: "<input className='sr-only' />"},
+    {
+      code: "<Foo className={({isOn}) => { return isOn || isOnProps ? `${className} selected`.trim() : className ?? ''}}/>",
+    },
     {code: "<a className='other show-on-focus'>skip to main content</a>"},
     {code: '<button>Submit</button>'},
     {
