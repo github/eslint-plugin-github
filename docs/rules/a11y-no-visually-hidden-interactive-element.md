@@ -12,7 +12,7 @@ Note: we are not guarding against visually hidden `input` elements at this time.
 
 ### Why do we visually hide content?
 
-Visually hiding content can be useful when you want to provide information specifically to screen reader users or other assitive technology users while keeping content hidden from sighted users.
+Visually hiding content can be useful when you want to provide information specifically to screen reader users or other assistive technology users while keeping content hidden from sighted users.
 
 Applying the following css will visually hide content while still making it accessible to screen reader users.
 
@@ -61,7 +61,6 @@ width: 1px;
 
 - className - A css className that visually hides content. Defaults to `sr-only`.
 - componentName - A react component name that visually hides content. Defaults to `VisuallyHidden`.
-- htmlPropName - A prop name used to replace the semantic element that is rendered. Defaults to `as`.
 
 ```json
 {
@@ -69,8 +68,7 @@ width: 1px;
     "error",
     {
       "className": "visually-hidden",
-      "componentName": "VisuallyHidden",
-      "htmlPropName": "as"
+      "componentName": "VisuallyHidden"
     }
   ]
 }
