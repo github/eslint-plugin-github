@@ -29,6 +29,18 @@ function getErrorMessage(attribute, role) {
 
 ruleTester.run('a11y-role-supports-aria-props', rule, {
   valid: [
+    {
+      code: `
+      <div
+        id={id}
+        role={
+          sectionHasHeader && rowIndex.row === 0 ? 'presentation' : 'option'
+        }
+        aria-label={this.props.ariaLabel}
+      >
+        {children}
+      </div>`,
+    },
     {code: '<Foo bar />'},
     {code: '<div />'},
     {code: '<div id="main" />'},
