@@ -13,8 +13,8 @@ describe('getRole', function () {
   })
 
   it('returns undefined when role is set to non-literal expression', function () {
-    // <Box role={isNavigationOpen ? 'generic' : 'navigation'} />
-    const node = mockJSXOpeningElement('Box', [
+    // <div role={isNavigationOpen ? 'generic' : 'navigation'} />
+    const node = mockJSXOpeningElement('div', [
       mockJSXConditionalAttribute('role', 'isNavigationOpen', 'generic', 'navigation'),
     ])
     expect(getRole({}, node)).to.equal(undefined)
