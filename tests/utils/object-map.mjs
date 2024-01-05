@@ -1,7 +1,7 @@
 // @ts-check
-const ObjectMap = require('../../lib/utils/object-map')
-const {describe, it} = require('mocha')
-const expect = require('chai').expect
+import {expect} from 'chai'
+import ObjectMap from '../../lib/utils/object-map'
+import {describe, it} from 'mocha'
 
 describe('ObjectMap', function () {
   it('constructs an ObjectMap', function () {
