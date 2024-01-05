@@ -1,9 +1,7 @@
-const {getRole} = require('../../lib/utils/get-role')
-const {mockJSXAttribute, mockJSXConditionalAttribute, mockJSXOpeningElement} = require('./mocks')
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
-const expect = require('chai').expect
+import {expect} from 'chai'
+import {getRole} from '../../lib/utils/get-role'
+import {mockJSXAttribute, mockJSXConditionalAttribute, mockJSXOpeningElement} from './mocks'
+import {describe, it} from 'mocha'
 
 describe('getRole', function () {
   it('returns undefined when polymorphic prop is set with a non-literal expression', function () {
