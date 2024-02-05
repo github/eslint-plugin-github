@@ -35,7 +35,7 @@ function getProcessedData(url) {
 async function countProcessedData(url) {
   const data = await downloadData(url);
   return data.length
-```
+}
 
 ```js
 async function getProcessedData(url) {
