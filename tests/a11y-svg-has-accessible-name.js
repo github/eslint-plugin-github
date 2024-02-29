@@ -20,6 +20,12 @@ ruleTester.run('a11y-svg-has-accessible-name', rule, {
       code: "<svg height='100' width='100'><title>Circle with a black outline and red fill</title><circle cx='50' cy='50' r='40' stroke='black' stroke-width='3' fill='red'/></svg>",
     },
     {
+      code: `<svg height='100' width='100'>
+              <title>Circle with a black outline and red fill</title>
+              <circle cx='50' cy='50' r='40' stroke='black' stroke-width='3' fill='red'/>
+            </svg>`,
+    },
+    {
       code: "<svg aria-label='Circle with a black outline and red fill' height='100' width='100'><circle cx='50' cy='50' r='40' stroke='black' stroke-width='3' fill='red'/></svg>",
     },
     {
