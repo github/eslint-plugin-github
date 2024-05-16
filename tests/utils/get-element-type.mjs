@@ -64,14 +64,15 @@ describe('getElementType', function () {
     expect(getElementType({}, node)).to.equal('Box')
   })
 
-  it('returns raw type when polymorphic prop is set to component, and not the mapped value', function () {
-    // <Box as={Link} />
+  it('returns raw type when polymorphic prop is set to component even when there is a mapped value', function () {
+    // <Box as={isNavigationOpen ? 'generic' : 'navigation'} />
     const setting = mockSetting({
       Box: 'div',
     })
 
-    // eslint-disable-next-line no-undef
-    const node = mockJSXOpeningElement('Box', [mockJSXAttribute('as', Link)])
+    const node = mockJSXOpeningElement('Box', [
+      mockJSXConditionalAttribute('as', 'isNavigationOpen', 'generic', 'navigation'),
+    ])
     expect(getElementType(setting, node)).to.equal('Box')
   })
 })
