@@ -63,4 +63,15 @@ describe('getElementType', function () {
     ])
     expect(getElementType({}, node)).to.equal('Box')
   })
+
+  it('returns raw type when polymorphic prop is set to component, and not the mapped value', function () {
+    // <Box as={Link} />
+    const setting = mockSetting({
+      Box: 'div',
+    })
+
+    // eslint-disable-next-line no-undef
+    const node = mockJSXOpeningElement('Box', [mockJSXAttribute('as', Link)])
+    expect(getElementType(setting, node)).to.equal('Box')
+  })
 })
