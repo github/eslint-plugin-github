@@ -1,7 +1,6 @@
 import {expect} from 'chai'
 import {getElementType} from '../../lib/utils/get-element-type.js'
 import {mockJSXAttribute, mockJSXConditionalAttribute, mockJSXOpeningElement} from './mocks.js'
-
 import {describe, it} from 'mocha'
 
 function mockSetting(componentSetting = {}) {
@@ -62,12 +61,11 @@ describe('getElementType', function () {
     expect(getElementType({}, node)).to.equal('Box')
   })
 
-  it('returns raw type when polymorphic prop is set to component even when there is a mapped value', function () {
+  it('returns raw type when polymorphic prop is set to non-literal expression even with component setting', function () {
     // <Box as={isNavigationOpen ? 'generic' : 'navigation'} />
     const setting = mockSetting({
       Box: 'div',
     })
-
     const node = mockJSXOpeningElement('Box', [
       mockJSXConditionalAttribute('as', 'isNavigationOpen', 'generic', 'navigation'),
     ])
