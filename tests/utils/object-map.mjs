@@ -1,6 +1,6 @@
 // @ts-check
 import {expect} from 'chai'
-import ObjectMap from '../../lib/utils/object-map'
+import ObjectMap from '../../lib/utils/object-map.js'
 import {describe, it} from 'mocha'
 
 describe('ObjectMap', function () {

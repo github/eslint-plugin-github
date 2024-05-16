@@ -1,10 +1,8 @@
 import {expect} from 'chai'
-import {getElementType} from '../../lib/utils/get-element-type'
-import {mockJSXAttribute, mockJSXConditionalAttribute, mockJSXOpeningElement} from './mocks'
+import {getElementType} from '../../lib/utils/get-element-type.js'
+import {mockJSXAttribute, mockJSXConditionalAttribute, mockJSXOpeningElement} from './mocks.js'
 
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
+import {describe, it} from 'mocha'
 
 function mockSetting(componentSetting = {}) {
   return {
