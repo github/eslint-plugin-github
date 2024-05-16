@@ -62,7 +62,6 @@ describe('getElementType', function () {
   })
 
   it('returns raw type when polymorphic prop is set to non-literal expression even with component setting', function () {
-    // <Box as={isNavigationOpen ? 'generic' : 'navigation'} />
     const setting = mockSetting({
       Box: 'div',
     })
