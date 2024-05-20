@@ -1,6 +1,6 @@
 import {expect} from 'chai'
-import {getRole} from '../../lib/utils/get-role'
-import {mockJSXAttribute, mockJSXConditionalAttribute, mockJSXOpeningElement} from './mocks'
+import {getRole} from '../../lib/utils/get-role.js'
+import {mockJSXAttribute, mockJSXConditionalAttribute, mockJSXOpeningElement} from './mocks.js'
 import {describe, it} from 'mocha'
 
 describe('getRole', function () {
