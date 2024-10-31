@@ -3,7 +3,7 @@ module.exports = {
   configEmoji: [
     ['browser', '🔍'],
     ['internal', '🔐'],
-    ['react', '⚛️']
+    ['react', '⚛️'],
   ],
   ruleDocSectionInclude: ['Rule Details', 'Version'],
-};
+}
