@@ -2,13 +2,16 @@ name: ESLint Compatibility Tests
 
 on: [push, pull_request]
 
+permissions:
+  contents: read
+
 jobs:
   eslint-test:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        eslint-version: [8, 9] # Test with ESLint v8 and v9
+        eslint-version: [8.0.1, 8, 9] # Test with ESLint v8 and v9
 
     steps:
       - name: Checkout repository

@@ -15,7 +15,10 @@
     "lint:eslint-docs": "npm run update:eslint-docs -- --check",
     "lint:js": "eslint .",
     "pretest": "mkdir -p node_modules/ && ln -fs $(pwd) node_modules/",
-    "test": "npm run eslint-check && npm run lint && mocha tests/**/*.js tests/**/*.mjs",
+    "test": "npm run eslint-check && npm run lint && eslint -v && mocha tests/**/*.js tests/**/*.mjs",
+    "test:8.0.1": "npm install --no-save eslint@8.0.1 && npm run test",
+    "test:8": "npm install --no-save eslint@8 && npm run test",
+    "test:9": "npm install --no-save eslint@9 && npm run test",
     "update:eslint-docs": "eslint-doc-generator"
   },
   "repository": {
