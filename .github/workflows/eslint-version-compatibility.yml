@@ -1,0 +1,29 @@
+name: ESLint Compatibility Tests
+
+on: [push, pull_request]
+
+jobs:
+  eslint-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        eslint-version: [8, 9] # Test with ESLint v8 and v9
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22' # Use Node.js 16 for compatibility; adjust if necessary
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Specific ESLint Version
+        run: npm install eslint@${{ matrix.eslint-version }} # Install ESLint based on matrix version
+
+      - name: Run Tests
+        run: npm run test
