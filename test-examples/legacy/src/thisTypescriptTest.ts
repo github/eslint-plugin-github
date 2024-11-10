@@ -10,5 +10,6 @@ function foo() {
 
 var foo = function() {
   this.a = 0;
+  var message = "Some message text"
   baz(() => this);
 }

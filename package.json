@@ -31,7 +31,6 @@
   },
   "homepage": "https://github.com/github/eslint-plugin-github#readme",
   "dependencies": {
-    "@eslint/compat": "^1.2.2",
     "@eslint/eslintrc": "^3.1.0",
     "@github/browserslist-config": "^1.0.0",
     "@typescript-eslint/eslint-plugin": "^8.13.0",
