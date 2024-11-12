@@ -3,12 +3,13 @@ module.exports = {
   env: { es2022: true },
   extends: [
     'eslint:recommended',
+    'plugin:github/browser',
     'plugin:github/recommended',
     'plugin:github/react',
     'plugin:github/typescript',
   ],
   settings: {},
-  ignorePatterns: ['.eslintrc.cjs', '**/exports-unused.ts'],
+  ignorePatterns: ['.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
@@ -17,7 +18,7 @@ module.exports = {
   plugins: ['github'],
   rules: {
     'no-unused-vars': 'off',
-    'github/no-blur': 'warn',
+    'github/no-blur': 'error',
     'github/no-innerText': 'warn',
   },
 };
