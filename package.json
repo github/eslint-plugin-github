@@ -63,7 +63,6 @@
     "@github/prettier-config": "0.0.6",
     "chai": "^5.0.0",
     "eslint": "^9.14.0",
-    "eslint-config-prettier": "^9.1.0",
     "eslint-doc-generator": "^1.4.3",
     "eslint-plugin-eslint-plugin": "^6.1.0",
     "eslint-plugin-prettier": "^5.2.1",
