@@ -33,9 +33,8 @@
   "dependencies": {
     "@eslint/compat": "^1.2.2",
     "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.14.0",
     "@github/browserslist-config": "^1.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.13.0",
-    "@typescript-eslint/parser": "^8.0.0",
     "aria-query": "^5.3.0",
     "eslint-plugin-escompat": "^3.11.3",
     "eslint-plugin-eslint-comments": "^3.2.0",
@@ -44,11 +43,13 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-no-only-tests": "^3.0.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "eslint-rule-documentation": ">=1.0.0",
     "globals": "^15.12.0",
     "jsx-ast-utils": "^3.3.2",
     "prettier": "^3.0.0",
-    "svg-element-attributes": "^1.3.1"
+    "svg-element-attributes": "^1.3.1",
+    "typescript-eslint": "^8.14.0"
   },
   "prettier": "@github/prettier-config",
   "browserslist": "extends @github/browserslist-config",
@@ -63,10 +64,8 @@
     "@github/prettier-config": "0.0.6",
     "chai": "^5.0.0",
     "eslint": "^9.14.0",
-    "eslint-config-prettier": "^9.1.0",
     "eslint-doc-generator": "^1.4.3",
     "eslint-plugin-eslint-plugin": "^6.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
     "mocha": "^10.0.0",
     "npm-run-all": "^4.1.5"
   }

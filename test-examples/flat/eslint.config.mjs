@@ -3,8 +3,8 @@ import github from 'eslint-plugin-github'
 export default [
   github.flatConfigs().browser,
   github.flatConfigs().recommended,
-  github.flatConfigs().typescript,
   github.flatConfigs().react,
+  ...github.flatConfigs().typescript,
   {
     files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
     ignores: ['eslint.config.mjs'],
