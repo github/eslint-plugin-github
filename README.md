@@ -30,7 +30,7 @@ JSON ESLint config example:
 }
 ```
 
-### Flat Configurations (`eslint-config.js`)
+### Flat Configuration (`eslint-config.js`)
 
 Import the `eslint-plugin-github`, and extend any of the configurations using `getFlatConfigs()` as needed like so:
 
