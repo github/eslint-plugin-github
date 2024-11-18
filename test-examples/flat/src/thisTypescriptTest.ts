@@ -1,15 +1,16 @@
-(function() {
-  this.a = 0;
-  baz(() => this);
-})()
+class Safe {
+  contents: string;
 
-function foo() {
-  this.a = 0;
-  baz(() => this)
+  constructor(contents: string) {
+    this.contents = contents;
+  }
+
+  printContents() {
+    console.log(this.contents);
+  }
 }
 
 var foo = function() {
   this.a = 0;
-  var message = "Some message text"
   baz(() => this);
-}
+};
