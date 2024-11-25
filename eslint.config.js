@@ -23,7 +23,7 @@ module.exports = [
     plugins: {
       eslintPlugin,
       importPlugin,
-      filenames,
+      filenamesPlugin: fixupPluginRules(filenames),
       'i18n-text': fixupPluginRules(i18nTextPlugin),
     },
     rules: {
