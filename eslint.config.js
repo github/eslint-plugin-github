@@ -1,7 +1,6 @@
 const globals = require('globals')
 const eslintPlugin = require('eslint-plugin-eslint-plugin')
 const importPlugin = require('eslint-plugin-import')
-const filenames = require('eslint-plugin-filenames')
 const i18nTextPlugin = require('eslint-plugin-i18n-text')
 const recommendedGitHub = require('./lib/configs/flat/recommended')
 const {fixupPluginRules} = require('@eslint/compat')
@@ -23,13 +22,12 @@ module.exports = [
     plugins: {
       eslintPlugin,
       importPlugin,
-      filenamesPlugin: fixupPluginRules(filenames),
       'i18n-text': fixupPluginRules(i18nTextPlugin),
     },
     rules: {
       'importPlugin/extensions': 'off',
       'importPlugin/no-commonjs': 'off',
-      'filenamesPlugin/match-regex': 'off',
+      'github/filenames-match-regex': 'off',
       'i18n-text/no-en': 'off',
       'eslint-plugin/prefer-placeholders': 'off',
       'eslint-plugin/test-case-shorthand-strings': 'off',
