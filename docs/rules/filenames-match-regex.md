@@ -6,7 +6,7 @@
 
 ## Rule Details
 
-TRule to ensure that filenames match a convention, with a default of camelCase.
+Rule to ensure that filenames match a convention, with a default of camelCase.
 
 👎 Examples of **incorrect** filename for this default rule:
 
