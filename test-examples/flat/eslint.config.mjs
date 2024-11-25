@@ -1,8 +1,8 @@
 import github from 'eslint-plugin-github'
 
 export default [
-  github.getFlatConfigs().browser,
   github.getFlatConfigs().recommended,
+  github.getFlatConfigs().browser,
   github.getFlatConfigs().react,
   ...github.getFlatConfigs().typescript,
   {
@@ -10,9 +10,9 @@ export default [
     ignores: ['eslint.config.mjs'],
     rules: {
       'github/array-foreach': 'error',
-      'github/async-preventdefault': 'warn',
       'github/no-then': 'error',
       'github/no-blur': 'error',
+      'github/async-preventdefault': 'error',
     },
   },
 ]
