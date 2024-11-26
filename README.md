@@ -57,6 +57,7 @@ export default [
 
 > [!NOTE]
 > If you configured the `filenames/match-regex` rule, please note we have adapted the match regex rule into `eslint-plugin-github` as the original `eslint-filenames-plugin` is no longer maintained and needed an ESLint v9 update. Please update the name to `github/filenames-match-regex` and keep the same configuration. For e.g.:
+>
 > `'github/filenames-match-regex': ['error', '^[a-z0-9-]+(.[a-z0-9-]+)?$']`
 
 The available configs are:
