@@ -6,7 +6,7 @@
 
 ## Rule Details
 
-Rule to ensure that filenames match a convention, with a default of camelCase.
+Rule to ensure that filenames match a convention, with a default of camelCase for ESLint v9+.
 
 👎 Examples of **incorrect** filename for this default rule:
 
