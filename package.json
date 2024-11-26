@@ -35,6 +35,8 @@
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.14.0",
     "@github/browserslist-config": "^1.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
     "aria-query": "^5.3.0",
     "eslint-config-prettier": ">=8.0.0",
     "eslint-plugin-escompat": "^3.11.3",
