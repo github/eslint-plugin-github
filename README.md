@@ -55,6 +55,11 @@ export default [
 ]
 ```
 
+> [!NOTE]
+> If you configured the `filenames/match-regex` rule, please note we have adapted the match regex rule into `eslint-plugin-github` as the original `eslint-filenames-plugin` is no longer maintained and needed an ESLint v9 update. Please update the name to `github/filenames-match-regex` and keep the same configuration. For e.g.:
+>
+> `'github/filenames-match-regex': ['error', '^[a-z0-9-]+(.[a-z0-9-]+)?$']`
+
 The available configs are:
 
 - `internal`
@@ -120,7 +125,7 @@ This config will be interpreted in the following way:
 | [async-currenttarget](docs/rules/async-currenttarget.md)                                                 | disallow `event.currentTarget` calls inside of async functions                                                           | 🔍 |    |    |
 | [async-preventdefault](docs/rules/async-preventdefault.md)                                               | disallow `event.preventDefault` calls inside of async functions                                                          | 🔍 |    |    |
 | [authenticity-token](docs/rules/authenticity-token.md)                                                   | disallow usage of CSRF tokens in JavaScript                                                                              | 🔐 |    |    |
-| [filenames-match-regex](docs/rules/filenames-match-regex.md)                                             | ensure filenames match a regex naming convention                                                                         | ✅  |    |    |
+| [filenames-match-regex](docs/rules/filenames-match-regex.md)                                             | ensure filenames match a regex naming convention                                                                         |    |    |    |
 | [get-attribute](docs/rules/get-attribute.md)                                                             | disallow wrong usage of attribute names                                                                                  | 🔍 | 🔧 |    |
 | [js-class-name](docs/rules/js-class-name.md)                                                             | enforce a naming convention for js- prefixed classes                                                                     | 🔐 |    |    |
 | [no-blur](docs/rules/no-blur.md)                                                                         | disallow usage of `Element.prototype.blur()`                                                                             | 🔍 |    |    |

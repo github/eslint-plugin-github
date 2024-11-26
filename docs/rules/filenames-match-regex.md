@@ -1,12 +1,10 @@
 # Ensure filenames match a regex naming convention (`github/filenames-match-regex`)
 
-💼 This rule is enabled in the ✅ `recommended` config.
-
 <!-- end auto-generated rule header -->
 
 ## Rule Details
 
-Rule to ensure that filenames match a convention, with a default of camelCase.
+Rule to ensure that filenames match a convention, with a default of camelCase for ESLint v9+.
 
 👎 Examples of **incorrect** filename for this default rule:
 
