@@ -58,7 +58,7 @@ export default [
 > [!NOTE]
 > If you configured the `filenames/match-regex` rule, please note we have adapted the match regex rule into `eslint-plugin-github` as the original `eslint-filenames-plugin` is no longer maintained and needed a flat config support update. 
 > 
-> Please update the name to `github/filenames-match-regex`. Please note, the default rule is kebab case or camelCase with one hump. For custom configuration, such as matching for camelCase regex, here's an example:
+> Please update the name to `github/filenames-match-regex`, and note, the default rule is kebab case or camelCase with one hump. For custom configuration, such as matching for camelCase regex, here's an example:
 >
 > `'github/filenames-match-regex': ['error', '^([a-z0-9]+)([A-Z][a-z0-9]+)*$'],`
 
