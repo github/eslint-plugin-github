@@ -4,26 +4,38 @@
 
 ## Rule Details
 
-Rule to ensure that filenames match a convention, with a default of camelCase for ESLint v9+.
+Rule to ensure that filenames match a convention, with a default of kebab case or camelCase with one hump for flat config.
 
 👎 Examples of **incorrect** filename for this default rule:
 
-`file-name.js`
+- `fileNameRule.js`
 
 👍 Examples of **correct** code for this rule:
 
-`fileName.js`
+- `fileName.js`
+- `file-name.js`
 
 ## Options
 
-regex - Regex to match the filename structure. Defaults to camelCase.
+- regex - Regex to match the filename structure. Defaults to kebab case or camelCase with one hump.
 
+Default:
 
 ```json
 {
   "filenames-match-regex": [
     "error",
-    "^[a-z0-9-]+(.[a-z0-9-]+)?$"
+  ]
+}
+```
+
+If you want to add custom regex such as matching all camelCase, this would be the option:
+
+```json
+{
+  'filenames-match-regex': [
+    'error', 
+    '^([a-z0-9]+)([A-Z][a-z0-9]+)*$'
   ]
 }
 ```
