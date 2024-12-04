@@ -24,18 +24,18 @@ Default:
 ```json
 {
   "filenames-match-regex": [
-    "error",
+    "error"
   ]
 }
 ```
 
-If you want to add custom regex such as matching all camelCase, this would be the option:
+If you want to add custom regex such as matching all camelCase, add the regex as a string. For example, for camelCase it would look like:
 
 ```json
 {
-  'filenames-match-regex': [
-    'error', 
-    '^([a-z0-9]+)([A-Z][a-z0-9]+)*$'
+  "filenames-match-regex": [
+    "error",
+    "^([a-z0-9]+)([A-Z][a-z0-9]+)*$"
   ]
 }
 ```
