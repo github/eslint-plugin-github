@@ -17,7 +17,7 @@ Rule to ensure that filenames match a convention, with a default of kebab case o
 
 ## Options
 
-- regex - Regex to match the filename structure. Defaults to kebab case or camelCase with one hump.
+regex - Regex to match the filename structure. Defaults to kebab case or camelCase with one hump.
 
 Default:
 
