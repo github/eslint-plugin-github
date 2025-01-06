@@ -13,7 +13,9 @@ export default [
       'github/no-then': 'error',
       'github/no-blur': 'error',
       'github/async-preventdefault': 'error',
-      'github/filenames-match-regex': ['error', '^([a-z0-9]+)([A-Z][a-z0-9]+)*$'],
+      'github/async-currenttarget': 'error',
+      'github/no-useless-passive': 'error',
+      'github/filenames-match-regex': 'error',
     },
   },
 ]

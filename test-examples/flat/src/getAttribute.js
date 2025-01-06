@@ -12,3 +12,21 @@ document.addEventListener('click', async function (event) {
 
   event.preventDefault()
 })
+
+window.addEventListener(
+  'scroll',
+  () => {
+    console.log('Scroll event fired!')
+  },
+  {passive: true},
+)
+
+document.addEventListener('click', async function (event) {
+  // event.currentTarget will be an HTMLElement
+  const url = event.currentTarget.getAttribute('data-url')
+  const data = await fetch(url)
+
+  // But now, event.currentTarget will be null
+  const text = event.currentTarget.getAttribute('data-text')
+  // ...
+})
