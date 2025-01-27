@@ -21,12 +21,12 @@ module.exports = [
     },
     plugins: {
       eslintPlugin,
-      importPlugin,
+      import: importPlugin,
       'i18n-text': fixupPluginRules(i18nTextPlugin),
     },
     rules: {
-      'importPlugin/extensions': 'off',
-      'importPlugin/no-commonjs': 'off',
+      'import/extensions': 'off',
+      'import/no-commonjs': 'off',
       'github/filenames-match-regex': 'off',
       'i18n-text/no-en': 'off',
       'eslint-plugin/prefer-placeholders': 'off',
