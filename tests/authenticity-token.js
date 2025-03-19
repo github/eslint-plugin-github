@@ -1,5 +1,5 @@
-const rule = require('../lib/rules/authenticity-token')
-const RuleTester = require('eslint').RuleTester
+import rule from '../lib/rules/authenticity-token.js'
+import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester()
 

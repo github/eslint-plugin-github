@@ -1,5 +1,5 @@
 /** @type {import('eslint-doc-generator').GenerateOptions} */
-module.exports = {
+export default {
   configEmoji: [
     ['browser', '🔍'],
     ['internal', '🔐'],

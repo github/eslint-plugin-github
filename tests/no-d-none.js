@@ -1,5 +1,5 @@
-const rule = require('../lib/rules/no-d-none')
-const RuleTester = require('eslint').RuleTester
+import rule from '../lib/rules/no-d-none.js'
+import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester()
 

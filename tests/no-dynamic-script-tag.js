@@ -1,5 +1,5 @@
-const rule = require('../lib/rules/no-dynamic-script-tag')
-const RuleTester = require('eslint').RuleTester
+import rule from '../lib/rules/no-dynamic-script-tag.js'
+import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester()
 

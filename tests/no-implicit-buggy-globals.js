@@ -1,5 +1,5 @@
-const rule = require('../lib/rules/no-implicit-buggy-globals')
-const RuleTester = require('eslint').RuleTester
+import rule from '../lib/rules/no-implicit-buggy-globals.js'
+import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester()
 

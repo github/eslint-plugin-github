@@ -1,5 +1,5 @@
-const rule = require('../lib/rules/a11y-aria-label-is-well-formatted')
-const RuleTester = require('eslint').RuleTester
+import rule from '../lib/rules/a11y-aria-label-is-well-formatted.js'
+import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester({
   parserOptions: {

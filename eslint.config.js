@@ -1,13 +1,16 @@
-const globals = require('globals')
-const eslintPlugin = require('eslint-plugin-eslint-plugin')
-const importPlugin = require('eslint-plugin-import')
-const i18nTextPlugin = require('eslint-plugin-i18n-text')
-const recommendedGitHub = require('./lib/configs/flat/recommended')
-const {fixupPluginRules} = require('@eslint/compat')
+import globals from 'globals'
+import eslintPlugin from 'eslint-plugin-eslint-plugin'
+import importPlugin from 'eslint-plugin-import'
+import i18nTextPlugin from 'eslint-plugin-i18n-text'
+import recommendedGitHub from './lib/configs/flat/recommended.js'
+import {fixupPluginRules} from '@eslint/compat'
 
-module.exports = [
+export default [
   recommendedGitHub,
-  eslintPlugin.configs['flat/all'],
+  {
+    files: ['lib/rules/**/*.js'],
+    ...eslintPlugin.configs['flat/all'],
+  },
   {
     ignores: ['test-examples/**'],
   },

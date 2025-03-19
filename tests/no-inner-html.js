@@ -1,5 +1,5 @@
-const rule = require('../lib/rules/no-inner-html')
-const RuleTester = require('eslint').RuleTester
+import rule from '../lib/rules/no-inner-html.js'
+import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester()
 

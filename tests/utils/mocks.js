@@ -1,4 +1,4 @@
-function mockJSXAttribute(prop, propValue) {
+export function mockJSXAttribute(prop, propValue) {
   return {
     type: 'JSXAttribute',
     name: {
@@ -16,7 +16,7 @@ function mockJSXAttribute(prop, propValue) {
   e.g. <Box as={isNavigationOpen ? 'generic' : 'navigation'} /> can be by calling
   mockJSXConditionalAttribute('as', 'isNavigationOpen', 'generic', 'navigation')
 */
-function mockJSXConditionalAttribute(prop, expression, consequentValue, alternateValue) {
+export function mockJSXConditionalAttribute(prop, expression, consequentValue, alternateValue) {
   return {
     type: 'JSXAttribute',
     name: {
@@ -44,7 +44,7 @@ function mockJSXConditionalAttribute(prop, expression, consequentValue, alternat
   }
 }
 
-function mockJSXOpeningElement(tagName, attributes = []) {
+export function mockJSXOpeningElement(tagName, attributes = []) {
   return {
     type: 'JSXOpeningElement',
     name: {
@@ -54,5 +54,3 @@ function mockJSXOpeningElement(tagName, attributes = []) {
     attributes,
   }
 }
-
-module.exports = {mockJSXAttribute, mockJSXOpeningElement, mockJSXConditionalAttribute}
