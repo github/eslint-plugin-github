@@ -32,6 +32,7 @@ module.exports = [
       'eslint-plugin/prefer-placeholders': 'off',
       'eslint-plugin/test-case-shorthand-strings': 'off',
       'eslint-plugin/require-meta-docs-url': 'off',
+      'eslint-plugin/require-meta-default-options': 'off',
     },
   },
 ]
