@@ -1,4 +1,4 @@
-# Guards against developers using the title attribute (`github/a11y-no-title-attribute`)
+# Disallow using the title attribute (`github/a11y-no-title-attribute`)
 
 💼 This rule is enabled in the ⚛️ `react` config.
 

@@ -1,4 +1,4 @@
-# Ensure filenames match a regex naming convention (`github/filenames-match-regex`)
+# Require filenames to match a regex naming convention (`github/filenames-match-regex`)
 
 <!-- end auto-generated rule header -->
 
