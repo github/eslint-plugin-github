@@ -1,5 +1,5 @@
-const rule = require('../lib/rules/no-useless-passive')
-const RuleTester = require('eslint').RuleTester
+import rule from '../lib/rules/no-useless-passive.js'
+import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester()
 

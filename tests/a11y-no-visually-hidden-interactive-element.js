@@ -1,5 +1,5 @@
-const rule = require('../lib/rules/a11y-no-visually-hidden-interactive-element')
-const RuleTester = require('eslint').RuleTester
+import rule from '../lib/rules/a11y-no-visually-hidden-interactive-element.js'
+import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester({
   parserOptions: {

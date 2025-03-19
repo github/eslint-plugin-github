@@ -1,5 +1,5 @@
-const rule = require('../lib/rules/unescaped-html-literal')
-const RuleTester = require('eslint').RuleTester
+import rule from '../lib/rules/unescaped-html-literal.js'
+import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester()
 

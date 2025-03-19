@@ -1,5 +1,5 @@
-const rule = require('../lib/rules/async-currenttarget')
-const RuleTester = require('eslint').RuleTester
+import rule from '../lib/rules/async-currenttarget.js'
+import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester()
 

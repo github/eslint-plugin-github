@@ -1,5 +1,5 @@
-const rule = require('../lib/rules/get-attribute')
-const RuleTester = require('eslint').RuleTester
+import rule from '../lib/rules/get-attribute.js'
+import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester()
 

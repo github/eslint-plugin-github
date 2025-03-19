@@ -1,5 +1,5 @@
-const rule = require('../lib/rules/no-blur')
-const RuleTester = require('eslint').RuleTester
+import rule from '../lib/rules/no-blur.js'
+import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester()
 

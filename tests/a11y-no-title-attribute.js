@@ -1,5 +1,5 @@
-const rule = require('../lib/rules/a11y-no-title-attribute')
-const RuleTester = require('eslint').RuleTester
+import rule from '../lib/rules/a11y-no-title-attribute.js'
+import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester({
   parserOptions: {

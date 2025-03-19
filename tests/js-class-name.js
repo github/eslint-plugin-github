@@ -1,5 +1,5 @@
-const rule = require('../lib/rules/js-class-name')
-const RuleTester = require('eslint').RuleTester
+import rule from '../lib/rules/js-class-name.js'
+import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester()
 

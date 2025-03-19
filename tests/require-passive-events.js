@@ -1,5 +1,5 @@
-const rule = require('../lib/rules/require-passive-events')
-const RuleTester = require('eslint').RuleTester
+import rule from '../lib/rules/require-passive-events.js'
+import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester()
 

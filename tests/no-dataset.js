@@ -1,5 +1,5 @@
-const rule = require('../lib/rules/no-dataset')
-const RuleTester = require('eslint').RuleTester
+import rule from '../lib/rules/no-dataset.js'
+import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester()
 

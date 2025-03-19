@@ -1,5 +1,5 @@
-const rule = require('../lib/rules/no-then')
-const RuleTester = require('eslint').RuleTester
+import rule from '../lib/rules/no-then.js'
+import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester()
 

@@ -1,8 +1,8 @@
 /* globals describe, it*/
-const config = require('../lib/index')
-const fs = require('fs')
-const assert = require('assert')
-const path = require('path')
+import config from '../lib/index.js'
+import fs from 'node:fs'
+import assert from 'node:assert'
+import path from 'node:path'
 
 describe('smoke tests', () => {
   it('ensure all rules in lib/rules are included in index', () => {
