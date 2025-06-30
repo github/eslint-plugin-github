@@ -58,6 +58,16 @@ ruleTester.run('unescaped-html-literal', rule, {
       ],
     },
     {
+      code: "const helloHTML = ` \n\t<div>Hello ${name}!</div>`",
+      parserOptions: {ecmaVersion: 2017},
+      errors: [
+        {
+          message: 'Unescaped HTML literal. Use html`` tag template literal for secure escaping.',
+          type: 'TemplateLiteral',
+        },
+      ],
+    },
+    {
       code: 'const helloHTML = foo`<div>Hello ${name}!</div>`',
       parserOptions: {ecmaVersion: 2017},
       errors: [
