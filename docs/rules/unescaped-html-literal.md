@@ -8,7 +8,7 @@
 
 Constructing raw HTML with string literals is error prone and may lead to security issues.
 
-Instead use [`lit-html`](https://github.com/Polymer/lit-html)'s `html` tagged template literal to safely construct HTML literal strings. Alternatively, you can use document builder APIs like `document.createElement`.
+Instead use [`lit-html`](https://github.com/Polymer/lit-html)'s `html` tagged template literal to safely construct HTML literal strings. Alternatively, you can implement your own `html` tagged template literal function, or use document builder APIs like `document.createElement`.
 
 👎 Examples of **incorrect** code for this rule:
 
