@@ -58,7 +58,7 @@ ruleTester.run('unescaped-html-literal', rule, {
       ],
     },
     {
-      code: "const helloHTML = ` \n\t<div>Hello ${name}!</div>`",
+      code: 'const helloHTML = ` \n\t<div>Hello ${name}!</div>`',
       parserOptions: {ecmaVersion: 2017},
       errors: [
         {
