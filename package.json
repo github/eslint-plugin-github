@@ -67,7 +67,7 @@
   ],
   "devDependencies": {
     "@github/prettier-config": "0.0.6",
-    "chai": "^5.0.0",
+    "chai": "^6.0.1",
     "eslint": "^9.14.0",
     "eslint-doc-generator": "^2.2.2",
     "eslint-plugin-eslint-plugin": "^7.0.0",
