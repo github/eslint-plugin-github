@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/github/eslint-plugin-github#readme",
   "dependencies": {
-    "@eslint/compat": "^1.2.3",
+    "@eslint/compat": "^2.0.0",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.14.0",
     "@github/browserslist-config": "^1.0.0",
