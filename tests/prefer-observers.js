@@ -16,6 +16,10 @@ ruleTester.run('prefer-observers', rule, {
     {
       code: 'window.addEventListener("orientationchange", function(event) {})',
     },
+    // window.scroll is also valid - window events are for viewport-level detection
+    {
+      code: 'window.addEventListener("scroll", function(event) {})',
+    },
     // ResizeObserver on regular elements is valid
     {
       code: 'const observer = new ResizeObserver(() => {}); observer.observe(someElement)',
