@@ -8,6 +8,21 @@ ruleTester.run('prefer-observers', rule, {
     {
       code: 'document.addEventListener("touchstart", function(event) {})',
     },
+    // window.resize is valid for viewport detection
+    {
+      code: 'window.addEventListener("resize", function(event) {})',
+    },
+    // window.orientationchange is valid for viewport detection
+    {
+      code: 'window.addEventListener("orientationchange", function(event) {})',
+    },
+    // ResizeObserver on regular elements is valid
+    {
+      code: 'const observer = new ResizeObserver(() => {}); observer.observe(someElement)',
+    },
+    {
+      code: 'const observer = new ResizeObserver(() => {}); const el = document.querySelector(".item"); observer.observe(el)',
+    },
   ],
   invalid: [
     {
@@ -24,6 +39,71 @@ ruleTester.run('prefer-observers', rule, {
       errors: [
         {
           message: 'Avoid using "resize" event listener. Consider using ResizeObserver instead',
+          type: 'CallExpression',
+        },
+      ],
+    },
+    // element.resize should be flagged
+    {
+      code: 'element.addEventListener("resize", function(event) {})',
+      errors: [
+        {
+          message: 'Avoid using "resize" event listener. Consider using ResizeObserver instead',
+          type: 'CallExpression',
+        },
+      ],
+    },
+    // ResizeObserver on document.documentElement should be flagged
+    {
+      code: 'const observer = new ResizeObserver(() => {}); observer.observe(document.documentElement)',
+      errors: [
+        {
+          message:
+            'Avoid using ResizeObserver on document root elements. Consider using window.addEventListener("resize", ...) combined with window.addEventListener("orientationchange", ...) for viewport detection instead',
+          type: 'CallExpression',
+        },
+      ],
+    },
+    // ResizeObserver on document.body should be flagged
+    {
+      code: 'const observer = new ResizeObserver(() => {}); observer.observe(document.body)',
+      errors: [
+        {
+          message:
+            'Avoid using ResizeObserver on document root elements. Consider using window.addEventListener("resize", ...) combined with window.addEventListener("orientationchange", ...) for viewport detection instead',
+          type: 'CallExpression',
+        },
+      ],
+    },
+    // Inline ResizeObserver with document.documentElement should be flagged
+    {
+      code: 'new ResizeObserver(() => {}).observe(document.documentElement)',
+      errors: [
+        {
+          message:
+            'Avoid using ResizeObserver on document root elements. Consider using window.addEventListener("resize", ...) combined with window.addEventListener("orientationchange", ...) for viewport detection instead',
+          type: 'CallExpression',
+        },
+      ],
+    },
+    // Variable tracking: document.documentElement assigned to variable
+    {
+      code: 'const el = document.documentElement; observer.observe(el)',
+      errors: [
+        {
+          message:
+            'Avoid using ResizeObserver on document root elements. Consider using window.addEventListener("resize", ...) combined with window.addEventListener("orientationchange", ...) for viewport detection instead',
+          type: 'CallExpression',
+        },
+      ],
+    },
+    // Variable tracking: document.body assigned to variable
+    {
+      code: 'const root = document.body; observer.observe(root)',
+      errors: [
+        {
+          message:
+            'Avoid using ResizeObserver on document root elements. Consider using window.addEventListener("resize", ...) combined with window.addEventListener("orientationchange", ...) for viewport detection instead',
           type: 'CallExpression',
         },
       ],
