@@ -27,6 +27,14 @@ ruleTester.run('prefer-observers', rule, {
     {
       code: 'const observer = new ResizeObserver(() => {}); const el = document.querySelector(".item"); observer.observe(el)',
     },
+    // IntersectionObserver on document root is valid (not flagged by this rule)
+    {
+      code: 'const intersectionObserver = new IntersectionObserver(() => {}); intersectionObserver.observe(document.documentElement)',
+    },
+    // MutationObserver on document root is valid (not flagged by this rule)
+    {
+      code: 'const mutationObserver = new MutationObserver(() => {}); mutationObserver.observe(document.documentElement)',
+    },
   ],
   invalid: [
     {
