@@ -35,6 +35,14 @@ ruleTester.run('prefer-observers', rule, {
     {
       code: 'const mutationObserver = new MutationObserver(() => {}); mutationObserver.observe(document.documentElement)',
     },
+    // Generic "observer" name with IntersectionObserver should not be flagged
+    {
+      code: 'const observer = new IntersectionObserver(() => {}); observer.observe(document.documentElement)',
+    },
+    // Generic "observer" name with MutationObserver should not be flagged
+    {
+      code: 'const observer = new MutationObserver(() => {}); observer.observe(document.documentElement)',
+    },
   ],
   invalid: [
     {
