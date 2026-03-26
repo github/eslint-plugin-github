@@ -1,4 +1,6 @@
-# Disallow usage of `Element.prototype.blur()` (`github/no-blur`)
+# github/no-blur
+
+📝 Disallow usage of `Element.prototype.blur()`.
 
 💼 This rule is enabled in the 🔍 `browser` config.
 

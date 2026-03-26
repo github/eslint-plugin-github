@@ -1,4 +1,6 @@
-# Enforce usage of `Element.prototype.getAttribute` instead of `Element.prototype.datalist` (`github/no-dataset`)
+# github/no-dataset
+
+📝 Enforce usage of `Element.prototype.getAttribute` instead of `Element.prototype.datalist`.
 
 💼 This rule is enabled in the 🔍 `browser` config.
 

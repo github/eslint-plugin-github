@@ -1,4 +1,6 @@
-# Disallow usage the `d-none` CSS class (`github/no-d-none`)
+# github/no-d-none
+
+📝 Disallow usage the `d-none` CSS class.
 
 💼 This rule is enabled in the 🔐 `internal` config.
 

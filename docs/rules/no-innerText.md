@@ -1,4 +1,6 @@
-# Disallow `Element.prototype.innerText` in favor of `Element.prototype.textContent` (`github/no-innerText`)
+# github/no-innerText
+
+📝 Disallow `Element.prototype.innerText` in favor of `Element.prototype.textContent`.
 
 💼 This rule is enabled in the 🔍 `browser` config.
 

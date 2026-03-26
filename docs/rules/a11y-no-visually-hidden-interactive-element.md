@@ -1,4 +1,6 @@
-# Enforce that interactive elements are not visually hidden (`github/a11y-no-visually-hidden-interactive-element`)
+# github/a11y-no-visually-hidden-interactive-element
+
+📝 Enforce that interactive elements are not visually hidden.
 
 💼 This rule is enabled in the ⚛️ `react` config.
 

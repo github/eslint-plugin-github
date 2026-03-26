@@ -1,4 +1,6 @@
-# Disallow marking a event handler as passive when it has no effect (`github/no-useless-passive`)
+# github/no-useless-passive
+
+📝 Disallow marking a event handler as passive when it has no effect.
 
 💼 This rule is enabled in the 🔍 `browser` config.
 
