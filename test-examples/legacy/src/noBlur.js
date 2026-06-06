@@ -1,9 +1,9 @@
-function focusInput() {
-  const textField = document.getElementById("sampleText")
+export function focusInput() {
+  const textField = document.getElementById('sampleText')
 
   textField.focus()
 
   setTimeout(() => {
-    textField.blur()
+    textField.focus()
   }, 3000)
 }

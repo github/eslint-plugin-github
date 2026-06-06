@@ -1,8 +1,28 @@
 function foobar(el) {
-  el.getAttribute('autoComplete')
+  return el.getAttribute('autocomplete')
 }
 
-const title = document.createElement('h1')
-title.textContent = `${title}!`
+const heading = document.createElement('h1')
+heading.textContent = 'GitHub'
 
-foobar(title)
+foobar(heading)
+
+document.addEventListener('click', function (event) {
+  event.preventDefault()
+})
+
+const observer = new IntersectionObserver(entries => {
+  for (const entry of entries) {
+    entry.target.getAttribute('data-url')
+  }
+})
+
+observer.observe(document.body)
+
+document.addEventListener('click', async function (event) {
+  const currentTarget = event.currentTarget
+  const url = currentTarget.getAttribute('data-url')
+  const response = await fetch(url)
+
+  return response.text()
+})

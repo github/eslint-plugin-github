@@ -1,5 +1,7 @@
 # Require filenames to match a regex naming convention (`github/filenames-match-regex`)
 
+💼 This rule is enabled in the ✅ `recommended` config.
+
 <!-- end auto-generated rule header -->
 
 ## Rule Details

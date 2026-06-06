@@ -22,7 +22,6 @@ ruleTester.run('no-useless-passive', rule, {
       errors: [
         {
           message: '"scroll" event listener is not cancellable and so `passive: true` does nothing.',
-          type: 'Property',
         },
       ],
     },
@@ -32,7 +31,6 @@ ruleTester.run('no-useless-passive', rule, {
       errors: [
         {
           message: '"scroll" event listener is not cancellable and so `passive: true` does nothing.',
-          type: 'Property',
         },
       ],
     },

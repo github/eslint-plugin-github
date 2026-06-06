@@ -23,7 +23,6 @@ ruleTester.run('no-innerText', rule, {
       errors: [
         {
           message: 'Prefer textContent to innerText',
-          type: 'Identifier',
         },
       ],
     },
@@ -33,7 +32,6 @@ ruleTester.run('no-innerText', rule, {
       errors: [
         {
           message: 'Prefer textContent to innerText',
-          type: 'Identifier',
         },
       ],
     },

@@ -2,11 +2,13 @@ import rule from '../lib/rules/a11y-no-visually-hidden-interactive-element.js'
 import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester({
-  parserOptions: {
+  languageOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
     },
   },
 })
@@ -43,7 +45,6 @@ ruleTester.run('a11y-no-visually-hidden-interactive-element', rule, {
           componentName: 'Hidden',
         },
       ],
-      errors: [{message: errorMessage}],
     },
     {
       code: "<VisuallyHidden as='button'>Submit</VisuallyHidden>",

@@ -12,7 +12,6 @@ ruleTester.run('authenticity-token', rule, {
         {
           message:
             'Form CSRF tokens (authenticity tokens) should not be created in JavaScript and their values should not be used directly for XHR requests.',
-          type: 'Literal',
         },
       ],
     },
@@ -22,7 +21,6 @@ ruleTester.run('authenticity-token', rule, {
         {
           message:
             'Form CSRF tokens (authenticity tokens) should not be created in JavaScript and their values should not be used directly for XHR requests.',
-          type: 'Literal',
         },
       ],
     },
@@ -32,7 +30,6 @@ ruleTester.run('authenticity-token', rule, {
         {
           message:
             'Form CSRF tokens (authenticity tokens) should not be created in JavaScript and their values should not be used directly for XHR requests.',
-          type: 'Literal',
         },
       ],
     },

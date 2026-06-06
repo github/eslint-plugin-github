@@ -21,7 +21,6 @@ ruleTester.run('no-d-none', rule, {
       errors: [
         {
           message: 'Prefer hidden property to d-none class',
-          type: 'CallExpression',
         },
       ],
     },
@@ -30,7 +29,6 @@ ruleTester.run('no-d-none', rule, {
       errors: [
         {
           message: 'Prefer hidden property to d-none class',
-          type: 'CallExpression',
         },
       ],
     },

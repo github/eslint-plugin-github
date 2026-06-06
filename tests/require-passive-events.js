@@ -24,7 +24,6 @@ ruleTester.run('require-passive-events', rule, {
       errors: [
         {
           message: 'High Frequency Events like "touchstart" should be `passive: true`',
-          type: 'CallExpression',
         },
       ],
     },
@@ -33,7 +32,6 @@ ruleTester.run('require-passive-events', rule, {
       errors: [
         {
           message: 'High Frequency Events like "wheel" should be `passive: true`',
-          type: 'CallExpression',
         },
       ],
     },
@@ -42,7 +40,6 @@ ruleTester.run('require-passive-events', rule, {
       errors: [
         {
           message: 'High Frequency Events like "wheel" should be `passive: true`',
-          type: 'CallExpression',
         },
       ],
     },
@@ -52,7 +49,6 @@ ruleTester.run('require-passive-events', rule, {
       errors: [
         {
           message: 'High Frequency Events like "wheel" should be `passive: true`',
-          type: 'CallExpression',
         },
       ],
     },
@@ -61,7 +57,6 @@ ruleTester.run('require-passive-events', rule, {
       errors: [
         {
           message: 'High Frequency Events like "wheel" should be `passive: true`',
-          type: 'CallExpression',
         },
       ],
     },

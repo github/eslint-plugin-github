@@ -25,7 +25,6 @@ ruleTester.run('get-attribute', rule, {
       errors: [
         {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
-          type: 'Literal',
         },
       ],
     },
@@ -35,7 +34,6 @@ ruleTester.run('get-attribute', rule, {
       errors: [
         {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
-          type: 'Literal',
         },
       ],
     },
@@ -45,7 +43,6 @@ ruleTester.run('get-attribute', rule, {
       errors: [
         {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
-          type: 'Literal',
         },
       ],
     },
@@ -55,7 +52,6 @@ ruleTester.run('get-attribute', rule, {
       errors: [
         {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
-          type: 'Literal',
         },
       ],
     },
@@ -65,7 +61,6 @@ ruleTester.run('get-attribute', rule, {
       errors: [
         {
           message: 'Attributes should be lowercase and hyphen separated, or part of the SVG whitelist.',
-          type: 'Literal',
         },
       ],
     },

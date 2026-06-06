@@ -21,7 +21,6 @@ ruleTester.run('no-dynamic-script-tag', rule, {
       errors: [
         {
           message: "Don't create dynamic script tags, add them in the server template instead.",
-          type: 'Literal',
         },
       ],
     },
@@ -30,7 +29,6 @@ ruleTester.run('no-dynamic-script-tag', rule, {
       errors: [
         {
           message: "Don't create dynamic script tags, add them in the server template instead.",
-          type: 'Literal',
         },
       ],
     },

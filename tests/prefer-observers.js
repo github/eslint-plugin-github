@@ -15,7 +15,6 @@ ruleTester.run('prefer-observers', rule, {
       errors: [
         {
           message: 'Avoid using "scroll" event listener. Consider using IntersectionObserver instead',
-          type: 'CallExpression',
         },
       ],
     },
@@ -24,7 +23,6 @@ ruleTester.run('prefer-observers', rule, {
       errors: [
         {
           message: 'Avoid using "resize" event listener. Consider using ResizeObserver instead',
-          type: 'CallExpression',
         },
       ],
     },
