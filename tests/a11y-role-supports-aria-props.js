@@ -15,9 +15,9 @@ import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester({
   languageOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
     parserOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
       ecmaFeatures: {
         jsx: true,
       },

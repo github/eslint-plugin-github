@@ -18,7 +18,6 @@ ruleTester.run('no-inner-html', rule, {
       errors: [
         {
           message: 'Using innerHTML poses a potential security risk and should not be used. Prefer using textContent.',
-          type: 'Identifier',
         },
       ],
     },
@@ -27,7 +26,6 @@ ruleTester.run('no-inner-html', rule, {
       errors: [
         {
           message: 'Using innerHTML poses a potential security risk and should not be used. Prefer using textContent.',
-          type: 'Identifier',
         },
       ],
     },
@@ -36,7 +34,6 @@ ruleTester.run('no-inner-html', rule, {
       errors: [
         {
           message: 'Using innerHTML poses a potential security risk and should not be used. Prefer using textContent.',
-          type: 'Identifier',
         },
       ],
     },

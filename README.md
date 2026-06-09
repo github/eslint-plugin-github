@@ -6,9 +6,13 @@
 npm install --save-dev eslint eslint-plugin-github
 ```
 
+`eslint-plugin-github` supports ESLint 9 and 10.
+
 ## Setup
 
 ### Legacy Configuration (`.eslintrc`)
+
+Legacy `.eslintrc` configuration is supported with ESLint 9. ESLint 10 removes `.eslintrc` support, so use flat config when upgrading to ESLint 10.
 
 Add `github` to your list of plugins in your ESLint config.
 
@@ -28,6 +32,12 @@ JSON ESLint config example:
 {
   "extends": ["plugin:github/recommended"]
 }
+```
+
+If you extend `plugin:github/react` from a legacy `.eslintrc` config, install the legacy JSX accessibility plugin alongside this package:
+
+```sh
+npm install --save-dev eslint-plugin-jsx-a11y
 ```
 
 ### Flat Configuration (`eslint-config.js`)
@@ -127,7 +137,7 @@ This config will be interpreted in the following way:
 | [async-currenttarget](docs/rules/async-currenttarget.md)                                                 | disallow `event.currentTarget` calls inside of async functions                                                           | 🔍 |    |    |
 | [async-preventdefault](docs/rules/async-preventdefault.md)                                               | disallow `event.preventDefault` calls inside of async functions                                                          | 🔍 |    |    |
 | [authenticity-token](docs/rules/authenticity-token.md)                                                   | disallow usage of CSRF tokens in JavaScript                                                                              | 🔐 |    |    |
-| [filenames-match-regex](docs/rules/filenames-match-regex.md)                                             | require filenames to match a regex naming convention                                                                     |    |    |    |
+| [filenames-match-regex](docs/rules/filenames-match-regex.md)                                             | require filenames to match a regex naming convention                                                                     | ✅  |    |    |
 | [get-attribute](docs/rules/get-attribute.md)                                                             | disallow wrong usage of attribute names                                                                                  | 🔍 | 🔧 |    |
 | [js-class-name](docs/rules/js-class-name.md)                                                             | enforce a naming convention for js- prefixed classes                                                                     | 🔐 |    |    |
 | [no-blur](docs/rules/no-blur.md)                                                                         | disallow usage of `Element.prototype.blur()`                                                                             | 🔍 |    |    |

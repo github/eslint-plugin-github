@@ -2,11 +2,13 @@ import rule from '../lib/rules/a11y-svg-has-accessible-name.js'
 import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester({
-  parserOptions: {
+  languageOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
     },
   },
 })

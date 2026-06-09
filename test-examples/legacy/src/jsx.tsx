@@ -1,6 +1,6 @@
-const Components = () => {
+export const Components = () => {
   return (
-    <a aria-label="learn more" src="https://www.github.com" title="A home for all developers">
+    <a aria-label="Learn more about GitHub" href="https://www.github.com">
       GitHub
     </a>
   )

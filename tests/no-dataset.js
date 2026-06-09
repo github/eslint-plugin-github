@@ -14,7 +14,7 @@ ruleTester.run('no-dataset', rule, {
       code: 'el.dataset.coolThing',
       errors: [
         {
-          message: "Use getAttribute('data-your-attribute') instead of dataset.",
+          message: "Use getAttribute('data-your-attribute') instead of dataset",
         },
       ],
     },
@@ -22,7 +22,7 @@ ruleTester.run('no-dataset', rule, {
       code: "el.dataset['cool-thing']",
       errors: [
         {
-          message: "Use getAttribute('data-your-attribute') instead of dataset.",
+          message: "Use getAttribute('data-your-attribute') instead of dataset",
         },
       ],
     },

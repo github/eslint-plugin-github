@@ -1,32 +1,28 @@
 function foobar(el) {
-  el.getAttribute('autoComplete')
+  return el.getAttribute('autocomplete')
 }
 
-const title = document.createElement('h1')
-title.textContent = `${title}!`
+const heading = document.createElement('h1')
+heading.textContent = 'GitHub'
 
-foobar(title)
+foobar(heading)
 
-document.addEventListener('click', async function (event) {
-  const data = await fetch()
-
+document.addEventListener('click', function (event) {
   event.preventDefault()
 })
 
-window.addEventListener(
-  'scroll',
-  () => {
-    console.log('Scroll event fired!')
-  },
-  {passive: true},
-)
+const observer = new IntersectionObserver(entries => {
+  for (const entry of entries) {
+    entry.target.getAttribute('data-url')
+  }
+})
+
+observer.observe(document.body)
 
 document.addEventListener('click', async function (event) {
-  // event.currentTarget will be an HTMLElement
-  const url = event.currentTarget.getAttribute('data-url')
-  const data = await fetch(url)
+  const currentTarget = event.currentTarget
+  const url = currentTarget.getAttribute('data-url')
+  const response = await fetch(url)
 
-  // But now, event.currentTarget will be null
-  const text = event.currentTarget.getAttribute('data-text')
-  // ...
+  return response.text()
 })

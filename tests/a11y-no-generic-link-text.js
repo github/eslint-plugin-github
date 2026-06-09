@@ -2,11 +2,13 @@ import rule from '../lib/rules/a11y-no-generic-link-text.js'
 import {RuleTester} from 'eslint'
 
 const ruleTester = new RuleTester({
-  parserOptions: {
+  languageOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
     },
   },
 })
