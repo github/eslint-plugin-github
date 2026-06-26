@@ -1,4 +1,6 @@
-# Disallow implicit global variables (`github/no-implicit-buggy-globals`)
+# github/no-implicit-buggy-globals
+
+📝 Disallow implicit global variables.
 
 💼 This rule is enabled in the ✅ `recommended` config.
 

@@ -1,4 +1,6 @@
-# Disallow wrong usage of attribute names (`github/get-attribute`)
+# github/get-attribute
+
+📝 Disallow wrong usage of attribute names.
 
 💼 This rule is enabled in the 🔍 `browser` config.
 
