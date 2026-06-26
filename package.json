@@ -59,7 +59,7 @@
   "prettier": "@github/prettier-config",
   "browserslist": "extends @github/browserslist-config",
   "peerDependencies": {
-    "eslint": "^8 || ^9"
+    "eslint": "^8 || ^9 || ^10"
   },
   "files": [
     "bin/*",
