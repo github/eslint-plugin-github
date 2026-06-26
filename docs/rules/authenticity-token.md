@@ -1,4 +1,6 @@
-# Disallow usage of CSRF tokens in JavaScript (`github/authenticity-token`)
+# github/authenticity-token
+
+📝 Disallow usage of CSRF tokens in JavaScript.
 
 💼 This rule is enabled in the 🔐 `internal` config.
 

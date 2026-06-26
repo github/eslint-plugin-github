@@ -1,4 +1,6 @@
-# Enforce marking high frequency event handlers as passive (`github/require-passive-events`)
+# github/require-passive-events
+
+📝 Enforce marking high frequency event handlers as passive.
 
 💼 This rule is enabled in the 🔍 `browser` config.
 

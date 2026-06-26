@@ -1,4 +1,6 @@
-# Enforce a naming convention for js- prefixed classes (`github/js-class-name`)
+# github/js-class-name
+
+📝 Enforce a naming convention for js- prefixed classes.
 
 💼 This rule is enabled in the 🔐 `internal` config.
 
