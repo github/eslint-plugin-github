@@ -61,6 +61,12 @@
   "peerDependencies": {
     "eslint": "^8 || ^9 || ^10"
   },
+  "overrides": {
+    "mocha": {
+      "diff": "^8.0.3",
+      "serialize-javascript": "^7.0.5"
+    }
+  },
   "files": [
     "bin/*",
     "lib/*"
